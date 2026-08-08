@@ -10,6 +10,7 @@
     "created_at",
     "metadata",
     "agent_id",
+    "status",
     "requirement"
   ],
   "properties": {
@@ -34,6 +35,16 @@
     },
     "agent_id": {
       "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "SUBMITTED",
+        "AUTHORIZED",
+        "REJECTED",
+        "CONVERTED"
+      ]
     },
     "requirement": {
       "type": "object",

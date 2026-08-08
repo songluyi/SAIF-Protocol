@@ -1,0 +1,158 @@
+{
+  "saif_version": "0.1.0",
+  "scenario": "DOCUMENT_PRINT",
+  "party": {
+    "id": "party_001",
+    "type": "organization",
+    "created_at": "2026-08-08T08:00:00Z",
+    "metadata": {},
+    "name": "Example Organization"
+  },
+  "provider": {
+    "id": "party_provider_001",
+    "type": "service_provider",
+    "created_at": "2026-08-08T08:00:30Z",
+    "metadata": {},
+    "name": "Example Document Provider"
+  },
+  "agent": {
+    "id": "agent_001",
+    "type": "software_agent",
+    "created_at": "2026-08-08T08:01:00Z",
+    "metadata": {},
+    "owner_id": "party_001",
+    "provider": "vendor_neutral"
+  },
+  "request": {
+    "id": "req_001",
+    "type": "document_print",
+    "created_at": "2026-08-08T08:02:00Z",
+    "metadata": {},
+    "agent_id": "agent_001",
+    "status": "CONVERTED",
+    "requirement": {
+      "document_ref": "document_001",
+      "copies": 2,
+      "paper_size": "A4"
+    }
+  },
+  "authorization": {
+    "id": "auth_001",
+    "type": "one_time",
+    "created_at": "2026-08-08T08:03:00Z",
+    "metadata": {},
+    "owner_id": "party_001",
+    "agent_id": "agent_001",
+    "scope": [
+      "document_print"
+    ],
+    "limit": 10,
+    "rules": {
+      "max_copies": 10
+    }
+  },
+  "order": {
+    "id": "order_001",
+    "type": "service_order",
+    "created_at": "2026-08-08T08:04:00Z",
+    "metadata": {},
+    "request_id": "req_001",
+    "authorization_id": "auth_001",
+    "status": "FULFILLED",
+    "details": {
+      "action": "DOCUMENT_PRINT",
+      "copies": 2
+    }
+  },
+  "execution": {
+    "id": "execution_001",
+    "type": "printing",
+    "created_at": "2026-08-08T08:05:00Z",
+    "metadata": {},
+    "order_id": "order_001",
+    "provider_id": "party_provider_001",
+    "status": "COMPLETED",
+    "result": {
+      "completed_copies": 2
+    }
+  },
+  "settlement": {
+    "id": "settlement_001",
+    "type": "accounting_record",
+    "created_at": "2026-08-08T08:06:00Z",
+    "metadata": {},
+    "execution_id": "execution_001",
+    "status": "SETTLED",
+    "details": {
+      "resource_units": 2,
+      "reference": "record_001"
+    }
+  },
+  "state_history": [
+    {
+      "object_id": "req_001",
+      "state": "DRAFT",
+      "timestamp": "2026-08-08T08:01:30Z"
+    },
+    {
+      "object_id": "req_001",
+      "state": "SUBMITTED",
+      "timestamp": "2026-08-08T08:02:00Z"
+    },
+    {
+      "object_id": "req_001",
+      "state": "AUTHORIZED",
+      "timestamp": "2026-08-08T08:03:00Z"
+    },
+    {
+      "object_id": "req_001",
+      "state": "CONVERTED",
+      "timestamp": "2026-08-08T08:04:00Z"
+    },
+    {
+      "object_id": "order_001",
+      "state": "CREATED",
+      "timestamp": "2026-08-08T08:04:00Z"
+    },
+    {
+      "object_id": "order_001",
+      "state": "CONFIRMED",
+      "timestamp": "2026-08-08T08:04:30Z"
+    },
+    {
+      "object_id": "execution_001",
+      "state": "PENDING",
+      "timestamp": "2026-08-08T08:05:00Z"
+    },
+    {
+      "object_id": "execution_001",
+      "state": "RUNNING",
+      "timestamp": "2026-08-08T08:05:10Z"
+    },
+    {
+      "object_id": "order_001",
+      "state": "PROCESSING",
+      "timestamp": "2026-08-08T08:05:10Z"
+    },
+    {
+      "object_id": "execution_001",
+      "state": "COMPLETED",
+      "timestamp": "2026-08-08T08:05:40Z"
+    },
+    {
+      "object_id": "order_001",
+      "state": "FULFILLED",
+      "timestamp": "2026-08-08T08:05:40Z"
+    },
+    {
+      "object_id": "settlement_001",
+      "state": "PENDING",
+      "timestamp": "2026-08-08T08:05:45Z"
+    },
+    {
+      "object_id": "settlement_001",
+      "state": "SETTLED",
+      "timestamp": "2026-08-08T08:06:00Z"
+    }
+  ]
+}

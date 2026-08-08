@@ -6,6 +6,7 @@
     "environment": "example"
   },
   "agent_id": "agent_002",
+  "status": "SUBMITTED",
   "requirement": {
     "document_ref": "document_demo_001",
     "copies": 2,

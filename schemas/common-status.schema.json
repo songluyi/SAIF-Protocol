@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/common-status.schema.json",
+  "title": "SAIF Common Status",
+  "description": "A provider-neutral status result for SAIF protocol operations. This value is not a core business object.",
+  "type": "object",
+  "required": [
+    "status",
+    "code",
+    "message",
+    "timestamp",
+    "metadata"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "PENDING",
+        "FAILURE"
+      ]
+    },
+    "code": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "status": "SUCCESS",
+      "code": "SAIF-0000",
+      "message": "Execution completed",
+      "timestamp": "2026-08-08T08:10:00Z",
+      "metadata": {}
+    }
+  ]
+}

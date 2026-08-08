@@ -121,6 +121,7 @@ Request:
   "created_at": "2026-08-08T08:02:00Z",
   "metadata": {},
   "agent_id": "agent_001",
+  "status": "SUBMITTED",
   "requirement": {
     "item": "water",
     "quantity": 1
@@ -190,7 +191,7 @@ An Order references both the original Request and the Authorization used to appr
   "metadata": {},
   "request_id": "req_001",
   "authorization_id": "auth_001",
-  "status": "created",
+  "status": "CREATED",
   "details": {
     "item": "water",
     "quantity": 1
@@ -225,7 +226,7 @@ Execution is provider-independent. A commerce provider, document provider, or ro
   "metadata": {},
   "order_id": "order_001",
   "provider_id": "party_provider_001",
-  "status": "in_progress",
+  "status": "RUNNING",
   "result": {}
 }
 ```
@@ -256,7 +257,7 @@ Settlement is a representation of outcome, not payment processing code. SAIF doe
   "created_at": "2026-08-08T08:06:00Z",
   "metadata": {},
   "execution_id": "execution_001",
-  "status": "completed",
+  "status": "SETTLED",
   "details": {
     "reference": "invoice_demo_001"
   }

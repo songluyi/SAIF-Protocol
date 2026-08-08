@@ -43,10 +43,10 @@
     "status": {
       "type": "string",
       "enum": [
-        "pending",
-        "in_progress",
-        "completed",
-        "failed"
+        "PENDING",
+        "RUNNING",
+        "COMPLETED",
+        "FAILED"
       ]
     },
     "result": {

@@ -78,8 +78,41 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 - [Business Object Model](docs/business-object-model.md)
 - [Request Lifecycle](docs/request-lifecycle.md)
 - [Provider Interface](docs/provider-interface.md)
+- [Protocol Versioning Strategy](docs/protocol-versioning.md)
+- [Protocol State Model](docs/state-machine.md)
+- [SAIF Protocol and MCP Boundary](docs/saif-mcp-boundary.md)
 - [JSON Schemas](schemas/)
 - [Examples](examples/)
+
+## Protocol Governance
+
+SAIF Protocol follows explicit versioning, lifecycle models and compatibility principles.
+
+Normative objects, state transitions, schemas, examples, and transport bindings must identify their applicable SAIF version. Changes are classified as Major, Minor, or Patch according to their compatibility impact. Provider extensions must preserve the semantics and reference chain of the public core model.
+
+Governance specifications:
+
+- [Versioning and compatibility](docs/protocol-versioning.md)
+- [Standard object state machines](docs/state-machine.md)
+- [Boundary between SAIF and MCP](docs/saif-mcp-boundary.md)
+
+## Standards Roadmap
+
+### v0.1
+
+Business Object Model
+
+### v0.2
+
+Lifecycle and Compatibility
+
+### v0.3
+
+Transport Bindings
+
+### v1.0
+
+Stable Protocol Specification
 
 ## Design Principles
 
@@ -88,6 +121,9 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 3. AI vendor neutral.
 4. Human/Organization authorization based.
 5. Future compatible with commerce, payment, and robotics.
+6. No commercial implementation.
+7. No payment logic.
+8. No authentication provider dependency.
 
 ## Repository Structure
 
@@ -102,4 +138,4 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 
 ## Status
 
-SAIF Business Object Model v0.1 is an early public specification. It is not production software, a payment service, a marketplace, or legal advice.
+SAIF Protocol v0.1 is an early public specification covering the Business Object Model, governance rules, lifecycle states, and protocol boundaries. It is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice.

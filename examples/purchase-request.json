@@ -6,6 +6,7 @@
     "environment": "example"
   },
   "agent_id": "agent_001",
+  "status": "SUBMITTED",
   "requirement": {
     "item": "mineral_water",
     "quantity": 1,

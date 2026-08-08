@@ -39,10 +39,9 @@
     "status": {
       "type": "string",
       "enum": [
-        "pending",
-        "completed",
-        "failed",
-        "reversed"
+        "PENDING",
+        "SETTLED",
+        "REFUNDED"
       ]
     },
     "details": {

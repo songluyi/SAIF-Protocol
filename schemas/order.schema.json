@@ -42,9 +42,11 @@
     "status": {
       "type": "string",
       "enum": [
-        "created",
-        "accepted",
-        "cancelled"
+        "CREATED",
+        "CONFIRMED",
+        "PROCESSING",
+        "FULFILLED",
+        "CANCELLED"
       ]
     },
     "details": {
