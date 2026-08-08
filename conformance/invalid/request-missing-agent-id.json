@@ -1,6 +1,8 @@
 {
   "vector_id": "request-invalid-001",
-  "saif_version": "0.2.0",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "OBJECT",
   "target": "schemas/request.schema.json",
   "expected": "INVALID",
   "description": "A Request without the required Agent reference must be rejected.",

@@ -1,0 +1,22 @@
+{
+  "vector_id": "authorization-cross-request-replay-005",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "docs/specs/authorization-decision-contract.md",
+  "expected": "INVALID",
+  "description": "An ALLOW decision cannot be replayed to convert a different Request.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0008",
+    "path": "/request_ref/id"
+  },
+  "instance": {
+    "decision_request_id": "req_conformance_045",
+    "conversion_request_id": "req_conformance_046",
+    "request_revision_matches": true,
+    "authorization_revision_matches": true,
+    "authorization_active": true,
+    "decision_fresh": true
+  }
+}

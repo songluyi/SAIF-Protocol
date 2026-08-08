@@ -1,0 +1,15 @@
+{
+  "vector_id": "status-layer-separation-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/status-model.md",
+  "expected": "VALID",
+  "description": "Protocol processing may succeed while the requested action is rejected.",
+  "instance": {
+    "protocol": { "status": "SUCCESS" },
+    "action_outcome": "REJECTED",
+    "lifecycle_state": "SUBMITTED",
+    "standard_error_id": "error_conformance_054"
+  }
+}

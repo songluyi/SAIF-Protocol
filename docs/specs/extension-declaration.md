@@ -22,7 +22,8 @@ The normative schema is [`schemas/extension-manifest.schema.json`](../../schemas
 
 ## Identifier and Namespace
 
-Extensions MUST use a collision-resistant identifier based on a reverse-domain namespace.
+Extensions MUST use the lowercase reverse-domain convention defined by the
+[Extension Proposal Process](../proposal-process.md).
 
 Example:
 
@@ -35,7 +36,11 @@ The manifest separates:
 - `namespace`: the authority, such as `org.example`; and
 - `extension_id`: the complete extension identifier.
 
-`extension_id` MUST begin with the declared namespace followed by `.`. Private or experimental extensions MUST NOT use the reserved `org.saif` namespace or allocate core `SAIF-` error codes.
+Both values contain at least two dot-separated labels. `extension_id` MUST begin
+with the declared namespace followed by `.` and an extension-local name. Private
+or experimental extensions MUST NOT use the reserved `org.saif` namespace or
+allocate core `SAIF-` error codes. Hyphen-only experimental identifiers are not
+valid v0.3 Extension IDs.
 
 ## Manifest Fields
 
@@ -112,6 +117,11 @@ A conforming Node:
 4. MUST reject incompatible required versions;
 5. MUST record the selected manifest and digest in operation audit context; and
 6. MUST NOT execute code merely because a manifest contains a schema URI.
+
+Namespace-prefix consistency and numeric compatibility-range ordering are
+semantic validations because JSON Schema cannot compare two independent string
+values. `compatibility.saif_min` MUST be numerically lower than
+`compatibility.saif_max_exclusive`.
 
 Remote schema retrieval is not required. A Node may rely on an approved local artifact cache. Retrieval policy remains an implementation and security-profile choice.
 

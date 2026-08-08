@@ -1,0 +1,16 @@
+{
+  "vector_id": "security-owner-scoped-access-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "VALID",
+  "description": "An authorized Agent may access an object owned by the same resolved Owner.",
+  "instance": {
+    "actor": { "type": "AGENT", "id": "agent_conformance_060", "owner_id": "party_conformance_060" },
+    "object": { "type": "request", "id": "req_conformance_060", "owner_id": "party_conformance_060" },
+    "authorization_active": true,
+    "scope_allows_read": true,
+    "access_result": "ALLOW"
+  }
+}

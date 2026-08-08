@@ -1,0 +1,22 @@
+{
+  "vector_id": "action-incomplete-atomic-outcome-005",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "An operation cannot return APPLIED when one required atomic postcondition is absent.",
+  "expected_error": {
+    "category": "PROTOCOL",
+    "code": "SAIF-PROTOCOL-0004",
+    "path": "/action_outcome"
+  },
+  "instance": {
+    "operation": "CompleteExecution",
+    "action_outcome": "APPLIED",
+    "execution_state": "COMPLETED",
+    "order_state": "PROCESSING",
+    "required_order_state": "FULFILLED",
+    "audit_events_durable": true
+  }
+}

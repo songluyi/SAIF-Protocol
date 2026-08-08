@@ -1,0 +1,21 @@
+{
+  "vector_id": "audit-owner-attribution-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUDIT",
+  "target": "docs/audit-event-model.md",
+  "expected": "VALID",
+  "description": "An OWNER API actor is recorded as its resolved PARTY identity.",
+  "instance": {
+    "api_actor_role": "OWNER",
+    "actor": { "type": "PARTY", "id": "party_conformance_072" },
+    "action": "REQUEST_SUBMITTED",
+    "object": { "type": "Request", "id": "req_conformance_072" },
+    "outcome": "SUCCESS",
+    "authorization_id": "auth_conformance_072",
+    "previous_state": "DRAFT",
+    "new_state": "SUBMITTED",
+    "correlation_id": "corr_conformance_072",
+    "details": { "action_outcome": "APPLIED" }
+  }
+}

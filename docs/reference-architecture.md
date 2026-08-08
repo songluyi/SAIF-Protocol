@@ -42,10 +42,17 @@ The Reference Node profile is defined by the following binding-neutral contracts
 - [Authorization Decision Contract](specs/authorization-decision-contract.md) defines a portable, revision-bound authorization outcome;
 - [Extension Declaration](specs/extension-declaration.md) defines machine-readable compatibility and unknown-extension behavior;
 - [Action Execution Semantics](specs/action-execution-semantics.md) defines revision, idempotency, atomicity, and asynchronous outcomes;
-- [API Operation Semantics](specs/api-operation-semantics.md) defines actors, operation envelopes, preconditions, results, and Standard Errors; and
-- [Security Profile](specs/security-profile.md) defines the minimum security properties of the profile.
+- [API Operation Semantics](specs/api-operation-semantics.md) defines actors, operation envelopes, preconditions, results, and Standard Errors;
+- [Security Profile](specs/security-profile.md) defines the minimum security properties of the profile; and
+- [Status Model](specs/status-model.md) separates protocol processing, Action
+  Outcome, and business-object lifecycle.
 
-The accompanying `schemas/authorization-decision.schema.json` and `schemas/extension-manifest.schema.json` are normative for their respective artifacts. These v0.3 contracts do not add required fields to the v0.2 business-object schemas; they govern how a Reference Node profile processes those objects.
+The accompanying Authorization Decision, Extension Manifest, Protocol Status,
+Action Outcome, and Conformance Vector schemas are normative for their respective
+artifacts. Every v0.3 schema uses the immutable identity convention in the
+[Protocol Versioning Strategy](protocol-versioning.md). These contracts do not
+add required fields to the v0.2 business-object schemas; they govern how a
+Reference Node profile processes those objects.
 
 ## SAIF Reference Node
 

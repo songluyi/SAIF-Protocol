@@ -1,0 +1,27 @@
+{
+  "vector_id": "authorization-decision-deny-002",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "schemas/authorization-decision.schema.json",
+  "expected": "VALID",
+  "description": "A DENY decision records a stable reason and has no expiry.",
+  "instance": {
+    "id": "decision_conformance_002",
+    "type": "authorization_decision",
+    "created_at": "2026-08-08T11:00:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "request_ref": { "id": "req_conformance_040", "revision": 1 },
+    "authorization_ref": { "id": "auth_conformance_040", "revision": 0 },
+    "agent_id": "agent_conformance_040",
+    "owner_id": "party_conformance_040",
+    "decision": "DENY",
+    "evaluated_scope": ["document_print"],
+    "reason_codes": ["SCOPE_NOT_ALLOWED"],
+    "evaluated_at": "2026-08-08T11:00:00Z",
+    "expires_at": null,
+    "correlation_id": "corr_conformance_040",
+    "policy_profile": "saif-reference-node/0.3"
+  }
+}

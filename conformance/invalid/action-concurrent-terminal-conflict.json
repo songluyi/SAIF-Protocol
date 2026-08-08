@@ -1,0 +1,24 @@
+{
+  "vector_id": "action-concurrent-terminal-conflict-004",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "Only one concurrent terminal transition may commit from the same Execution revision.",
+  "expected_error": {
+    "category": "STATE_TRANSITION",
+    "code": "SAIF-STATE-0002",
+    "path": "/expected_revision"
+  },
+  "instance": {
+    "execution_id": "execution_conformance_053",
+    "initial_state": "RUNNING",
+    "initial_revision": 1,
+    "winning_transition": "COMPLETED",
+    "losing_transition": "FAILED",
+    "winning_expected_revision": 1,
+    "losing_expected_revision": 1,
+    "current_revision_after_winner": 2
+  }
+}

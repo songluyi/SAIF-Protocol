@@ -1,6 +1,8 @@
 {
   "vector_id": "request-valid-001",
-  "saif_version": "0.2.0",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "OBJECT",
   "target": "schemas/request.schema.json",
   "expected": "VALID",
   "description": "A submitted document request with all required fields.",

@@ -1,6 +1,6 @@
 # SAIF Protocol
 
-## An open standard defining business object models and execution frameworks for AI agents interacting with the real economy.
+## An open standard defining business object models and execution frameworks for AI agents interacting with the real economy
 
 SAIF Protocol defines how AI agents express business requirements, receive authorization from humans or organizations, create business commitments, interact with execution providers, and record settlement outcomes through structured, interoperable objects.
 
@@ -86,6 +86,12 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 - [Standard Error Model](docs/error-model.md)
 - [Audit Event Model](docs/audit-event-model.md)
 - [Reference Architecture v0.3 Draft](docs/reference-architecture.md)
+- [Authorization Decision Contract](docs/specs/authorization-decision-contract.md)
+- [Extension Declaration](docs/specs/extension-declaration.md)
+- [Action Execution Semantics](docs/specs/action-execution-semantics.md)
+- [API Operation Semantics](docs/specs/api-operation-semantics.md)
+- [Status Model](docs/specs/status-model.md)
+- [Security Profile](docs/specs/security-profile.md)
 - [v0.3 Standards Roadmap](docs/v0.3-roadmap.md)
 - [JSON Schemas](schemas/)
 - [Conformance Vectors](conformance/)

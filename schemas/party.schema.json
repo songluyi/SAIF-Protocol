@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/party.schema.json",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/party.schema.json",
+  "x-saif-version": "0.3.0",
   "title": "SAIF Party",
   "description": "A real-world entity participating in a SAIF business lifecycle.",
   "type": "object",

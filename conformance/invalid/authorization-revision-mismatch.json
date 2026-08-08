@@ -1,0 +1,23 @@
+{
+  "vector_id": "authorization-revision-mismatch-003",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "docs/specs/authorization-decision-contract.md",
+  "expected": "INVALID",
+  "description": "An ALLOW decision bound to an old Authorization revision cannot be converted.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0002",
+    "path": "/authorization_ref/revision"
+  },
+  "instance": {
+    "decision": "ALLOW",
+    "request_ref": { "id": "req_conformance_043", "revision": 2 },
+    "authorization_ref": { "id": "auth_conformance_043", "revision": 1 },
+    "current_request_revision": 2,
+    "current_authorization_revision": 2,
+    "authorization_active": true,
+    "decision_fresh": true
+  }
+}

@@ -1,6 +1,8 @@
 {
   "vector_id": "extension-manifest-invalid-001",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
   "target": "schemas/extension-manifest.schema.json",
   "expected": "INVALID",
   "description": "A required extension must fail closed and cannot declare IGNORE behavior.",
@@ -16,7 +18,7 @@
     "metadata": {},
     "saif_version": "0.3.0",
     "extension_id": "org.example.execution-evidence",
-    "namespace": "org.example.execution-evidence",
+    "namespace": "org.example",
     "version": "1.0.0",
     "required": true,
     "applies_to": ["execution"],

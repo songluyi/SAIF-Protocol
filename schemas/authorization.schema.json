@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/authorization.schema.json",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/authorization.schema.json",
+  "x-saif-version": "0.3.0",
   "title": "SAIF Authorization",
   "description": "Permission granted by an owner for an Agent to act.",
   "type": "object",

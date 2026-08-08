@@ -1,12 +1,14 @@
 {
   "vector_id": "action-semantics-valid-002",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
   "target": "docs/specs/action-execution-semantics.md",
   "expected": "VALID",
   "description": "Request conversion exposes one complete atomic outcome with linked revisions and audit evidence.",
   "instance": {
     "operation": "ConvertRequest",
-    "operation_status": "APPLIED",
+    "action_outcome": "APPLIED",
     "request": {
       "id": "req_conformance_034",
       "previous_state": "AUTHORIZED",

@@ -1,4 +1,4 @@
-# SAIF Protocol Conformance Test Vector Specification v0.2
+# SAIF Protocol Conformance Test Vector Specification v0.3
 
 ## Purpose
 
@@ -37,10 +37,12 @@ Every vector contains:
 | --- | --- | --- |
 | `vector_id` | string | Stable identifier for the test vector. |
 | `saif_version` | string | SAIF version against which the vector is evaluated. |
+| `profile` | string | Conformance profile; v0.3 uses `saif-reference-node/0.3`. |
+| `area` | string | Normative test area. |
 | `target` | string | Schema or normative model under test. |
 | `expected` | string | `VALID` or `INVALID`. |
 | `description` | string | Human-readable purpose of the vector. |
-| `instance` | object | Protocol data to validate. |
+| `instance` | JSON value | Protocol data or semantic scenario to validate. |
 | `expected_error` | object | Required only when `expected` is `INVALID`. |
 
 Example envelope:
@@ -48,13 +50,56 @@ Example envelope:
 ```json
 {
   "vector_id": "request-valid-001",
-  "saif_version": "0.2.0",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "OBJECT",
   "target": "schemas/request.schema.json",
   "expected": "VALID",
   "description": "A submitted document request with all required fields.",
   "instance": {}
 }
 ```
+
+The normative envelope schema is
+[`schemas/conformance-vector.schema.json`](../schemas/conformance-vector.schema.json).
+
+## Vector Taxonomy
+
+The v0.3 areas are:
+
+- `OBJECT`
+- `AUTHORIZATION`
+- `LIFECYCLE`
+- `ACTION`
+- `EXTENSION`
+- `ERROR`
+- `AUDIT`
+- `SECURITY`
+
+Vector IDs use lowercase kebab-case followed by a three-digit sequence. The
+directory communicates expected validity; the `expected` field MUST agree with
+that directory.
+
+Every invalid vector MUST identify one primary failure. Supporting context MUST
+otherwise be conforming. When more than one rule could reject the instance, the
+applicable specification MUST define error precedence before the vector can be
+normative.
+
+## Standard Error Taxonomy
+
+`expected_error.category` MUST use exactly one Standard Error Model category:
+
+- `VALIDATION`
+- `VERSION`
+- `AUTHORIZATION`
+- `STATE_TRANSITION`
+- `PROVIDER`
+- `SETTLEMENT`
+- `EXTENSION`
+- `PROTOCOL`
+
+The shortened token `STATE` may appear inside a code such as
+`SAIF-STATE-0002`; it is not a valid category value.
 
 ## Valid Vector Rules
 
@@ -101,19 +146,37 @@ Validates the minimum attribution and correlation fields defined in the [Audit E
 
 Validates that extensions use an approved namespace, declare compatibility, and do not redefine core SAIF semantics.
 
+## v0.3 Reference Node Coverage
+
+The mandatory v0.3 vector profile covers:
+
+| Area | Required behavior |
+| --- | --- |
+| Authorization | Decision values, freshness, revocation, revision binding, identity binding, replay isolation, conversion preconditions. |
+| Action | revision success and conflict, unchanged and changed-input replay, concurrency, atomic multi-object outcomes, asynchronous completion, Provider authority, audit de-duplication. |
+| Extension | valid optional and required manifests, unknown behavior, namespace, version compatibility, digest integrity, duplicate conflicts. |
+| Security | Owner isolation, Provider attribution, downgrade rejection, extension integrity, idempotency conflict, safe error and audit output. |
+| Governance dependencies | object schemas, lifecycle transitions, Standard Errors, Audit Events, and cross-object references. |
+
+A required behavior MAY be demonstrated by a vector assigned to another area
+when the vector description and target identify the shared invariant. Coverage
+reports MUST count the vector in every satisfied requirement without executing it
+more than once.
+
 ## Conformance Claim
 
-An implementation claiming SAIF v0.2 conformance should publish a report containing:
+An implementation claiming SAIF v0.3 Reference Node conformance should publish a report containing:
 
 - implementation name and version;
 - supported SAIF version;
+- supported profile;
 - date of evaluation;
 - vector commit or release identifier;
 - number of passed, failed, and skipped vectors;
 - reason for every skipped vector; and
 - supported optional extensions.
 
-A claim must not state full conformance when any required vector fails. Partial profiles may be declared only when the profile and omitted areas are explicit.
+A claim must not state full conformance when any required vector fails. Partial profiles may be declared only when the profile and omitted areas are explicit. Legacy v0.2 claims remain governed by the v0.2 release artifact and vectors.
 
 ## Test Vector Governance
 

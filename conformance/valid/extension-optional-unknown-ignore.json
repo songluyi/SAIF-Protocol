@@ -1,0 +1,20 @@
+{
+  "vector_id": "extension-optional-unknown-ignore-003",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "VALID",
+  "description": "An unknown optional extension is ignored when the core operation remains complete.",
+  "instance": {
+    "extension_id": "org.example.presentation-label",
+    "version": "1.0.0",
+    "required": false,
+    "unknown_behavior": "IGNORE",
+    "supported": false,
+    "core_operation_valid_without_extension": true,
+    "authorization_semantics_changed": false,
+    "lifecycle_semantics_changed": false,
+    "state_mutation_count": 1
+  }
+}

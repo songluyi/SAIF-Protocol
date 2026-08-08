@@ -1,6 +1,8 @@
 {
   "vector_id": "extension-manifest-valid-001",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
   "target": "schemas/extension-manifest.schema.json",
   "expected": "VALID",
   "description": "An optional, namespaced extension may declare IGNORE behavior when unknown.",

@@ -145,6 +145,7 @@ Implementations MAY add namespaced reason codes. Private codes MUST NOT redefine
 | Authorization revoked or inactive | `AUTHORIZATION` | `SAIF-AUTHORIZATION-0004` |
 | Agent or Owner mismatch | `AUTHORIZATION` | `SAIF-AUTHORIZATION-0005` |
 | Decision not `ALLOW` during conversion | `AUTHORIZATION` | `SAIF-AUTHORIZATION-0006` |
+| Decision replayed against another Request | `AUTHORIZATION` | `SAIF-AUTHORIZATION-0008` |
 
 Errors MUST follow the [SAIF Standard Error Model](../error-model.md) and include the relevant decision, Request, or Authorization reference where safe.
 

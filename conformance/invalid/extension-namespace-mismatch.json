@@ -1,0 +1,21 @@
+{
+  "vector_id": "extension-namespace-mismatch-003",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "The Extension ID must begin with the complete declared namespace followed by a dot.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0003",
+    "path": "/extension_id"
+  },
+  "instance": {
+    "namespace": "org.example",
+    "extension_id": "com.example.document-priority",
+    "version": "1.0.0",
+    "required": false,
+    "unknown_behavior": "IGNORE"
+  }
+}

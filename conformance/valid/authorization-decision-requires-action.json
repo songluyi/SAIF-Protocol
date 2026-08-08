@@ -1,0 +1,27 @@
+{
+  "vector_id": "authorization-requires-action-003",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "schemas/authorization-decision.schema.json",
+  "expected": "VALID",
+  "description": "A REQUIRES_ACTION decision leaves the Request submitted and records the required action reason.",
+  "instance": {
+    "id": "decision_conformance_003",
+    "type": "authorization_decision",
+    "created_at": "2026-08-08T11:05:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "request_ref": { "id": "req_conformance_041", "revision": 1 },
+    "authorization_ref": { "id": "auth_conformance_041", "revision": 0 },
+    "agent_id": "agent_conformance_041",
+    "owner_id": "party_conformance_041",
+    "decision": "REQUIRES_ACTION",
+    "evaluated_scope": ["resource_request"],
+    "reason_codes": ["ADDITIONAL_ACTION_REQUIRED"],
+    "evaluated_at": "2026-08-08T11:05:00Z",
+    "expires_at": null,
+    "correlation_id": "corr_conformance_041",
+    "policy_profile": "saif-reference-node/0.3"
+  }
+}

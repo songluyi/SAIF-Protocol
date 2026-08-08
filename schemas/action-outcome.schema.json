@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/action-outcome.schema.json",
+  "x-saif-version": "0.3.0",
+  "title": "SAIF Action Outcome",
+  "description": "The observable result of one state-changing SAIF operation. It is not Protocol Status or an object lifecycle state.",
+  "type": "string",
+  "enum": [
+    "APPLIED",
+    "REPLAYED",
+    "PENDING",
+    "REJECTED",
+    "CONFLICT",
+    "FAILED"
+  ]
+}

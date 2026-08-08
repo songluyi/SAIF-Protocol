@@ -1,0 +1,25 @@
+{
+  "vector_id": "audit-missing-authorization-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUDIT",
+  "target": "docs/audit-event-model.md",
+  "expected": "INVALID",
+  "description": "A delegated Agent action must identify the Authorization used.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/authorization_id"
+  },
+  "instance": {
+    "actor": { "type": "AGENT", "id": "agent_conformance_073", "owner_id": "party_conformance_073" },
+    "action": "REQUEST_CONVERTED",
+    "object": { "type": "Request", "id": "req_conformance_073" },
+    "outcome": "SUCCESS",
+    "authorization_id_present": false,
+    "previous_state": "AUTHORIZED",
+    "new_state": "CONVERTED",
+    "correlation_id": "corr_conformance_073",
+    "details": { "action_outcome": "APPLIED" }
+  }
+}

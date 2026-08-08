@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/request.schema.json",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/request.schema.json",
+  "x-saif-version": "0.3.0",
   "title": "SAIF Request",
   "description": "A structured business requirement created by an Agent.",
   "type": "object",

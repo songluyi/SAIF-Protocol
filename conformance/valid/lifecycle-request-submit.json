@@ -1,0 +1,14 @@
+{
+  "vector_id": "lifecycle-request-submit-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "LIFECYCLE",
+  "target": "docs/state-machine.md",
+  "expected": "VALID",
+  "description": "A Request may transition from DRAFT to SUBMITTED.",
+  "instance": {
+    "object_type": "request",
+    "previous_state": "DRAFT",
+    "new_state": "SUBMITTED"
+  }
+}

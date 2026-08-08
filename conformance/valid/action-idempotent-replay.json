@@ -1,6 +1,8 @@
 {
   "vector_id": "action-semantics-valid-001",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
   "target": "docs/specs/action-execution-semantics.md",
   "expected": "VALID",
   "description": "An exact retry in the same idempotency scope returns the recorded outcome without a second mutation.",

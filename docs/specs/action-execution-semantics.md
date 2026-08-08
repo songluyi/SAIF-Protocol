@@ -21,6 +21,11 @@ The profile therefore standardizes:
 - Standard Errors; and
 - required Audit Events.
 
+Status terminology follows the [SAIF Status Model](status-model.md). Action
+Outcome has one normative enumeration in
+`schemas/action-outcome.schema.json`; lifecycle states and Protocol Status MUST
+NOT be used as Action Outcomes.
+
 ## Operation Context
 
 Every state-changing operation MUST carry or resolve:
@@ -83,9 +88,10 @@ The v0.3 Reference Node profile requires a minimum of 86,400 seconds. A Node MAY
 
 After expiry, callers must not assume replay protection. Security or domain profiles MAY require longer retention.
 
-## Operation Outcomes
+## Action Outcomes
 
-Every state-changing operation returns one of:
+Every state-changing operation returns one Action Outcome from
+`schemas/action-outcome.schema.json`:
 
 | Status | Meaning |
 | --- | --- |
@@ -96,7 +102,7 @@ Every state-changing operation returns one of:
 | `CONFLICT` | Revision or concurrent state conflicted with the operation. |
 | `FAILED` | A protocol or Provider failure prevented completion. |
 
-An outcome includes:
+An Action Outcome result includes:
 
 - operation ID and status;
 - selected SAIF version and profile;
@@ -108,7 +114,8 @@ An outcome includes:
 - Standard Error reference for non-success outcomes; and
 - extension versions selected for the operation.
 
-Transport success MUST NOT be interpreted as `APPLIED` or business success without this outcome.
+Transport or Protocol Status success MUST NOT be interpreted as `APPLIED` or
+business success without an explicit Action Outcome.
 
 ## Atomic Observable Outcomes
 

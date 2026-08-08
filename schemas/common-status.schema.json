@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/common-status.schema.json",
-  "title": "SAIF Common Status",
-  "description": "A provider-neutral status result for SAIF protocol operations. This value is not a core business object.",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/common-status.schema.json",
+  "x-saif-version": "0.3.0",
+  "title": "SAIF Protocol Status",
+  "description": "The protocol-processing status of a SAIF message or result. It is not a business-object lifecycle state or an Action Outcome.",
   "type": "object",
   "required": [
     "status",
@@ -39,7 +40,7 @@
     {
       "status": "SUCCESS",
       "code": "SAIF-0000",
-      "message": "Execution completed",
+      "message": "Protocol result produced",
       "timestamp": "2026-08-08T08:10:00Z",
       "metadata": {}
     }

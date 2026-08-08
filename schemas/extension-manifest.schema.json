@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/extension-manifest.schema.json",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/extension-manifest.schema.json",
+  "x-saif-version": "0.3.0",
   "title": "SAIF Extension Manifest",
   "description": "A machine-readable declaration of an optional or required SAIF extension.",
   "type": "object",
@@ -25,12 +26,10 @@
     "type": { "const": "extension_manifest" },
     "created_at": { "type": "string", "format": "date-time" },
     "metadata": { "type": "object" },
-    "saif_version": {
-      "type": "string",
-      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
-    },
+    "saif_version": { "const": "0.3.0" },
     "extension_id": {
       "type": "string",
+      "$comment": "Semantic validation also requires extension_id to begin with namespace followed by a dot.",
       "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9][a-z0-9-]*)+$"
     },
     "namespace": {
@@ -50,6 +49,7 @@
     },
     "compatibility": {
       "type": "object",
+      "$comment": "Semantic validation requires saif_min to be lower than saif_max_exclusive.",
       "required": ["saif_min", "saif_max_exclusive"],
       "properties": {
         "saif_min": {

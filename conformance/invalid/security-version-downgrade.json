@@ -1,0 +1,20 @@
+{
+  "vector_id": "security-version-downgrade-002",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "INVALID",
+  "description": "A peer cannot replace the mutually supported version with an unoffered lower version.",
+  "expected_error": {
+    "category": "VERSION",
+    "code": "SAIF-VERSION-0001",
+    "path": "/selected_version"
+  },
+  "instance": {
+    "client_versions": ["0.3.0"],
+    "node_versions": ["0.3.0"],
+    "selected_version": "0.2.0",
+    "selected_by_authenticated_parties": false
+  }
+}

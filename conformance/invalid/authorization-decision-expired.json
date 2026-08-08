@@ -1,0 +1,23 @@
+{
+  "vector_id": "authorization-decision-expired-002",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "docs/specs/authorization-decision-contract.md",
+  "expected": "INVALID",
+  "description": "An otherwise valid ALLOW decision cannot authorize conversion after expiry.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0003",
+    "path": "/authorization_decision/expires_at"
+  },
+  "instance": {
+    "decision": "ALLOW",
+    "evaluated_at": "2026-08-08T11:10:00Z",
+    "expires_at": "2026-08-08T11:15:00Z",
+    "conversion_at": "2026-08-08T11:15:01Z",
+    "request_revision_matches": true,
+    "authorization_revision_matches": true,
+    "authorization_active": true
+  }
+}

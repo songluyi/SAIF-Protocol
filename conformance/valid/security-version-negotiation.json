@@ -1,0 +1,18 @@
+{
+  "vector_id": "security-version-negotiation-002",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "VALID",
+  "description": "Explicit version and security-profile negotiation selects the mutually supported values.",
+  "instance": {
+    "client_versions": ["0.3.0"],
+    "node_versions": ["0.3.0"],
+    "client_security_profiles": ["saif-reference-node-security/0.3"],
+    "node_security_profiles": ["saif-reference-node-security/0.3"],
+    "selected_version": "0.3.0",
+    "selected_security_profile": "saif-reference-node-security/0.3",
+    "downgrade_detected": false
+  }
+}

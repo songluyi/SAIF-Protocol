@@ -1,6 +1,8 @@
 {
   "vector_id": "authorization-decision-valid-001",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
   "target": "schemas/authorization-decision.schema.json",
   "expected": "VALID",
   "description": "A fresh ALLOW decision binds the current Request and Authorization revisions.",

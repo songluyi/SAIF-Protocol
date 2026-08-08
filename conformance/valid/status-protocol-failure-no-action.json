@@ -1,0 +1,15 @@
+{
+  "vector_id": "status-protocol-failure-002",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ERROR",
+  "target": "docs/specs/status-model.md",
+  "expected": "VALID",
+  "description": "Protocol failure carries a Standard Error and does not claim an Action Outcome.",
+  "instance": {
+    "protocol": { "status": "FAILURE" },
+    "standard_error_id": "error_conformance_063",
+    "action_outcome_present": false,
+    "state_mutation_count": 0
+  }
+}

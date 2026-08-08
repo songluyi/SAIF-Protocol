@@ -1,0 +1,15 @@
+{
+  "vector_id": "status-layer-confusion-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "schemas/action-outcome.schema.json",
+  "expected": "INVALID",
+  "description": "A Request lifecycle state cannot be used as an Action Outcome.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0002",
+    "path": "/action_outcome"
+  },
+  "instance": "AUTHORIZED"
+}

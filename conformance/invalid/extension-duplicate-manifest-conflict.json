@@ -1,0 +1,28 @@
+{
+  "vector_id": "extension-duplicate-conflict-006",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "The same Extension ID and version cannot resolve to two schema digests.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0004",
+    "path": "/manifests/1/schema/digest/value"
+  },
+  "instance": {
+    "manifests": [
+      {
+        "extension_id": "org.example.resource-labels",
+        "version": "1.0.0",
+        "digest": "8888888888888888888888888888888888888888888888888888888888888888"
+      },
+      {
+        "extension_id": "org.example.resource-labels",
+        "version": "1.0.0",
+        "digest": "9999999999999999999999999999999999999999999999999999999999999999"
+      }
+    ]
+  }
+}

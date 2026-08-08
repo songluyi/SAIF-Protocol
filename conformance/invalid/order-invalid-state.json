@@ -1,6 +1,8 @@
 {
   "vector_id": "order-invalid-001",
-  "saif_version": "0.2.0",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "OBJECT",
   "target": "schemas/order.schema.json",
   "expected": "INVALID",
   "description": "An Order with a state outside the standard Order lifecycle must be rejected.",

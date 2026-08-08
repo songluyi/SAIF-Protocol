@@ -1,0 +1,23 @@
+{
+  "vector_id": "action-idempotency-conflict-003",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "Reusing one scoped idempotency key with different semantic input is rejected.",
+  "expected_error": {
+    "category": "PROTOCOL",
+    "code": "SAIF-PROTOCOL-0003",
+    "path": "/idempotency_key"
+  },
+  "instance": {
+    "actor_id": "agent_conformance_052",
+    "operation": "SubmitRequest",
+    "target_type": "request",
+    "target_id": "req_conformance_052",
+    "idempotency_key": "idem_conformance_052",
+    "first_input_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "replay_input_digest": "sha256:4444444444444444444444444444444444444444444444444444444444444444"
+  }
+}

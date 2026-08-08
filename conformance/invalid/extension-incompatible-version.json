@@ -1,0 +1,24 @@
+{
+  "vector_id": "extension-incompatible-version-004",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "A required extension whose range excludes the selected SAIF version is rejected.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0002",
+    "path": "/compatibility"
+  },
+  "instance": {
+    "selected_saif_version": "0.3.0",
+    "extension_id": "org.example.future-capability",
+    "required": true,
+    "compatibility": {
+      "saif_min": "0.4.0",
+      "saif_max_exclusive": "1.0.0"
+    },
+    "unknown_behavior": "REJECT"
+  }
+}

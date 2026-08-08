@@ -97,18 +97,29 @@ A later accepted proposal replaces the extension. The superseding SEP must be id
 
 Core SAIF names and `SAIF-` error code ranges are reserved for accepted standard specifications.
 
-Experimental or private extensions should use an unmistakable namespace such as:
+All standard, experimental, and private extensions MUST use a lowercase
+reverse-domain namespace controlled by the extension author.
+
+Example namespace and extension identifier:
 
 ```text
-x-organization-capability
+namespace: org.example
+extension_id: org.example.document-priority
 ```
 
-An experimental namespace:
+The namespace contains at least two dot-separated labels. The extension ID MUST
+begin with the complete namespace followed by `.` and an extension-local name.
+
+An extension namespace:
 
 - must not claim to be a core SAIF field or capability;
 - must not change the meaning of a core field;
 - must be safe for an implementation to ignore when declared optional; and
 - must document the organization responsible for it.
+
+The `org.saif` namespace is reserved for extensions accepted through this
+proposal process. Private or experimental extensions MUST NOT use it. Hyphen-only
+identifiers such as `x-organization-capability` are not valid v0.3 namespaces.
 
 ## Review Criteria
 

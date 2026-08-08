@@ -1,0 +1,23 @@
+{
+  "vector_id": "error-standard-shape-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ERROR",
+  "target": "docs/error-model.md",
+  "expected": "VALID",
+  "description": "A Standard Error uses a registered category and safe structured details.",
+  "instance": {
+    "id": "error_conformance_070",
+    "type": "STATE_TRANSITION_ERROR",
+    "created_at": "2026-08-08T13:10:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "code": "SAIF-STATE-0001",
+    "category": "STATE_TRANSITION",
+    "message": "The requested lifecycle transition is not allowed.",
+    "retryable": false,
+    "related_object": { "type": "Order", "id": "order_conformance_070" },
+    "details": { "previous_state": "FULFILLED", "requested_state": "PROCESSING" },
+    "correlation_id": "corr_conformance_070"
+  }
+}

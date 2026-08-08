@@ -105,6 +105,12 @@ Conformance evidence for this profile MUST include valid and invalid vectors for
 
 Conformance vectors demonstrate protocol outcomes; they do not require a public-network deployment or a reference runtime.
 
+Security-profile rejection uses the existing Standard Error taxonomy. Owner or
+tenant identity mismatches use `AUTHORIZATION` / `SAIF-AUTHORIZATION-0005`,
+unsupported or downgraded versions use `VERSION` / `SAIF-VERSION-0001`, and a
+portable error or Audit Event containing prohibited secrets uses `PROTOCOL` /
+`SAIF-PROTOCOL-0005`.
+
 ## Explicit Non-Goals
 
 This profile does not define an authentication provider, identity proofing method, payment-security standard, wallet, commerce system, regulatory regime, cryptographic product, or runtime implementation.

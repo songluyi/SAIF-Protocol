@@ -1,0 +1,21 @@
+{
+  "vector_id": "extension-digest-mismatch-005",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "A required extension is rejected when retrieved schema bytes do not match the manifest digest.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0004",
+    "path": "/schema/digest/value"
+  },
+  "instance": {
+    "extension_id": "org.example.execution-evidence",
+    "required": true,
+    "declared_digest": "6666666666666666666666666666666666666666666666666666666666666666",
+    "computed_digest": "7777777777777777777777777777777777777777777777777777777777777777",
+    "algorithm": "SHA-256"
+  }
+}

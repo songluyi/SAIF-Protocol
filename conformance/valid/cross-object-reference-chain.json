@@ -1,0 +1,20 @@
+{
+  "vector_id": "cross-object-reference-chain-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "LIFECYCLE",
+  "target": "docs/reference-architecture.md",
+  "expected": "VALID",
+  "description": "The Order, Execution, and Settlement preserve one traceable authorized reference chain.",
+  "instance": {
+    "request_id": "req_conformance_074",
+    "authorization_request_id": "req_conformance_074",
+    "order_request_id": "req_conformance_074",
+    "authorization_id": "auth_conformance_074",
+    "order_authorization_id": "auth_conformance_074",
+    "order_id": "order_conformance_074",
+    "execution_order_id": "order_conformance_074",
+    "execution_id": "execution_conformance_074",
+    "settlement_execution_id": "execution_conformance_074"
+  }
+}

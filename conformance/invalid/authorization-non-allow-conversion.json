@@ -1,0 +1,21 @@
+{
+  "vector_id": "authorization-non-allow-conversion-006",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "docs/specs/authorization-decision-contract.md",
+  "expected": "INVALID",
+  "description": "ConvertRequest cannot consume a DENY decision.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0006",
+    "path": "/decision"
+  },
+  "instance": {
+    "operation": "ConvertRequest",
+    "decision": "DENY",
+    "request_state": "REJECTED",
+    "decision_request_matches": true,
+    "authorization_active": true
+  }
+}

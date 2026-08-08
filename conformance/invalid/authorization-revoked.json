@@ -1,0 +1,21 @@
+{
+  "vector_id": "authorization-revoked-after-evaluation-004",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
+  "target": "docs/specs/authorization-decision-contract.md",
+  "expected": "INVALID",
+  "description": "A revoked Authorization invalidates an earlier ALLOW decision before conversion.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0004",
+    "path": "/authorization/status"
+  },
+  "instance": {
+    "decision": "ALLOW",
+    "request_revision_matches": true,
+    "authorization_revision_matches": true,
+    "decision_fresh": true,
+    "authorization_status": "REVOKED"
+  }
+}

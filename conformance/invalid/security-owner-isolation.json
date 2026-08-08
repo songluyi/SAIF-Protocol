@@ -1,0 +1,20 @@
+{
+  "vector_id": "security-owner-isolation-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "INVALID",
+  "description": "An Agent cannot access another Owner's object without explicit cross-owner Authorization.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0005",
+    "path": "/object/owner_id"
+  },
+  "instance": {
+    "actor": { "type": "AGENT", "id": "agent_conformance_061", "owner_id": "party_conformance_061" },
+    "object": { "type": "request", "id": "req_conformance_062", "owner_id": "party_conformance_062" },
+    "cross_owner_authorization": false,
+    "requested_action": "READ"
+  }
+}

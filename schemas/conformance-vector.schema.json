@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/conformance-vector.schema.json",
+  "x-saif-version": "0.3.0",
+  "title": "SAIF Conformance Vector Envelope",
+  "description": "The normalized envelope for a SAIF v0.3 valid or invalid conformance vector.",
+  "type": "object",
+  "required": [
+    "vector_id",
+    "saif_version",
+    "profile",
+    "area",
+    "target",
+    "expected",
+    "description",
+    "instance"
+  ],
+  "properties": {
+    "vector_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-[0-9]{3}$"
+    },
+    "saif_version": { "const": "0.3.0" },
+    "profile": { "const": "saif-reference-node/0.3" },
+    "area": {
+      "type": "string",
+      "enum": [
+        "OBJECT",
+        "AUTHORIZATION",
+        "LIFECYCLE",
+        "ACTION",
+        "EXTENSION",
+        "ERROR",
+        "AUDIT",
+        "SECURITY"
+      ]
+    },
+    "target": { "type": "string", "minLength": 1 },
+    "expected": { "type": "string", "enum": ["VALID", "INVALID"] },
+    "description": { "type": "string", "minLength": 1 },
+    "expected_error": {
+      "type": "object",
+      "required": ["category", "code", "path"],
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": [
+            "VALIDATION",
+            "VERSION",
+            "AUTHORIZATION",
+            "STATE_TRANSITION",
+            "PROVIDER",
+            "SETTLEMENT",
+            "EXTENSION",
+            "PROTOCOL"
+          ]
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^SAIF-[A-Z]+-[0-9]{4}$"
+        },
+        "path": { "type": "string", "pattern": "^/" }
+      },
+      "additionalProperties": false
+    },
+    "instance": {}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "expected": { "const": "INVALID" } },
+        "required": ["expected"]
+      },
+      "then": { "required": ["expected_error"] },
+      "else": { "not": { "required": ["expected_error"] } }
+    }
+  ],
+  "additionalProperties": false
+}

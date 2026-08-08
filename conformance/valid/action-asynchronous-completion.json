@@ -1,0 +1,19 @@
+{
+  "vector_id": "action-asynchronous-completion-004",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "VALID",
+  "description": "An asynchronous operation retains one identity from PENDING to its terminal APPLIED result.",
+  "instance": {
+    "operation_id": "operation_conformance_051",
+    "idempotency_key": "idem_conformance_051",
+    "initial_action_outcome": "PENDING",
+    "terminal_action_outcome": "APPLIED",
+    "initial_correlation_id": "corr_conformance_051",
+    "terminal_correlation_id": "corr_conformance_051",
+    "operation_identity_preserved": true,
+    "duplicate_effect_count": 0
+  }
+}

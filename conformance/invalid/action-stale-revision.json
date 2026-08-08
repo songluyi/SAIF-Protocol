@@ -1,11 +1,13 @@
 {
   "vector_id": "action-semantics-invalid-001",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
   "target": "docs/specs/action-execution-semantics.md",
   "expected": "INVALID",
   "description": "A mutation with a stale expected revision must not be applied.",
   "expected_error": {
-    "category": "STATE",
+    "category": "STATE_TRANSITION",
     "code": "SAIF-STATE-0002",
     "path": "/expected_revision"
   },

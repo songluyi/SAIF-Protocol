@@ -1,4 +1,4 @@
-# SAIF Standard Error Model v0.2
+# SAIF Standard Error Model v0.3
 
 ## Purpose
 
@@ -80,6 +80,39 @@ HTTP status codes, MCP tool errors, message acknowledgements, and language excep
 ## Extension Errors
 
 Private extensions must use namespaced codes and must not allocate values in the core `SAIF-` range. A proposal may request a standard code range through the [Extension Proposal Process](proposal-process.md).
+
+## v0.3 Core Error Code Registry
+
+The following codes are reserved by the v0.3 Reference Node profile:
+
+| Code | Category | Meaning |
+| --- | --- | --- |
+| `SAIF-VALIDATION-0001` | `VALIDATION` | Required field or semantic input missing. |
+| `SAIF-VALIDATION-0002` | `VALIDATION` | Value is outside a required enumeration or shape. |
+| `SAIF-VERSION-0001` | `VERSION` | Version is unsupported, incompatible, or downgraded. |
+| `SAIF-AUTHORIZATION-0001` | `AUTHORIZATION` | Authorization was not verified. |
+| `SAIF-AUTHORIZATION-0002` | `AUTHORIZATION` | Request or Authorization revision mismatch. |
+| `SAIF-AUTHORIZATION-0003` | `AUTHORIZATION` | Authorization Decision expired. |
+| `SAIF-AUTHORIZATION-0004` | `AUTHORIZATION` | Authorization is inactive or revoked. |
+| `SAIF-AUTHORIZATION-0005` | `AUTHORIZATION` | Agent, Owner, or actor identity mismatch. |
+| `SAIF-AUTHORIZATION-0006` | `AUTHORIZATION` | Conversion used a non-`ALLOW` decision. |
+| `SAIF-AUTHORIZATION-0007` | `AUTHORIZATION` | Provider result actor is not authorized. |
+| `SAIF-AUTHORIZATION-0008` | `AUTHORIZATION` | Decision replayed against another Request. |
+| `SAIF-STATE-0001` | `STATE_TRANSITION` | Lifecycle transition is not allowed. |
+| `SAIF-STATE-0002` | `STATE_TRANSITION` | Expected revision is stale or lost a concurrency race. |
+| `SAIF-PROVIDER-0001` | `PROVIDER` | Provider execution is unavailable. |
+| `SAIF-EXTENSION-0001` | `EXTENSION` | Required extension is unsupported. |
+| `SAIF-EXTENSION-0002` | `EXTENSION` | Extension version is incompatible. |
+| `SAIF-EXTENSION-0003` | `EXTENSION` | Extension namespace and identifier do not match. |
+| `SAIF-EXTENSION-0004` | `EXTENSION` | Manifest digest is invalid or conflicts. |
+| `SAIF-EXTENSION-0005` | `EXTENSION` | Required and unknown behavior are inconsistent. |
+| `SAIF-PROTOCOL-0003` | `PROTOCOL` | Idempotency key was reused with different input. |
+| `SAIF-PROTOCOL-0004` | `PROTOCOL` | Required atomic outcome could not complete. |
+| `SAIF-PROTOCOL-0005` | `PROTOCOL` | Portable error or audit data disclosed prohibited secrets. |
+| `SAIF-PROTOCOL-0006` | `PROTOCOL` | Cross-object reference integrity failed. |
+
+No other specification or extension may assign a different meaning to these
+codes. New core codes require governance review; private codes remain namespaced.
 
 ## Example
 

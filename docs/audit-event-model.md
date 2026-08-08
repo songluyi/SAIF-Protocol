@@ -18,7 +18,7 @@ An Audit Event is evidence about protocol activity. It is not itself an Authoriz
 | `actor` | object | yes | Party, Agent, Provider, or system that initiated the action. |
 | `action` | string | yes | Stable action name. |
 | `object` | object | yes | SAIF object affected by the action. |
-| `outcome` | string | yes | `SUCCESS`, `FAILURE`, or `PENDING`. |
+| `outcome` | string | yes | Protocol-status projection defined by the v0.3 Status Model. |
 | `authorization_id` | string or null | yes | Relevant Authorization, or `null` when not applicable. |
 | `previous_state` | string or null | yes | State before the action. |
 | `new_state` | string or null | yes | State after the action. |
@@ -34,6 +34,20 @@ The `actor` object contains:
 - `owner_id` — accountable owner when the actor is an Agent, otherwise optional.
 
 An AI model name or client product is not a substitute for Agent and Owner identity.
+
+The v0.3 API roles map to portable Audit Event actors as follows:
+
+| API role | Audit actor type | Required retained identity |
+| --- | --- | --- |
+| `OWNER` | `PARTY` | Resolved Party ID. |
+| `AGENT` | `AGENT` | Agent ID and accountable `owner_id`. |
+| `PROVIDER` | `PROVIDER` | Resolved Provider ID. |
+| `AUTHORIZATION_EVALUATOR` | `SYSTEM` | System ID and role in `details.actor_role`. |
+| `REFERENCE_NODE` | `SYSTEM` | Node identity and role in `details.actor_role`. |
+| `AUDITOR` | `SYSTEM` or `PARTY` | Resolved identity and role in `details.actor_role`. |
+
+Bindings MUST NOT record only an API role when a resolved Party, Agent, Provider,
+or system identity is available.
 
 ## Audit Event Types
 
@@ -82,6 +96,14 @@ References should be used instead of duplicating full business objects.
 ## Failure Events
 
 When `outcome` is `FAILURE`, `details` should include a standard error ID or code. The corresponding error follows the [SAIF Standard Error Model](error-model.md).
+
+## v0.3 Status Projection
+
+The v0.3 Reference Node profile uses the [SAIF Status Model](specs/status-model.md)
+to distinguish Protocol Status, Action Outcome, and business-object lifecycle.
+Audit Event `outcome` retains the Protocol Status vocabulary for backward
+compatibility. When an event represents a state-changing operation,
+`details.action_outcome` MUST preserve the exact Action Outcome.
 
 ## Example
 

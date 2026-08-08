@@ -1,6 +1,8 @@
 {
   "vector_id": "extension-semantics-invalid-002",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
   "target": "docs/specs/extension-declaration.md",
   "expected": "INVALID",
   "description": "An operation requiring an unsupported extension fails before authorization or state mutation.",

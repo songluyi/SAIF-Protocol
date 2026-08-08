@@ -1,0 +1,19 @@
+{
+  "vector_id": "lifecycle-terminal-order-reopen-001",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "LIFECYCLE",
+  "target": "docs/state-machine.md",
+  "expected": "INVALID",
+  "description": "A FULFILLED Order is terminal and cannot return to PROCESSING.",
+  "expected_error": {
+    "category": "STATE_TRANSITION",
+    "code": "SAIF-STATE-0001",
+    "path": "/new_state"
+  },
+  "instance": {
+    "object_type": "order",
+    "previous_state": "FULFILLED",
+    "new_state": "PROCESSING"
+  }
+}

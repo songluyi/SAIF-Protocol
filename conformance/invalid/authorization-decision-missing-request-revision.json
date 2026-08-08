@@ -1,6 +1,8 @@
 {
   "vector_id": "authorization-decision-invalid-001",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUTHORIZATION",
   "target": "schemas/authorization-decision.schema.json",
   "expected": "INVALID",
   "description": "A decision without the evaluated Request revision cannot be used safely.",

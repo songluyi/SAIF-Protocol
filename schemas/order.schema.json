@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/order.schema.json",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/order.schema.json",
+  "x-saif-version": "0.3.0",
   "title": "SAIF Order",
   "description": "A business commitment generated from an authorized Request.",
   "type": "object",

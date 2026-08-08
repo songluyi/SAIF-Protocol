@@ -1,0 +1,28 @@
+{
+  "vector_id": "action-execution-completion-003",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "VALID",
+  "description": "CompleteExecution atomically exposes the Execution and Order terminal states with correlated audit evidence.",
+  "instance": {
+    "operation": "CompleteExecution",
+    "action_outcome": "APPLIED",
+    "execution": {
+      "previous_state": "RUNNING",
+      "new_state": "COMPLETED",
+      "previous_revision": 1,
+      "new_revision": 2
+    },
+    "order": {
+      "previous_state": "PROCESSING",
+      "new_state": "FULFILLED",
+      "previous_revision": 2,
+      "new_revision": 3
+    },
+    "correlation_id": "corr_conformance_050",
+    "audit_event_count": 3,
+    "partial_outcome_visible": false
+  }
+}

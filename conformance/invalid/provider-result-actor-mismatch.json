@@ -1,6 +1,8 @@
 {
   "vector_id": "action-semantics-invalid-002",
   "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
   "target": "docs/specs/action-execution-semantics.md",
   "expected": "INVALID",
   "description": "A Provider result submitted by an actor not mapped to the selected Provider must be rejected.",

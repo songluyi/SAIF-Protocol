@@ -75,6 +75,35 @@ Example:
 
 An implementation may declare more than one supported version through implementation-specific configuration or capability discovery. The transport used to exchange that declaration is outside the core SAIF Protocol.
 
+## Immutable Schema Identity
+
+Every normative schema release MUST declare an immutable, versioned `$id` using:
+
+```text
+https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v{MAJOR}.{MINOR}.{PATCH}/schemas/{schema-file}
+```
+
+For v0.3.0:
+
+```text
+https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/request.schema.json
+```
+
+The release tag referenced by a normative schema `$id` MUST NOT be moved or
+reused. Corrected schemas receive a new protocol Patch version and a new `$id`.
+Default-branch and unversioned repository URLs MUST NOT be used as normative
+schema identities.
+
+Every schema also declares `x-saif-version` with the exact release version. This
+annotation identifies the schema artifact; it does not add a field to business
+objects. Where an object includes `saif_version`, that value MUST match the
+selected schema release. For objects without that field, the operation or binding
+envelope selects the schema release.
+
+Pre-release schema files may declare the intended release-tag URL before the tag
+exists. The URL becomes resolvable and immutable when the reviewed release tag is
+created.
+
 ## Compatibility Principles
 
 1. Producers must emit objects that conform to the declared SAIF version.
@@ -83,6 +112,8 @@ An implementation may declare more than one supported version through implementa
 4. Optional metadata must not redefine normative fields.
 5. Provider-specific extensions must remain isolated from the portable core model.
 6. Transport bindings must state which SAIF versions they carry.
+7. Validators must resolve schemas by immutable `$id` or an integrity-checked
+   local copy associated with that exact `$id`.
 
 ## Governance
 

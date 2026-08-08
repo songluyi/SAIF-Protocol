@@ -15,8 +15,9 @@ Operations use:
 - the [Authorization Decision Contract](authorization-decision-contract.md);
 - [Action Execution Semantics](action-execution-semantics.md);
 - the [Extension Declaration](extension-declaration.md);
-- the [Standard Error Model](../error-model.md); and
-- the [Audit Event Model](../audit-event-model.md).
+- the [Standard Error Model](../error-model.md);
+- the [Audit Event Model](../audit-event-model.md); and
+- the [Status Model](status-model.md).
 
 ## Common Request Envelope
 
@@ -39,7 +40,9 @@ A binding MAY encode these values in a message body, headers, attributes, or ano
 Every state-changing operation returns:
 
 - operation ID;
-- outcome status from Action Execution Semantics;
+- a `protocol` object conforming to `schemas/common-status.schema.json`;
+- Action Outcome from `schemas/action-outcome.schema.json` when Protocol Status
+  is `SUCCESS`;
 - selected SAIF version and profile;
 - correlation ID;
 - affected object IDs and resulting revisions;
@@ -48,6 +51,9 @@ Every state-changing operation returns:
 - Audit Event IDs;
 - selected extension versions; and
 - Standard Error reference when not applied.
+
+Protocol Status, Action Outcome, and affected-object lifecycle states are
+separate fields. A binding MUST NOT collapse them into one generic `status`.
 
 ## Actor Roles
 
