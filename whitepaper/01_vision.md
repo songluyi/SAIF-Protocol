@@ -1,64 +1,92 @@
-# Why AI Needs Financial Identity
+# Why AI Needs Financial Identity and Authorized Economic Capability
 
-## From Connection to Economic Agency
+## From Connection to Authorized Economic Action
 
 Each major computing era has created a new form of connection.
 
-### The Internet Era: Information Connection
+### Internet: Information Connection
 
-The internet connected documents, knowledge, and communication systems. Its fundamental breakthrough was making information globally addressable and transferable. People and institutions could publish, discover, and exchange information at unprecedented scale.
+The internet connected documents, knowledge, and communication systems. Information became globally addressable, searchable, and transferable. Its core infrastructure made it possible for people and institutions to publish and exchange information at unprecedented scale.
 
-### The Mobile Internet Era: Human-Service Connection
+### Mobile Internet: Human-Service Connection
 
-The mobile internet connected people directly to digital services. Identity, location, applications, and payments moved into always-available personal devices. A person could summon transportation, purchase goods, manage a bank account, or operate a business from a phone.
+The mobile internet connected people directly to services. Identity, applications, location, and payments moved into always-available personal devices. A person could access transportation, commerce, banking, communication, and work from a phone.
 
-### The AI Era: Intelligent Agent-Economic Connection
+### AI Era: Agent-Economic Connection
 
-The AI era will connect intelligent agents to economic systems. Agents will not only retrieve information or present interfaces; they will interpret goals, make plans, choose providers, allocate resources, and execute actions across services.
+The AI era will connect intelligent agents to economic systems. Agents will interpret goals, plan work, select providers, coordinate services, and initiate actions in the real economy.
 
-That transition creates a new infrastructure requirement. An agent that can decide and act must also be able to participate in economic relationships under clear responsibility and control. It needs a financial identity.
+This transition is not simply about giving an AI a payment method. It requires infrastructure that can establish whose agent is acting, which authority it carries, what resources it may use, and how the result will be attributed and audited.
 
-## The Missing Financial Layer
+## What AI Has—and What It Lacks
 
-Modern AI agents have rapidly improving reasoning and execution capabilities, but they lack five basic components of economic agency.
+AI currently has:
 
-### Identity
+- Intelligence
+- Reasoning
+- Automation
 
-An agent needs a persistent and verifiable identifier. Counterparties must be able to determine which agent is acting, who owns or operates it, and whether the identity is active, suspended, or revoked.
+These capabilities allow an agent to understand a task and propose or perform a sequence of actions. They do not, by themselves, create economic authority.
 
-### Authorization
+AI currently lacks:
 
-An agent must be able to prove what it is permitted to do. Authorization should express more than account access: it should define assets, actions, counterparties, time windows, approval thresholds, jurisdictional constraints, and revocation rules.
+- Financial identity
+- Authorization framework
+- Economic execution capability
+- Transaction accountability
 
-### Budget
+Without these components, an agent must borrow a human session, use broadly shared credentials, or stop and ask a person to complete every economic commitment. These approaches do not scale and do not provide sufficient control.
 
-An agent needs explicit resource boundaries. A budget should specify how much the agent may spend, over what period, for which purposes, and what happens when a limit or anomaly is encountered.
+## Independent Legal Personality Is Not the Starting Point
 
-### Payment Capability
+AI does not need independent legal personality at the beginning.
 
-An agent needs safe interfaces to quote, pay, receive, settle, refund, and reconcile. Payment capability must remain bound to identity, authorization, and budget policy rather than relying on unrestricted credentials.
+The practical path is the **Authorized AI Agent Model**.
 
-### Reputation
+Under this model, the human or organization remains the legal and economic owner. The AI agent is an authorized executor that performs defined activities within delegated permissions.
 
-An agent needs a record of economic behavior. Verifiable history can show whether it follows policy, completes obligations, handles disputes, and operates reliably. Reputation should be portable where appropriate, privacy-preserving, and resistant to manipulation.
+```text
+Human / Organization
+          ↓
+Defined Authorization
+          ↓
+AI Agent
+          ↓
+Economic Execution
+          ↓
+Audit & Owner Accountability
+```
 
-## Financial Identity as a Control Plane
+This model extends familiar forms of delegation into machine-executable infrastructure. It allows useful autonomy without separating activity from the individual or organization responsible for the funds, permissions, and outcomes.
 
-Financial identity is more than a label or wallet address. It is the control plane that binds an agent to an accountable owner, a delegated authority, a budget profile, a risk classification, and a transaction history.
+## Why Financial Identity Comes First
 
-With this control plane, an economic action can be evaluated before execution:
+An agent financial identity is the operational anchor for authorized economic activity. It answers six questions:
 
-1. Is this a valid and active agent?
-2. Who authorized it?
-3. Is the requested action within scope?
-4. Is sufficient budget available?
-5. Does the risk policy allow the transaction?
-6. How will the result be recorded and audited?
+1. Which AI agent is acting?
+2. Who owns or operates that agent?
+3. What has the owner authorized?
+4. What budget and risk rules apply?
+5. Which transaction resulted from the action?
+6. Who is accountable for reviewing and resolving the outcome?
 
-These checks make machine economic activity legible to humans, companies, payment providers, and regulators.
+The identity is not equivalent to legal personhood. It is a verifiable representation that connects an agent to its owner, authority, constraints, and history.
 
-## A Foundation for the AI Economy
+## Authorized Economic Capability
 
-SAIF proposes an open foundation for connecting intelligent agents to the economy without removing human and institutional accountability. The objective is controlled autonomy: agents should be able to act efficiently inside explicit boundaries, while owners retain visibility, approval rights, and the ability to revoke authority.
+Authorized economic capability is the agent’s ability to execute a limited class of commercial actions on behalf of its owner. A capability may permit the agent to request quotes, create orders, purchase approved goods, renew subscriptions, pay invoices, or arrange maintenance.
 
-As agents become more capable and autonomous machines enter logistics, mobility, energy, manufacturing, and commerce, a shared financial identity layer can enable trusted interaction across organizations and platforms. This is the financial infrastructure challenge SAIF exists to explore.
+Every capability should be:
+
+- **Owner-issued:** derived from a verified human or organization;
+- **Purpose-bound:** limited to defined tasks or categories;
+- **Budget-constrained:** subject to per-transaction and period limits;
+- **Risk-aware:** governed by approval and restriction rules;
+- **Revocable:** removable immediately by the owner; and
+- **Auditable:** linked to evidence of authorization and execution.
+
+## The SAIF Vision
+
+SAIF is AI Authorized Economic Infrastructure. It provides common identity, authorization, spending control, commerce execution, and audit layers for AI agents and autonomous machines.
+
+The long-term goal is to make delegated agent-economic connections as dependable as earlier infrastructure made information and mobile services—while preserving human and organizational ownership, control, and accountability.

@@ -2,72 +2,95 @@
 
 ## Context
 
-AI agents can already analyze information, plan multi-step work, call software tools, and interact with digital services. However, the financial systems they encounter were designed primarily for humans and conventional organizations. Accounts, credentials, payment instruments, compliance processes, and liability models rarely recognize an AI agent as a distinct delegated actor.
+AI agents can reason, plan, use tools, and automate increasingly complex work. Financial and commercial systems, however, are designed around natural persons and legal entities. They rarely recognize an AI agent as a distinct, delegated executor with its own bounded permissions and audit trail.
 
-As a result, agents may be capable of deciding what to buy or which action to take, but they cannot safely and independently complete the economic portion of that decision.
+The gap is not a lack of intelligence. It is a lack of infrastructure for translating owner authorization into safe, accountable economic execution.
 
-## 1. AI Agents Cannot Independently Participate in Economic Activity
+## Current Problems
 
-Most agents do not have a persistent economic identity that counterparties can verify. They operate through a user's session, an application account, or shared API credentials. This makes the agent's role ambiguous and prevents reliable attribution.
+### 1. AI Cannot Safely Interact with the Real Economy
 
-Without a recognized identity and transaction interface, an agent cannot consistently:
+An AI agent can identify a product or service, but it usually cannot complete the purchase through a standardized, policy-controlled channel. It must rely on a human session, an unrestricted credential, or a one-off integration.
 
-- enter a commercial workflow as an identifiable participant;
-- request and compare executable offers;
-- pay or receive funds under its own delegated role;
-- prove that a transaction was authorized; or
-- maintain continuity across services and counterparties.
+This creates several risks:
 
-The practical result is a human-in-the-loop bottleneck at the point where intent becomes economic commitment.
+- the merchant cannot reliably identify which agent acted;
+- the payment system cannot evaluate agent-specific authority;
+- the owner cannot consistently constrain the action before execution; and
+- the resulting order, payment, and receipt may not share a common audit reference.
 
-## 2. AI Agents Cannot Safely Manage Financial Authority
+The agent therefore remains disconnected from real commerce at the point where a decision becomes an economic commitment.
 
-Giving an agent unrestricted access to a wallet, bank account, card, or payment credential creates unacceptable risk. Traditional access controls often answer whether an account may be accessed, but not whether a specific agent may perform a specific financial action under a specific policy.
+### 2. Humans Cannot Delegate Financial Tasks with Precise Controls
 
-Safe delegation requires granular controls for:
+People may want an agent to manage software subscriptions, purchase household goods, book approved services, or pay routine invoices. Existing tools typically offer a poor choice between manual approval for every step and access that is too broad.
 
-- spending amount and frequency;
-- permitted assets and transaction types;
-- approved merchants or counterparties;
-- time, location, and jurisdiction;
-- human approval thresholds;
-- risk-based escalation; and
-- immediate suspension and revocation.
+Safe delegation requires precise controls for:
 
-These controls must be machine-readable, enforceable at transaction time, and auditable after the fact.
+- permitted purchase categories;
+- approved merchants and services;
+- single-transaction and recurring limits;
+- total daily or monthly budgets;
+- approval thresholds;
+- restricted actions and jurisdictions; and
+- suspension, revocation, and exception handling.
 
-## 3. AI Agents Cannot Establish Transaction Credit
+These controls must be machine-readable and enforced at the moment of economic execution.
 
-An agent's successful and failed actions are usually trapped inside individual applications. There is no common, verifiable way to represent whether an agent respects budgets, completes obligations, produces excessive disputes, or follows authorization policy.
+### 3. Companies Will Operate Thousands of AI Employees but Lack Financial Governance Tools
 
-Without an economic history, counterparties cannot distinguish a reliable agent from a new, compromised, or repeatedly non-compliant one. Every interaction begins with minimal trust, and risk decisions fall back to the owner's identity alone.
+Organizations are beginning to deploy specialized AI agents across procurement, operations, sales, support, engineering, and finance. At scale, each AI employee may need different economic permissions, cost centers, budgets, approval paths, and risk policies.
 
-A useful reputation system must be attributable, tamper-evident, privacy-preserving, context-aware, and resistant to simple transfer or gaming. It should supplement—not replace—the accountability of the owner.
+Traditional employee cards, shared accounts, and API keys do not provide a complete governance model for thousands of machine executors. Companies need to know:
 
-## 4. AI Agents Cannot Connect to the Real Commercial World
+- which AI employee initiated an action;
+- which owner, team, or policy authorized it;
+- which budget and cost center funded it;
+- whether required approvals were obtained; and
+- how the action should be reconciled and audited.
 
-Commerce is fragmented across wallets, payment processors, merchant systems, accounting platforms, tax rules, invoices, subscriptions, refunds, and settlement networks. Agent frameworks expose tools, but no shared financial protocol consistently connects agent intent to these systems.
+Without this infrastructure, agent adoption creates fragmented controls, credential risk, and untraceable spending.
 
-This creates integration gaps at every stage:
+### 4. Autonomous Machines Require Maintenance Purchasing and Service Capabilities
 
-- authorization is separated from payment execution;
-- budgets are separated from real-time balances;
-- transactions are separated from receipts and accounting records;
-- commercial disputes are separated from agent reputation; and
-- agent actions are difficult to reconcile with owner policies.
+Robots, vehicles, industrial systems, and connected devices may need energy, replacement parts, maintenance, connectivity, software, or external services. Requiring a human to initiate every routine transaction limits operational autonomy, while giving a machine unrestricted payment access creates unacceptable risk.
 
-## The Infrastructure Gap
+Autonomous machines require a controlled method to:
 
-The missing component is a common financial control and interoperability layer for delegated machine actors. That layer must connect five capabilities:
+- detect an operational need;
+- request an approved product or service;
+- compare eligible offers;
+- spend within a defined maintenance budget;
+- escalate unusual or high-value actions; and
+- record fulfillment and settlement for the owner.
 
-1. **Identity** — identify the agent and its accountable owner.
-2. **Authorization** — define and prove delegated authority.
-3. **Budget** — constrain resource use before commitment.
-4. **Transaction** — execute and reconcile exchange of value.
-5. **Reputation** — record verifiable economic behavior.
+## The Governance Gap
 
-SAIF addresses this infrastructure gap. Its initial scope is not to replace wallets, payment networks, banks, commerce platforms, or accounting systems. It is to define how an AI agent can interact with them as an identifiable, authorized, budget-constrained, and auditable participant.
+Current identity, payment, commerce, and accounting systems each solve only part of the problem. They do not provide a shared control plane that binds together:
 
-## Design Objective
+1. the verified human or organizational owner;
+2. the AI agent or machine identity;
+3. the delegated authorization;
+4. the budget and risk rules;
+5. the commerce and transaction result; and
+6. the audit evidence and accountability record.
 
-The core design objective is controlled economic autonomy: enable an AI agent to complete useful financial actions while keeping authority explicit, risk bounded, responsibility attributable, and every material action auditable.
+## SAIF’s Problem Definition
+
+How can a human or legal entity safely authorize an AI agent or autonomous machine to perform useful economic activities without treating that AI as an independent legal or financial owner?
+
+SAIF addresses this question through an authorized agent model. The owner retains legal and economic responsibility. The AI acts as a bounded executor. SAIF verifies and enforces the connection between owner, authorization, agent action, transaction, and audit record.
+
+## Design Requirements
+
+An effective solution must be:
+
+- **Attributable:** every action resolves to an agent and accountable owner.
+- **Precise:** authorization expresses what is allowed and what is prohibited.
+- **Budgeted:** limits are enforced before a transaction is committed.
+- **Revocable:** an owner can suspend authority immediately.
+- **Interoperable:** agents can connect to commerce, payment, and accounting systems.
+- **Auditable:** material decisions and outcomes produce tamper-evident evidence.
+- **Scalable:** the same control model can govern one household agent or thousands of enterprise AI employees.
+
+The objective is controlled economic execution, not independent machine ownership.
