@@ -85,6 +85,8 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 - [Extension Proposal Process](docs/proposal-process.md)
 - [Standard Error Model](docs/error-model.md)
 - [Audit Event Model](docs/audit-event-model.md)
+- [Reference Architecture v0.3 Draft](docs/reference-architecture.md)
+- [v0.3 Standards Roadmap](docs/v0.3-roadmap.md)
 - [JSON Schemas](schemas/)
 - [Conformance Vectors](conformance/)
 - [Examples](examples/)
@@ -117,7 +119,7 @@ Lifecycle, Compatibility, Conformance, and Extension Governance
 
 ### v0.3
 
-Transport Bindings
+Reference Architecture and Transport Bindings
 
 ### v1.0
 
@@ -148,4 +150,4 @@ Stable Protocol Specification
 
 ## Status
 
-SAIF Protocol v0.2 is an early public specification covering the Business Object Model, lifecycle states, compatibility, conformance, extensions, errors, audit events, and protocol boundaries. It is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice.
+SAIF Protocol v0.2 is the current public specification covering the Business Object Model, lifecycle states, compatibility, conformance, extensions, errors, audit events, and protocol boundaries. The [v0.3 Reference Architecture](docs/reference-architecture.md) is a design draft under review. SAIF is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice.
