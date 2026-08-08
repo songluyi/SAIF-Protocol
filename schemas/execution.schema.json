@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/execution.schema.json",
+  "title": "SAIF Execution",
+  "description": "The status and result of real-world provider execution.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "created_at",
+    "metadata",
+    "order_id",
+    "provider_id",
+    "status",
+    "result"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "shipment",
+        "printing",
+        "robot_operation",
+        "service_completion"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "failed"
+      ]
+    },
+    "result": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

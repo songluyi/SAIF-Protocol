@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/agent.schema.json",
+  "title": "SAIF Agent",
+  "description": "An AI or robotics execution entity acting for an owner.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "created_at",
+    "metadata",
+    "owner_id",
+    "provider"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "software_agent",
+        "robot_agent",
+        "ai_system"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

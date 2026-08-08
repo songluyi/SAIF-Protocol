@@ -1,144 +1,105 @@
-# Standard AI Finance (SAIF)
+# SAIF Protocol
 
-## Authorized Economic Infrastructure for AI Agents and Autonomous Machines
+## An open standard defining business object models and execution frameworks for AI agents interacting with the real economy.
 
-Standard AI Finance (SAIF) is an open project for building authorized economic infrastructure for AI agents and autonomous machines.
+SAIF Protocol defines how AI agents express business requirements, receive authorization from humans or organizations, create business commitments, interact with execution providers, and record settlement outcomes through structured, interoperable objects.
 
-SAIF enables humans and organizations to safely delegate economic activities to AI Agents through identity, authorization, budget control, transaction execution and audit infrastructure.
+SAIF is protocol-first, provider-independent, and AI-vendor-neutral. It does not treat an AI agent as an independent legal or financial owner. A human or organization remains the accountable party and authorizes the agent to act within a defined scope.
 
-SAIF is not an “AI Bank,” and it does not assume that an AI agent owns assets or acts as an independent legal or financial subject. SAIF provides the control and execution infrastructure through which a natural person or legal entity can authorize an AI system to perform bounded economic tasks on the owner’s behalf.
+## Scope
 
-## Vision
+SAIF Business Object Model v0.1 defines:
 
-AI systems are moving from answering questions to completing work. As they begin to procure software, operate business processes, maintain machines, and interact with commerce, they need a safe path from human intent to economic execution.
+- the core objects used in AI-native economic activity;
+- the lifecycle from business request to settlement;
+- a common interface model for execution providers;
+- JSON Schema Draft 2020-12 definitions; and
+- example requests for commerce and document services.
 
-SAIF envisions a shared infrastructure layer where:
+This version is a public protocol foundation. It does not implement wallets, payment processing, marketplaces, user systems, or MCP connectors.
 
-- every acting AI has a verifiable identity representation;
-- every economic action is traceable to a human or organizational owner;
-- authority is explicit, limited, and revocable;
-- budgets and risk rules are enforced before execution;
-- commerce systems can accept machine-originated requests safely; and
-- transactions produce complete evidence for audit and accountability.
+## Core Business Model
 
-The objective is controlled delegation: make AI-executed economic activity useful and scalable while keeping ownership, authority, and accountability with people and organizations.
-
-## Current Legal Model
-
-AI Agents are not independent legal entities.
-
-SAIF operates under a delegated authorization model:
-
-- Individuals authorize AI Agents.
-- Companies authorize AI Employees.
-- Owners define spending permissions.
-- SAIF executes approved economic activities.
+SAIF defines the lifecycle:
 
 ```text
-Human / Company Owner
-          ↓
-Authorization & Delegation
-          ↓
-AI Agent / Robot
-          ↓
-SAIF Infrastructure
-          ↓
-Commerce / Service Provider
+Party
+  ↓
+Agent
+  ↓
+Request
+  ↓
+Authorization
+  ↓
+Order
+  ↓
+Execution
+  ↓
+Settlement
 ```
 
-The human or organization remains the legal and economic owner. The AI agent or robot is the authorized executor: it may act only within the permissions, budgets, and risk rules defined by that owner.
+```mermaid
+flowchart TD
+    A["Party"] --> B["Agent"]
+    B --> C["Request"]
+    C --> D["Authorization"]
+    D --> E["Order"]
+    E --> F["Execution"]
+    F --> G["Settlement"]
+```
 
-## Core Components
+The objects separate four concerns:
 
-### 1. AI Financial Identity
+- **Intelligence:** the Agent interprets intent and creates a structured Request.
+- **Authorization:** a human or organization permits the Agent to act within limits and rules.
+- **Execution:** a provider fulfills an authorized Order in the real world.
+- **Settlement:** the final financial or accounting outcome is represented without prescribing a payment implementation.
 
-Each AI Agent receives an identity representation:
+SAIF is not an AI model, payment provider, or marketplace.
 
-- Agent ID
-- Owner Identity
-- Authorization Scope
-- Budget Profile
-- Risk Rules
-- Transaction History
+SAIF defines the standard interaction model between AI agents and real-world execution systems.
 
-This identity representation links agent activity to an accountable owner. It is not a claim that the agent has independent legal personality or owns the underlying funds.
+## Core Objects
 
-### 2. Authorization Layer
+| Object | Purpose |
+| --- | --- |
+| Party | Represents a real-world individual, organization, AI system, or service provider. |
+| Agent | Represents an AI execution entity acting for an owner. |
+| Request | Represents a structured business requirement. |
+| Authorization | Represents permission, scope, limits, and rules for Agent activity. |
+| Order | Represents a business commitment generated from an authorized Request. |
+| Execution | Represents provider activity and real-world execution status. |
+| Settlement | Represents the final payment, refund, invoice, or accounting outcome. |
 
-Defines:
+Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at`, and `metadata`.
 
-- What AI can purchase
-- Spending limits
-- Approval requirements
-- Allowed categories
-- Restricted actions
+## Documentation
 
-Authorizations are explicit, time-bound where appropriate, deny-by-default, and revocable by the owner.
+- [Business Object Model](docs/business-object-model.md)
+- [Request Lifecycle](docs/request-lifecycle.md)
+- [Provider Interface](docs/provider-interface.md)
+- [JSON Schemas](schemas/)
+- [Examples](examples/)
 
-### 3. Agent Spending Account
+## Design Principles
 
-A programmable spending capability layer.
+1. Protocol first.
+2. Provider independent.
+3. AI vendor neutral.
+4. Human/Organization authorization based.
+5. Future compatible with commerce, payment, and robotics.
 
-Examples:
+## Repository Structure
 
-- Software subscription
-- Cloud services
-- Hardware procurement
-- Daily goods purchase
-- Robot maintenance
-
-The spending account exposes approved economic capability to the agent while keeping custody, funding ownership, and policy control with the authorizing individual or organization.
-
-### 4. Commerce Execution Layer
-
-Connect:
-
-- Merchant APIs
-- Enterprise procurement systems
-- Digital services
-- Subscription platforms
-
-This layer translates an approved agent intent into a commerce action and returns structured order, payment, fulfillment, and reconciliation results.
-
-### 5. Audit and Accountability Layer
-
-Record:
-
-- Who authorized
-- Which AI acted
-- What transaction occurred
-- Under what permission
-
-Audit evidence binds authorization decisions, agent requests, transaction outcomes, and owner notifications into a traceable record.
-
-## Why AI Needs Financial Identity
-
-Intelligence alone does not establish authority. An agent may be able to reason about a purchase, but a merchant, enterprise, or payment system still needs to know which agent is acting, who authorized it, what it may spend, and who is accountable for the result.
-
-AI Financial Identity supplies this operational context. It connects the agent to an owner, authorization scope, budget profile, risk rules, and transaction history so each economic request can be evaluated before it becomes a commitment.
-
-## Long Term Vision
-
-The long-term opportunity is an interoperable economic execution layer for human-authorized AI agents, enterprise AI employees, and autonomous machines.
-
-An enterprise may operate thousands of AI employees with different budgets and procurement permissions. A household agent may manage approved subscriptions and routine purchases. A robot may request maintenance, parts, energy, or services within a tightly controlled operating budget. In every case, SAIF keeps authority and accountability anchored to the responsible human or organization.
-
-SAIF will evolve through open protocol design, authorization sandboxes, MCP financial connectors, enterprise governance, and autonomous robot commerce infrastructure.
-
-## Public Demo
-
-SAIF provides an open sandbox demonstrating how AI Agents can safely interact with commerce systems through authorization, budgeting and transaction infrastructure.
-
-[Explore the SAIF Agent Commerce Demo](demo/)
-
-## Project Structure
-
-- `whitepaper/` — vision, problem definition, and authorized agent economic model;
-- `protocol/` — identity, authorization, budget, and transaction models;
-- `architecture/` — system layers, trust boundaries, and execution flows; and
-- `roadmap/` — staged development plan; and
-- `demo/` — public Agent Commerce Sandbox Demo documentation.
+- `docs/` — normative model and lifecycle documentation;
+- `schemas/` — JSON Schema Draft 2020-12 object definitions;
+- `examples/` — example SAIF business requests;
+- `whitepaper/` — project vision and authorization model;
+- `protocol/` — earlier protocol exploration;
+- `architecture/` — system architecture notes;
+- `demo/` — Agent Commerce Sandbox Demo specification; and
+- `roadmap/` — staged development roadmap.
 
 ## Status
 
-SAIF v0.1.1 defines the project as **AI Authorized Economic Infrastructure**. The current documents are exploratory specifications, not production standards, financial products, or legal advice.
+SAIF Business Object Model v0.1 is an early public specification. It is not production software, a payment service, a marketplace, or legal advice.

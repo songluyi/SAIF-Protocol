@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/order.schema.json",
+  "title": "SAIF Order",
+  "description": "A business commitment generated from an authorized Request.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "created_at",
+    "metadata",
+    "request_id",
+    "authorization_id",
+    "status",
+    "details"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "purchase_order",
+        "service_order",
+        "maintenance_order"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "authorization_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "accepted",
+        "cancelled"
+      ]
+    },
+    "details": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

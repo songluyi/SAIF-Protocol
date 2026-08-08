@@ -1,0 +1,15 @@
+{
+  "id": "req_purchase_001",
+  "type": "purchase",
+  "created_at": "2026-08-08T08:00:00Z",
+  "metadata": {
+    "environment": "example"
+  },
+  "agent_id": "agent_001",
+  "requirement": {
+    "item": "mineral_water",
+    "quantity": 1,
+    "unit": "box",
+    "category": "household_goods"
+  }
+}

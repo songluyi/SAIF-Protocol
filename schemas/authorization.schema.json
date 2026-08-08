@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/authorization.schema.json",
+  "title": "SAIF Authorization",
+  "description": "Permission granted by an owner for an Agent to act.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "created_at",
+    "metadata",
+    "owner_id",
+    "agent_id",
+    "scope",
+    "limit",
+    "rules"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "delegated",
+        "one_time"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "limit": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rules": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
