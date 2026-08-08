@@ -1,0 +1,19 @@
+{
+  "vector_id": "order-valid-001",
+  "saif_version": "0.2.0",
+  "target": "schemas/order.schema.json",
+  "expected": "VALID",
+  "description": "A fulfilled provider-neutral service order.",
+  "instance": {
+    "id": "order_conformance_001",
+    "type": "service_order",
+    "created_at": "2026-08-08T09:15:00Z",
+    "metadata": {},
+    "request_id": "req_conformance_001",
+    "authorization_id": "auth_conformance_001",
+    "status": "FULFILLED",
+    "details": {
+      "capability": "DOCUMENT_PRINT"
+    }
+  }
+}

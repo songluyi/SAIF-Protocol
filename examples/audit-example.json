@@ -1,0 +1,25 @@
+{
+  "id": "audit_001",
+  "type": "STATE_TRANSITION",
+  "created_at": "2026-08-08T09:05:00Z",
+  "metadata": {},
+  "saif_version": "0.2.0",
+  "actor": {
+    "type": "AGENT",
+    "id": "agent_001",
+    "owner_id": "party_001"
+  },
+  "action": "REQUEST_AUTHORIZED",
+  "object": {
+    "type": "Request",
+    "id": "req_001"
+  },
+  "outcome": "SUCCESS",
+  "authorization_id": "auth_001",
+  "previous_state": "SUBMITTED",
+  "new_state": "AUTHORIZED",
+  "correlation_id": "corr_001",
+  "details": {
+    "request_type": "document_print"
+  }
+}

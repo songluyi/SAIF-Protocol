@@ -1,0 +1,23 @@
+{
+  "vector_id": "request-invalid-001",
+  "saif_version": "0.2.0",
+  "target": "schemas/request.schema.json",
+  "expected": "INVALID",
+  "description": "A Request without the required Agent reference must be rejected.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/agent_id"
+  },
+  "instance": {
+    "id": "req_conformance_invalid_001",
+    "type": "document_print",
+    "created_at": "2026-08-08T09:20:00Z",
+    "metadata": {},
+    "status": "SUBMITTED",
+    "requirement": {
+      "document_ref": "document_conformance_002",
+      "copies": 1
+    }
+  }
+}

@@ -81,7 +81,12 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 - [Protocol Versioning Strategy](docs/protocol-versioning.md)
 - [Protocol State Model](docs/state-machine.md)
 - [SAIF Protocol and MCP Boundary](docs/saif-mcp-boundary.md)
+- [Conformance Test Vector Specification](docs/conformance.md)
+- [Extension Proposal Process](docs/proposal-process.md)
+- [Standard Error Model](docs/error-model.md)
+- [Audit Event Model](docs/audit-event-model.md)
 - [JSON Schemas](schemas/)
+- [Conformance Vectors](conformance/)
 - [Examples](examples/)
 
 ## Protocol Governance
@@ -95,6 +100,10 @@ Governance specifications:
 - [Versioning and compatibility](docs/protocol-versioning.md)
 - [Standard object state machines](docs/state-machine.md)
 - [Boundary between SAIF and MCP](docs/saif-mcp-boundary.md)
+- [Cross-implementation conformance](docs/conformance.md)
+- [Public extension proposals](docs/proposal-process.md)
+- [Standard errors](docs/error-model.md)
+- [Portable audit events](docs/audit-event-model.md)
 
 ## Standards Roadmap
 
@@ -104,7 +113,7 @@ Business Object Model
 
 ### v0.2
 
-Lifecycle and Compatibility
+Lifecycle, Compatibility, Conformance, and Extension Governance
 
 ### v0.3
 
@@ -130,6 +139,7 @@ Stable Protocol Specification
 - `docs/` — normative model and lifecycle documentation;
 - `schemas/` — JSON Schema Draft 2020-12 object definitions;
 - `examples/` — example SAIF business requests;
+- `conformance/` — implementation-independent valid and invalid test vectors;
 - `whitepaper/` — project vision and authorization model;
 - `protocol/` — earlier protocol exploration;
 - `architecture/` — system architecture notes;
@@ -138,4 +148,4 @@ Stable Protocol Specification
 
 ## Status
 
-SAIF Protocol v0.1 is an early public specification covering the Business Object Model, governance rules, lifecycle states, and protocol boundaries. It is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice.
+SAIF Protocol v0.2 is an early public specification covering the Business Object Model, lifecycle states, compatibility, conformance, extensions, errors, audit events, and protocol boundaries. It is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice.
