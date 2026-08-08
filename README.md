@@ -125,12 +125,19 @@ An enterprise may operate thousands of AI employees with different budgets and p
 
 SAIF will evolve through open protocol design, authorization sandboxes, MCP financial connectors, enterprise governance, and autonomous robot commerce infrastructure.
 
+## Public Demo
+
+SAIF provides an open sandbox demonstrating how AI Agents can safely interact with commerce systems through authorization, budgeting and transaction infrastructure.
+
+[Explore the SAIF Agent Commerce Demo](demo/)
+
 ## Project Structure
 
 - `whitepaper/` — vision, problem definition, and authorized agent economic model;
 - `protocol/` — identity, authorization, budget, and transaction models;
 - `architecture/` — system layers, trust boundaries, and execution flows; and
-- `roadmap/` — staged development plan.
+- `roadmap/` — staged development plan; and
+- `demo/` — public Agent Commerce Sandbox Demo documentation.
 
 ## Status
 
