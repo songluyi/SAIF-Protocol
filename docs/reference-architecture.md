@@ -35,6 +35,18 @@ The architecture preserves the boundaries established in v0.1 and v0.2:
 9. **Extension safe:** optional extensions are isolated, declared, and ignorable when specified as optional.
 10. **No commercial implementation:** this architecture does not define marketplace, wallet, payment, or product behavior.
 
+## v0.3 Protocol Contract Set
+
+The Reference Node profile is defined by the following binding-neutral contracts:
+
+- [Authorization Decision Contract](specs/authorization-decision-contract.md) defines a portable, revision-bound authorization outcome;
+- [Extension Declaration](specs/extension-declaration.md) defines machine-readable compatibility and unknown-extension behavior;
+- [Action Execution Semantics](specs/action-execution-semantics.md) defines revision, idempotency, atomicity, and asynchronous outcomes;
+- [API Operation Semantics](specs/api-operation-semantics.md) defines actors, operation envelopes, preconditions, results, and Standard Errors; and
+- [Security Profile](specs/security-profile.md) defines the minimum security properties of the profile.
+
+The accompanying `schemas/authorization-decision.schema.json` and `schemas/extension-manifest.schema.json` are normative for their respective artifacts. These v0.3 contracts do not add required fields to the v0.2 business-object schemas; they govern how a Reference Node profile processes those objects.
+
 ## SAIF Reference Node
 
 ### Definition
@@ -153,7 +165,7 @@ Responsibilities:
 
 - bind an Authorization to its Owner and Agent;
 - verify that scope, limits, and rules permit the requested action;
-- produce an auditable authorization outcome; and
+- produce an Authorization Decision conforming to the [Authorization Decision Contract](specs/authorization-decision-contract.md); and
 - prevent an Agent or Provider from expanding its own authority.
 
 Must not:
@@ -161,6 +173,8 @@ Must not:
 - treat transport authentication as business authorization;
 - delegate policy meaning to Provider-specific metadata; or
 - create an Order when required authorization is absent or invalid.
+
+`ConvertRequest` requires a current `ALLOW` decision whose Request and Authorization revisions match stored state, whose scope covers the operation, and whose expiry has not passed. A stale, revoked, expired, or mismatched decision fails closed.
 
 ### 5. Lifecycle Coordinator
 
@@ -173,6 +187,8 @@ Responsibilities:
 - emit an Audit Event for material state changes.
 
 The coordinator governs observable state semantics. It does not prescribe Provider workflow internals.
+
+Every state-changing operation follows [Action Execution Semantics](specs/action-execution-semantics.md). The coordinator owns expected-revision validation, idempotency scope, transition atomicity, and externally visible operation outcomes.
 
 ### 6. Error Model Mapper
 
@@ -209,6 +225,8 @@ Adapters translate between external systems and the Core Module Boundary. They a
 | Storage Adapter | Persist and retrieve objects, events, errors, and extension declarations. | Redefining schemas, reference integrity, or retention semantics. |
 | Audit Sink | Consume or retain portable Audit Events. | Altering the source protocol outcome. |
 
+The Core Module Boundary creates a provider-neutral dispatch intent and validates all returned results. A Provider Adapter owns transport and Provider-specific mapping only; it cannot independently create a protocol commitment or authorize a transition.
+
 ## Extension Boundary
 
 ### Purpose
@@ -219,7 +237,7 @@ Extensions are governed by the [SAIF Extension Proposal Process](proposal-proces
 
 ### Extension Registry
 
-A Reference Node should maintain a logical registry containing:
+A Reference Node MUST maintain a logical registry of enabled extensions. Every entry MUST validate against `schemas/extension-manifest.schema.json` and the [Extension Declaration](specs/extension-declaration.md), including:
 
 - extension identifier and namespace;
 - extension version;
@@ -229,7 +247,7 @@ A Reference Node should maintain a logical registry containing:
 - schema or validation references; and
 - proposal status when standardized through a SEP.
 
-The registry may be static configuration, discovered capabilities, or persisted data. No central commercial registry is required.
+The registry may be static configuration, discovered capabilities, or persisted data. No central commercial registry is required. Discovery returns the complete manifests for enabled extensions so that a peer can evaluate namespace, version range, requirement status, unknown behavior, and schema digest before invocation.
 
 ### Allowed Extension Points
 
@@ -293,6 +311,8 @@ A minimum stored object record should preserve:
 - correlation ID where applicable; and
 - enabled required extensions.
 
+For the v0.3 Reference Node profile, every mutable object record also has a non-negative integer `revision`. Creation establishes revision `0`; each successful mutation increments it by exactly one. The revision is operation metadata and does not modify the v0.2 object schemas.
+
 ### Mutation and History
 
 Implementations may use immutable object versions, append-only events, transactional snapshots, or another model. Observable behavior must ensure:
@@ -306,7 +326,7 @@ Implementations may use immutable object versions, append-only events, transacti
 
 ### Atomicity Expectations
 
-When one protocol operation creates related state, the implementation should commit the business object change, transition record, and Audit Event atomically or provide equivalent recovery behavior.
+When one protocol operation creates related state, the implementation MUST commit the business object change, transition record, and Audit Event atomically from the observer's perspective. An implementation MAY use recovery internally, but MUST NOT expose a successful or terminal outcome until all required records are durable and mutually consistent.
 
 Examples include:
 
@@ -314,7 +334,7 @@ Examples include:
 - Execution `COMPLETED` with Order `FULFILLED`; and
 - Settlement state change with its Audit Event.
 
-SAIF does not prescribe distributed transaction technology. An implementation must document how it prevents or repairs partial protocol outcomes.
+SAIF does not prescribe distributed transaction technology. Required observable behavior, idempotency scope, conflict outcomes, and recovery rules are defined in [Action Execution Semantics](specs/action-execution-semantics.md).
 
 ### Retention and Privacy
 
@@ -332,13 +352,13 @@ Private prompts, credentials, private keys, and unnecessary personal data must n
 
 ### Status
 
-This section defines abstract operations and an illustrative HTTP-style mapping. The operations are transport-binding candidates, not a mandatory REST API.
+This section summarizes the abstract operation surface defined normatively by [API Operation Semantics](specs/api-operation-semantics.md). The operations are transport-binding candidates, not a mandatory REST API.
 
 MCP, message, and local bindings may expose equivalent operations while preserving the same inputs, outputs, errors, idempotency, and lifecycle semantics.
 
 ### Common Operation Context
 
-Every state-changing operation should carry or resolve:
+Every state-changing operation MUST carry the common request envelope defined by the operation contract, including:
 
 - `saif_version`;
 - correlation ID;
@@ -346,6 +366,7 @@ Every state-changing operation should carry or resolve:
 - actor reference;
 - Agent and Owner references when applicable;
 - required extension declarations; and
+- expected target revision; and
 - transport-specific authentication context kept outside the business object.
 
 ### Discovery Operations
@@ -363,16 +384,18 @@ Discovery output must not imply authorization to invoke a capability.
 
 | Abstract operation | Illustrative mapping | Result |
 | --- | --- | --- |
-| `CreateRequest` | `POST /saif/requests` | Request in `DRAFT` or `SUBMITTED`. |
+| `CreateRequest` | `POST /saif/requests` | New Request in `DRAFT`. |
+| `SubmitRequest` | `POST /saif/requests/{id}/submission` | Request transitioned to `SUBMITTED`. |
 | `GetObject` | `GET /saif/objects/{type}/{id}` | Current object representation. |
 | `GetObjectHistory` | `GET /saif/objects/{type}/{id}/history` | Ordered state and version history. |
-| `TransitionRequest` | `POST /saif/requests/{id}/transitions` | Updated Request or Standard Error. |
-| `EvaluateAuthorization` | `POST /saif/authorization-evaluations` | Auditable authorization outcome. |
+| `EvaluateAuthorization` | `POST /saif/authorization-evaluations` | Portable Authorization Decision. |
 | `ConvertRequest` | `POST /saif/requests/{id}/conversion` | Request `CONVERTED` and Order `CREATED`. |
-| `RecordExecution` | `POST /saif/executions` | Execution linked to an Order and Provider. |
-| `TransitionExecution` | `POST /saif/executions/{id}/transitions` | Updated Execution or Standard Error. |
-| `RecordSettlement` | `POST /saif/settlements` | Settlement linked to an Execution. |
-| `TransitionSettlement` | `POST /saif/settlements/{id}/transitions` | Updated Settlement or Standard Error. |
+| `ConfirmOrder` / `CancelOrder` | Binding-defined | Valid Order transition or Standard Error. |
+| `CreateExecution` | `POST /saif/executions` | `PENDING` Execution linked to an Order and Provider. |
+| `StartExecution` | `POST /saif/executions/{id}/start` | Execution transitioned to `RUNNING`. |
+| `CompleteExecution` / `FailExecution` | Binding-defined | Terminal Execution result. |
+| `CreateSettlement` | `POST /saif/settlements` | `PENDING` Settlement linked to an Execution. |
+| `Settle` / `RefundSettlement` | Binding-defined | Valid Settlement transition or Standard Error. |
 
 Implementations may expose narrower profile-specific surfaces. They must not allow clients to bypass authorization or create illegal state transitions by calling lower-level storage operations.
 
@@ -399,12 +422,14 @@ Access to audit and error data must follow data minimization and authorization p
 
 1. A transport success does not prove business success.
 2. Protocol failures return or reference a Standard Error object.
-3. State-changing operations are idempotent within an implementation-defined retention window.
+3. State-changing operations use the normative idempotency scope and a declared retention window of at least 86,400 seconds.
 4. Replayed operations must not create duplicate Orders, Executions, Settlements, or Audit Events.
 5. Responses preserve object IDs, correlation IDs, and declared SAIF version.
 6. Asynchronous execution returns a non-terminal Execution state rather than a false success.
 
 ## Security Model Draft
+
+The minimum normative requirements for the v0.3 Reference Node profile are defined by the [Security Profile](specs/security-profile.md). This section provides its architectural context.
 
 ### Trust Boundaries
 
@@ -496,6 +521,8 @@ A v0.3 Reference Node profile should demonstrate:
 9. replay-safe state-changing operations; and
 10. lossless retrieval of linked protocol objects.
 
+It MUST also demonstrate revision-bound Authorization Decisions, Extension Manifest validation, stale-revision rejection, idempotency-key conflict handling, Provider-result attribution, and the negative security behaviors listed in the Security Profile.
+
 These expectations should be expressed as public conformance vectors rather than a required reference runtime.
 
 ## Explicit Non-Goals
@@ -518,10 +545,7 @@ This reference architecture does not define:
 The following topics require proposal and conformance review before v0.3 stabilization:
 
 - canonical serialization for signing and hashing;
-- capability discovery object shape;
-- idempotency key scope and retention;
-- required extension declaration format;
 - asynchronous Provider callback binding;
-- pagination and filtering semantics for audit queries;
-- object revision and optimistic concurrency fields; and
-- minimum security profiles for public-network bindings.
+- a dedicated JSON Schema for capability discovery results;
+- binding-specific pagination cursor encoding; and
+- standardized Provider evidence formats.

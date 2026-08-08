@@ -1,0 +1,21 @@
+{
+  "vector_id": "action-semantics-invalid-001",
+  "saif_version": "0.3.0",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "A mutation with a stale expected revision must not be applied.",
+  "expected_error": {
+    "category": "STATE",
+    "code": "SAIF-STATE-0002",
+    "path": "/expected_revision"
+  },
+  "instance": {
+    "operation": "CompleteExecution",
+    "actor": { "type": "PROVIDER", "id": "provider_conformance_033" },
+    "target": { "type": "execution", "id": "execution_conformance_033" },
+    "expected_revision": 2,
+    "current_revision": 3,
+    "idempotency_key": "idem_conformance_033",
+    "requested_state": "COMPLETED"
+  }
+}

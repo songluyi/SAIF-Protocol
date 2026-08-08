@@ -1,0 +1,26 @@
+{
+  "vector_id": "extension-semantics-invalid-002",
+  "saif_version": "0.3.0",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "An operation requiring an unsupported extension fails before authorization or state mutation.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0001",
+    "path": "/extensions/0/extension_id"
+  },
+  "instance": {
+    "operation": "SubmitRequest",
+    "extensions": [
+      {
+        "extension_id": "org.example.unavailable-capability",
+        "version": "1.0.0",
+        "required": true,
+        "manifest_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    ],
+    "supported_extensions": [],
+    "state_mutation_count": 0,
+    "authorization_evaluation_count": 0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "vector_id": "extension-manifest-valid-001",
+  "saif_version": "0.3.0",
+  "target": "schemas/extension-manifest.schema.json",
+  "expected": "VALID",
+  "description": "An optional, namespaced extension may declare IGNORE behavior when unknown.",
+  "instance": {
+    "id": "extension_conformance_001",
+    "type": "extension_manifest",
+    "created_at": "2026-08-08T10:10:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "extension_id": "org.example.resource-labels",
+    "namespace": "org.example",
+    "version": "1.0.0",
+    "required": false,
+    "applies_to": ["request"],
+    "compatibility": {
+      "saif_min": "0.3.0",
+      "saif_max_exclusive": "1.0.0"
+    },
+    "schema": {
+      "uri": "https://example.org/saif/resource-labels.schema.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      }
+    },
+    "proposal": null,
+    "unknown_behavior": "IGNORE"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "vector_id": "action-semantics-invalid-002",
+  "saif_version": "0.3.0",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "A Provider result submitted by an actor not mapped to the selected Provider must be rejected.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0007",
+    "path": "/actor/id"
+  },
+  "instance": {
+    "operation": "CompleteExecution",
+    "actor": { "type": "PROVIDER", "id": "provider_unrelated_035" },
+    "selected_provider_id": "provider_conformance_035",
+    "order_id": "order_conformance_035",
+    "execution_id": "execution_conformance_035",
+    "correlation_id": "corr_conformance_035",
+    "expected_revision": 1,
+    "idempotency_key": "idem_conformance_035",
+    "requested_state": "COMPLETED"
+  }
+}

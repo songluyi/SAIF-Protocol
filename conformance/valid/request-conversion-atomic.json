@@ -1,0 +1,30 @@
+{
+  "vector_id": "action-semantics-valid-002",
+  "saif_version": "0.3.0",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "VALID",
+  "description": "Request conversion exposes one complete atomic outcome with linked revisions and audit evidence.",
+  "instance": {
+    "operation": "ConvertRequest",
+    "operation_status": "APPLIED",
+    "request": {
+      "id": "req_conformance_034",
+      "previous_state": "AUTHORIZED",
+      "new_state": "CONVERTED",
+      "previous_revision": 2,
+      "new_revision": 3
+    },
+    "authorization_decision_id": "decision_conformance_034",
+    "order": {
+      "id": "order_conformance_034",
+      "state": "CREATED",
+      "revision": 0
+    },
+    "correlation_id": "corr_conformance_034",
+    "audit_event_ids": [
+      "audit_request_converted_034",
+      "audit_order_created_034"
+    ],
+    "partial_outcome_visible": false
+  }
+}

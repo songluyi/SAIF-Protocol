@@ -1,0 +1,30 @@
+{
+  "vector_id": "authorization-decision-invalid-001",
+  "saif_version": "0.3.0",
+  "target": "schemas/authorization-decision.schema.json",
+  "expected": "INVALID",
+  "description": "A decision without the evaluated Request revision cannot be used safely.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/request_ref/revision"
+  },
+  "instance": {
+    "id": "decision_conformance_invalid_001",
+    "type": "authorization_decision",
+    "created_at": "2026-08-08T10:20:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "request_ref": { "id": "req_conformance_031" },
+    "authorization_ref": { "id": "auth_conformance_031", "revision": 1 },
+    "agent_id": "agent_conformance_031",
+    "owner_id": "party_conformance_031",
+    "decision": "ALLOW",
+    "evaluated_scope": ["resource_request"],
+    "reason_codes": ["SCOPE_ALLOWED"],
+    "evaluated_at": "2026-08-08T10:20:00Z",
+    "expires_at": "2026-08-08T10:25:00Z",
+    "correlation_id": "corr_conformance_031",
+    "policy_profile": "saif-reference-node/0.3"
+  }
+}

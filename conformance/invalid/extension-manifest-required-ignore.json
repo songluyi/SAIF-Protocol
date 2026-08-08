@@ -1,0 +1,37 @@
+{
+  "vector_id": "extension-manifest-invalid-001",
+  "saif_version": "0.3.0",
+  "target": "schemas/extension-manifest.schema.json",
+  "expected": "INVALID",
+  "description": "A required extension must fail closed and cannot declare IGNORE behavior.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/unknown_behavior"
+  },
+  "instance": {
+    "id": "extension_conformance_invalid_001",
+    "type": "extension_manifest",
+    "created_at": "2026-08-08T10:30:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "extension_id": "org.example.execution-evidence",
+    "namespace": "org.example.execution-evidence",
+    "version": "1.0.0",
+    "required": true,
+    "applies_to": ["execution"],
+    "compatibility": {
+      "saif_min": "0.3.0",
+      "saif_max_exclusive": "1.0.0"
+    },
+    "schema": {
+      "uri": "https://example.org/saif/execution-evidence.schema.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"
+      }
+    },
+    "proposal": { "id": "SEP-0001", "status": "REVIEW" },
+    "unknown_behavior": "IGNORE"
+  }
+}

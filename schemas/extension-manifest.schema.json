@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/songluyi/SAIF-Protocol/schemas/extension-manifest.schema.json",
+  "title": "SAIF Extension Manifest",
+  "description": "A machine-readable declaration of an optional or required SAIF extension.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "created_at",
+    "metadata",
+    "saif_version",
+    "extension_id",
+    "namespace",
+    "version",
+    "required",
+    "applies_to",
+    "compatibility",
+    "schema",
+    "proposal",
+    "unknown_behavior"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "type": { "const": "extension_manifest" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "metadata": { "type": "object" },
+    "saif_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "extension_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9][a-z0-9-]*)+$"
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9][a-z0-9-]*)+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "required": { "type": "boolean" },
+    "applies_to": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["saif_min", "saif_max_exclusive"],
+      "properties": {
+        "saif_min": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "saif_max_exclusive": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "object",
+      "required": ["uri", "digest"],
+      "properties": {
+        "uri": { "type": "string", "format": "uri" },
+        "digest": {
+          "type": "object",
+          "required": ["algorithm", "value"],
+          "properties": {
+            "algorithm": { "const": "SHA-256" },
+            "value": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "proposal": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["id", "status"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^SEP-[0-9]{4}$" },
+            "status": {
+              "type": "string",
+              "enum": ["DRAFT", "REVIEW", "ACCEPTED", "REJECTED", "WITHDRAWN", "SUPERSEDED"]
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "unknown_behavior": {
+      "type": "string",
+      "enum": ["IGNORE", "REJECT"]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "required": { "const": true } },
+        "required": ["required"]
+      },
+      "then": {
+        "properties": { "unknown_behavior": { "const": "REJECT" } }
+      },
+      "else": {
+        "properties": { "unknown_behavior": { "const": "IGNORE" } }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

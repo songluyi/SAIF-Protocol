@@ -1,0 +1,19 @@
+{
+  "vector_id": "action-semantics-valid-001",
+  "saif_version": "0.3.0",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "VALID",
+  "description": "An exact retry in the same idempotency scope returns the recorded outcome without a second mutation.",
+  "instance": {
+    "operation": "ConvertRequest",
+    "actor": { "type": "AGENT", "id": "agent_conformance_032" },
+    "target": { "type": "request", "id": "req_conformance_032" },
+    "idempotency_key": "idem_conformance_032",
+    "first_request_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "replay_request_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "first_outcome": "APPLIED",
+    "replay_outcome": "REPLAYED",
+    "object_mutation_count": 1,
+    "audit_event_count": 1
+  }
+}
