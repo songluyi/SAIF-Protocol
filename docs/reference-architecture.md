@@ -6,7 +6,9 @@ This document is a **design draft** for SAIF Protocol v0.3. It defines a logical
 
 It does not define runtime code, a commercial platform, a payment implementation, an MCP Adapter, an authentication provider, or a mandatory deployment topology.
 
-Normative terms such as **MUST**, **SHOULD**, and **MAY** describe intended v0.3 interoperability requirements. They remain draft requirements until accepted through the SAIF governance process.
+Normative key words in this document follow the repository-wide
+[SAIF Normative Language](normative-language.md) declaration. They remain draft
+requirements until accepted through the SAIF governance process.
 
 ## Purpose
 

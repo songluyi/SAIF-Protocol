@@ -79,6 +79,7 @@ Every v0.1 object contains a common protocol envelope: `id`, `type`, `created_at
 - [Request Lifecycle](docs/request-lifecycle.md)
 - [Provider Interface](docs/provider-interface.md)
 - [Protocol Versioning Strategy](docs/protocol-versioning.md)
+- [Normative Language](docs/normative-language.md)
 - [Protocol State Model](docs/state-machine.md)
 - [SAIF Protocol and MCP Boundary](docs/saif-mcp-boundary.md)
 - [Conformance Test Vector Specification](docs/conformance.md)
@@ -105,6 +106,7 @@ Normative objects, state transitions, schemas, examples, and transport bindings 
 
 Governance specifications:
 
+- [BCP 14 normative language](docs/normative-language.md)
 - [Versioning and compatibility](docs/protocol-versioning.md)
 - [Standard object state machines](docs/state-machine.md)
 - [Boundary between SAIF and MCP](docs/saif-mcp-boundary.md)

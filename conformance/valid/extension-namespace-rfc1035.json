@@ -1,0 +1,36 @@
+{
+  "vector_id": "extension-namespace-rfc1035-010",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "schemas/extension-manifest.schema.json",
+  "expected": "VALID",
+  "description": "A lowercase reverse-domain namespace may use interior hyphens while every label starts with a letter and ends with a letter or digit.",
+  "instance": {
+    "id": "extension_conformance_010",
+    "type": "extension_manifest",
+    "created_at": "2026-08-09T10:00:00Z",
+    "metadata": {},
+    "saif_version": "0.3.0",
+    "extension_id": "org.example-domain.resource-labels",
+    "namespace": "org.example-domain",
+    "version": "1.0.0",
+    "required": false,
+    "applies_to": [
+      "request"
+    ],
+    "compatibility": {
+      "saif_min": "0.3.0",
+      "saif_max_exclusive": "1.0.0"
+    },
+    "schema": {
+      "uri": "https://example.org/saif/resource-labels.schema.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      }
+    },
+    "proposal": null,
+    "unknown_behavior": "IGNORE"
+  }
+}

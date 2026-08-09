@@ -308,4 +308,9 @@ Operation conformance vectors MUST cover:
 - unsupported required extensions; and
 - Standard Error and Audit Event references.
 
-No runtime is required by this specification. Independent implementations demonstrate conformance through observable operation records and vector outcomes.
+The canonical requirement-to-vector mapping is the
+[v0.3 Reference Node Coverage matrix](../conformance.md#v03-reference-node-coverage).
+
+No runtime is required by this specification. Independent implementations
+demonstrate conformance through observable operation records and vector
+outcomes.

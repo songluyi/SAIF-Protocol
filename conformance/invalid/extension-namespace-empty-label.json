@@ -1,0 +1,17 @@
+{
+  "vector_id": "extension-namespace-empty-label-012",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "A reverse-domain namespace cannot contain an empty label.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0002",
+    "path": "/namespace"
+  },
+  "instance": {
+    "namespace": "org..example"
+  }
+}

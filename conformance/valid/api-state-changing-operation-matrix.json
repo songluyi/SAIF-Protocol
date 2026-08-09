@@ -1,0 +1,413 @@
+{
+  "vector_id": "api-operation-matrix-010",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "VALID",
+  "description": "Every required state-changing operation declares all allowed pre-states, successful post-states, an allowed actor, idempotency, error, and audit references.",
+  "instance": {
+    "operations": [
+      {
+        "operation": "CreateRequest",
+        "actor": {
+          "role": "AGENT",
+          "id": "actor_api_1"
+        },
+        "pre_state_cases": [
+          null
+        ],
+        "post_state_cases": [
+          [
+            "Request:DRAFT@0"
+          ]
+        ],
+        "expected_revision": null,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_1"
+          ]
+        },
+        "idempotency_key": "idem_api_1"
+      },
+      {
+        "operation": "SubmitRequest",
+        "actor": {
+          "role": "AGENT",
+          "id": "actor_api_2"
+        },
+        "pre_state_cases": [
+          [
+            "Request:DRAFT"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Request:SUBMITTED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_2"
+          ]
+        },
+        "idempotency_key": "idem_api_2"
+      },
+      {
+        "operation": "EvaluateAuthorization",
+        "actor": {
+          "role": "AUTHORIZATION_EVALUATOR",
+          "id": "actor_api_3"
+        },
+        "pre_state_cases": [
+          [
+            "Request:SUBMITTED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "AuthorizationDecision:ALLOW",
+            "Request:AUTHORIZED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_3"
+          ]
+        },
+        "idempotency_key": "idem_api_3"
+      },
+      {
+        "operation": "ConvertRequest",
+        "actor": {
+          "role": "REFERENCE_NODE",
+          "id": "actor_api_4"
+        },
+        "pre_state_cases": [
+          [
+            "Request:AUTHORIZED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Request:CONVERTED",
+            "Order:CREATED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_4"
+          ]
+        },
+        "idempotency_key": "idem_api_4"
+      },
+      {
+        "operation": "ConfirmOrder",
+        "actor": {
+          "role": "PROVIDER",
+          "id": "actor_api_5"
+        },
+        "pre_state_cases": [
+          [
+            "Order:CREATED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Order:CONFIRMED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_5"
+          ]
+        },
+        "idempotency_key": "idem_api_5"
+      },
+      {
+        "operation": "CancelOrder",
+        "actor": {
+          "role": "OWNER",
+          "id": "actor_api_6"
+        },
+        "pre_state_cases": [
+          [
+            "Order:CREATED"
+          ],
+          [
+            "Order:CONFIRMED"
+          ],
+          [
+            "Order:PROCESSING"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Order:CANCELLED"
+          ],
+          [
+            "Order:CANCELLED"
+          ],
+          [
+            "Order:CANCELLED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_6"
+          ]
+        },
+        "idempotency_key": "idem_api_6"
+      },
+      {
+        "operation": "CreateExecution",
+        "actor": {
+          "role": "PROVIDER",
+          "id": "actor_api_7"
+        },
+        "pre_state_cases": [
+          [
+            "Order:CONFIRMED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Execution:PENDING@0",
+            "Order:CONFIRMED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_7"
+          ]
+        },
+        "idempotency_key": "idem_api_7"
+      },
+      {
+        "operation": "StartExecution",
+        "actor": {
+          "role": "PROVIDER",
+          "id": "actor_api_8"
+        },
+        "pre_state_cases": [
+          [
+            "Execution:PENDING",
+            "Order:CONFIRMED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Execution:RUNNING",
+            "Order:PROCESSING"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_8"
+          ]
+        },
+        "idempotency_key": "idem_api_8"
+      },
+      {
+        "operation": "CompleteExecution",
+        "actor": {
+          "role": "PROVIDER",
+          "id": "actor_api_9"
+        },
+        "pre_state_cases": [
+          [
+            "Execution:RUNNING",
+            "Order:PROCESSING"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Execution:COMPLETED",
+            "Order:FULFILLED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_9"
+          ]
+        },
+        "idempotency_key": "idem_api_9"
+      },
+      {
+        "operation": "FailExecution",
+        "actor": {
+          "role": "PROVIDER",
+          "id": "actor_api_10"
+        },
+        "pre_state_cases": [
+          [
+            "Execution:PENDING"
+          ],
+          [
+            "Execution:RUNNING"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Execution:FAILED"
+          ],
+          [
+            "Execution:FAILED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_10"
+          ]
+        },
+        "idempotency_key": "idem_api_10"
+      },
+      {
+        "operation": "CreateSettlement",
+        "actor": {
+          "role": "REFERENCE_NODE",
+          "id": "actor_api_11"
+        },
+        "pre_state_cases": [
+          [
+            "Execution:COMPLETED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Settlement:PENDING@0"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_11"
+          ]
+        },
+        "idempotency_key": "idem_api_11"
+      },
+      {
+        "operation": "Settle",
+        "actor": {
+          "role": "OWNER",
+          "id": "actor_api_12"
+        },
+        "pre_state_cases": [
+          [
+            "Settlement:PENDING"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Settlement:SETTLED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_12"
+          ]
+        },
+        "idempotency_key": "idem_api_12"
+      },
+      {
+        "operation": "RefundSettlement",
+        "actor": {
+          "role": "OWNER",
+          "id": "actor_api_13"
+        },
+        "pre_state_cases": [
+          [
+            "Settlement:SETTLED"
+          ]
+        ],
+        "post_state_cases": [
+          [
+            "Settlement:REFUNDED"
+          ]
+        ],
+        "expected_revision": 1,
+        "result": {
+          "protocol": {
+            "status": "SUCCESS"
+          },
+          "action_outcome": "APPLIED",
+          "standard_error_ref": null,
+          "audit_event_refs": [
+            "audit_api_13"
+          ]
+        },
+        "idempotency_key": "idem_api_13"
+      }
+    ]
+  }
+}

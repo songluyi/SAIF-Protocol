@@ -1,0 +1,123 @@
+{
+  "vector_id": "api-actor-allowed-011",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "VALID",
+  "description": "The actor matrix enumerates the permitted roles for every required state-changing operation.",
+  "instance": {
+    "cases": [
+      {
+        "operation": "CreateRequest",
+        "allowed_roles": [
+          "OWNER",
+          "AGENT"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "SubmitRequest",
+        "allowed_roles": [
+          "OWNER",
+          "AGENT"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "EvaluateAuthorization",
+        "allowed_roles": [
+          "OWNER",
+          "AUTHORIZATION_EVALUATOR"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "ConvertRequest",
+        "allowed_roles": [
+          "OWNER",
+          "AGENT",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "ConfirmOrder",
+        "allowed_roles": [
+          "PROVIDER",
+          "OWNER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "CancelOrder",
+        "allowed_roles": [
+          "OWNER",
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "CreateExecution",
+        "allowed_roles": [
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "StartExecution",
+        "allowed_roles": [
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "CompleteExecution",
+        "allowed_roles": [
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "FailExecution",
+        "allowed_roles": [
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "CreateSettlement",
+        "allowed_roles": [
+          "OWNER",
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "Settle",
+        "allowed_roles": [
+          "OWNER",
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      },
+      {
+        "operation": "RefundSettlement",
+        "allowed_roles": [
+          "OWNER",
+          "PROVIDER",
+          "REFERENCE_NODE"
+        ],
+        "identity_binding_required": true
+      }
+    ]
+  }
+}

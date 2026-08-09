@@ -1,0 +1,27 @@
+{
+  "vector_id": "api-query-invalid-cursor-012",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "INVALID",
+  "description": "An invalid opaque continuation token is rejected without exposing storage details.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0002",
+    "path": "/query/continuation_token"
+  },
+  "instance": {
+    "operation": "GetObjectHistory",
+    "actor": {
+      "role": "OWNER",
+      "id": "party_api_033"
+    },
+    "query": {
+      "object_id": "req_api_033",
+      "continuation_token": "tampered.cursor"
+    },
+    "cursor_valid": false,
+    "storage_detail_exposed": false
+  }
+}

@@ -36,11 +36,14 @@ The manifest separates:
 - `namespace`: the authority, such as `org.example`; and
 - `extension_id`: the complete extension identifier.
 
-Both values contain at least two dot-separated labels. `extension_id` MUST begin
-with the declared namespace followed by `.` and an extension-local name. Private
-or experimental extensions MUST NOT use the reserved `org.saif` namespace or
-allocate core `SAIF-` error codes. Hyphen-only experimental identifiers are not
-valid v0.3 Extension IDs.
+Both values use lowercase
+[RFC 1035](https://www.rfc-editor.org/rfc/rfc1035.html)-compatible labels. Each label is 1 to 63
+ASCII characters, starts with a letter, ends with a letter or digit, and uses
+only lowercase letters, digits, or interior hyphens. Each value is at most 253
+characters. `extension_id` MUST begin with the declared namespace followed by
+`.` and an extension-local name. Private or experimental extensions MUST NOT use
+the reserved `org.saif` namespace or allocate core `SAIF-` error codes.
+Hyphen-only experimental identifiers are not valid v0.3 Extension IDs.
 
 ## Manifest Fields
 

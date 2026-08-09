@@ -125,5 +125,8 @@ Conformance MUST verify:
 - rejection of result envelopes that place lifecycle states in Action Outcome or
   Action Outcome values in lifecycle fields.
 
+The canonical requirement-to-vector mapping is the
+[v0.3 Reference Node Coverage matrix](../conformance.md#v03-reference-node-coverage).
+
 This model defines protocol data semantics only. It does not define a runtime,
 transport, queue, Provider workflow, commerce system, or payment system.

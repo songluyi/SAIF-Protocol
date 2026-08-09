@@ -1,0 +1,21 @@
+{
+  "vector_id": "extension-namespace-reserved-014",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "A private extension cannot claim the reserved org.saif namespace.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0003",
+    "path": "/namespace"
+  },
+  "instance": {
+    "namespace": "org.saif",
+    "extension_id": "org.saif.private-capability",
+    "proposal": null,
+    "required": false,
+    "unknown_behavior": "IGNORE"
+  }
+}

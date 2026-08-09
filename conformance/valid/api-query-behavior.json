@@ -1,0 +1,71 @@
+{
+  "vector_id": "api-query-behavior-012",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "VALID",
+  "description": "Required queries enforce authorization, deterministic ordering, and opaque continuation-token pagination.",
+  "instance": {
+    "actor": {
+      "role": "OWNER",
+      "id": "party_api_030",
+      "owner_id": "party_api_030"
+    },
+    "queries": [
+      {
+        "operation": "GetObject",
+        "authorized": true,
+        "result_fields": [
+          "object",
+          "revision",
+          "saif_version",
+          "extensions",
+          "correlation_references"
+        ]
+      },
+      {
+        "operation": "GetObjectHistory",
+        "authorized": true,
+        "ordering": [
+          "revision",
+          "event_id"
+        ]
+      },
+      {
+        "operation": "QueryAuditEvents",
+        "authorized": true,
+        "ordering": [
+          "event_time",
+          "event_id"
+        ]
+      },
+      {
+        "operation": "GetOperation",
+        "authorized": true,
+        "result_fields": [
+          "protocol",
+          "action_outcome",
+          "affected_objects"
+        ]
+      },
+      {
+        "operation": "GetError",
+        "authorized": true,
+        "result_fields": [
+          "code",
+          "category",
+          "message",
+          "details"
+        ]
+      }
+    ],
+    "pagination": {
+      "requested_page_size": 25,
+      "advertised_maximum": 100,
+      "continuation_token": "opaque_page_2",
+      "stable_snapshot": true,
+      "token_exposes_storage_key": false
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "vector_id": "api-query-owner-isolation-011",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "INVALID",
+  "description": "A query cannot read an object belonging to another Owner without explicit cross-owner Authorization.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0005",
+    "path": "/query/owner_id"
+  },
+  "instance": {
+    "operation": "GetObject",
+    "actor": {
+      "role": "AGENT",
+      "id": "agent_api_031",
+      "owner_id": "party_api_031"
+    },
+    "query": {
+      "object_id": "req_api_032",
+      "owner_id": "party_api_032"
+    },
+    "cross_owner_authorization": false
+  }
+}

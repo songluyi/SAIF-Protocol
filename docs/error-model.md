@@ -54,6 +54,19 @@ Examples:
 
 The textual category in an error object remains normative even when the shorter `STATE` token is used in a code.
 
+## Canonical Error Location
+
+When a Standard Error or conformance expectation identifies an input location,
+`details.path` uses an [RFC 6901](https://www.rfc-editor.org/rfc/rfc6901.html)
+JSON Pointer relative to the complete input
+instance evaluated by the operation or schema. The empty string identifies the
+root instance. `/` identifies a member whose name is the empty string.
+
+Pointer escaping is mandatory: `~0` represents `~`, and `~1` represents `/`.
+An error concerning a missing member uses the pointer that the member would have
+occupied. A semantic operation error points to the smallest input value that
+caused the primary failure. Bindings MUST preserve this pointer losslessly.
+
 ## Retry Semantics
 
 `retryable: true` means the operation may succeed later without changing its business intent, for example after temporary Provider unavailability.

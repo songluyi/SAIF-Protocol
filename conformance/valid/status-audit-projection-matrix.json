@@ -1,0 +1,73 @@
+{
+  "vector_id": "status-audit-projection-012",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUDIT",
+  "target": "docs/specs/status-model.md",
+  "expected": "VALID",
+  "description": "Every Action Outcome maps to the required Audit outcome while preserving the exact outcome in details.",
+  "instance": {
+    "cases": [
+      {
+        "case_id": "status_audit_1",
+        "action_outcome": "APPLIED",
+        "audit_event": {
+          "outcome": "SUCCESS",
+          "details": {
+            "action_outcome": "APPLIED"
+          }
+        }
+      },
+      {
+        "case_id": "status_audit_2",
+        "action_outcome": "REPLAYED",
+        "audit_event": {
+          "outcome": "SUCCESS",
+          "details": {
+            "action_outcome": "REPLAYED"
+          }
+        }
+      },
+      {
+        "case_id": "status_audit_3",
+        "action_outcome": "PENDING",
+        "audit_event": {
+          "outcome": "PENDING",
+          "details": {
+            "action_outcome": "PENDING"
+          }
+        }
+      },
+      {
+        "case_id": "status_audit_4",
+        "action_outcome": "REJECTED",
+        "audit_event": {
+          "outcome": "FAILURE",
+          "details": {
+            "action_outcome": "REJECTED"
+          }
+        }
+      },
+      {
+        "case_id": "status_audit_5",
+        "action_outcome": "CONFLICT",
+        "audit_event": {
+          "outcome": "FAILURE",
+          "details": {
+            "action_outcome": "CONFLICT"
+          }
+        }
+      },
+      {
+        "case_id": "status_audit_6",
+        "action_outcome": "FAILED",
+        "audit_event": {
+          "outcome": "FAILURE",
+          "details": {
+            "action_outcome": "FAILED"
+          }
+        }
+      }
+    ]
+  }
+}

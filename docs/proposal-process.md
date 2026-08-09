@@ -98,7 +98,12 @@ A later accepted proposal replaces the extension. The superseding SEP must be id
 Core SAIF names and `SAIF-` error code ranges are reserved for accepted standard specifications.
 
 All standard, experimental, and private extensions MUST use a lowercase
-reverse-domain namespace controlled by the extension author.
+reverse-domain namespace controlled by the extension author. Namespace labels
+use the preferred [RFC 1035](https://www.rfc-editor.org/rfc/rfc1035.html)
+syntax: every label is 1 to 63 ASCII characters,
+starts with a lowercase letter, ends with a lowercase letter or digit, and uses
+only lowercase letters, digits, or interior hyphens. A namespace contains at
+least two labels and is at most 253 characters in presentation form.
 
 Example namespace and extension identifier:
 
@@ -107,8 +112,8 @@ namespace: org.example
 extension_id: org.example.document-priority
 ```
 
-The namespace contains at least two dot-separated labels. The extension ID MUST
-begin with the complete namespace followed by `.` and an extension-local name.
+The Extension ID uses the same label grammar. It MUST begin with the complete
+namespace followed by `.` and an extension-local name.
 
 An extension namespace:
 

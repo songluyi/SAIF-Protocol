@@ -1,0 +1,71 @@
+{
+  "vector_id": "api-discovery-behavior-013",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "VALID",
+  "description": "Discovery exposes node, capability, and verified extension metadata without implying Authorization.",
+  "instance": {
+    "DescribeNode": {
+      "implementation": {
+        "name": "SAIF Conformance Node",
+        "version": "0.3-test"
+      },
+      "supported_saif_versions": [
+        "0.3.0"
+      ],
+      "supported_profiles": [
+        "saif-reference-node/0.3"
+      ],
+      "required_operations": [
+        "CreateRequest",
+        "SubmitRequest",
+        "EvaluateAuthorization",
+        "ConvertRequest",
+        "ConfirmOrder",
+        "CancelOrder",
+        "CreateExecution",
+        "StartExecution",
+        "CompleteExecution",
+        "FailExecution",
+        "CreateSettlement",
+        "Settle",
+        "RefundSettlement"
+      ],
+      "optional_operations": [],
+      "idempotency_retention_seconds": 86400,
+      "pagination": {
+        "maximum_page_size": 100
+      },
+      "security_profiles": [
+        "saif-reference-node-security/0.3"
+      ]
+    },
+    "ListCapabilities": {
+      "capabilities": [
+        {
+          "id": "document-processing",
+          "allowed_actor_roles": [
+            "OWNER",
+            "AGENT"
+          ]
+        }
+      ],
+      "authorization_implied": false
+    },
+    "ListExtensions": {
+      "extensions": [
+        {
+          "extension_id": "org.example.resource-labels",
+          "version": "1.0.0",
+          "digest": {
+            "algorithm": "SHA-256",
+            "value": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+          },
+          "verified": true
+        }
+      ]
+    }
+  }
+}

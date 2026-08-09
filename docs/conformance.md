@@ -101,6 +101,19 @@ normative.
 The shortened token `STATE` may appear inside a code such as
 `SAIF-STATE-0002`; it is not a valid category value.
 
+## Canonical Error Path
+
+`expected_error.path` is an
+[RFC 6901](https://www.rfc-editor.org/rfc/rfc6901.html) JSON Pointer relative
+to the vector's
+complete `instance`. The empty string is the canonical pointer for a root
+instance error. `/` identifies a member whose name is the empty string.
+
+A missing-member error uses the pointer at which the member would have appeared.
+A semantic vector points to the smallest input value responsible for the primary
+failure. Runners MUST compare the reported pointer exactly after JSON Pointer
+escaping; they MUST NOT infer an implementation-specific object path.
+
 ## Valid Vector Rules
 
 A valid vector passes when:
@@ -119,8 +132,10 @@ An invalid vector passes when:
 
 1. the implementation rejects the instance;
 2. the reported error category matches `expected_error.category`;
-3. the reported error code matches `expected_error.code`; and
-4. the implementation does not create a downstream commitment or successful lifecycle result from the rejected instance.
+3. the reported error code matches `expected_error.code`;
+4. the reported RFC 6901 pointer exactly matches `expected_error.path`; and
+5. the implementation does not create a downstream commitment or successful
+   lifecycle result from the rejected instance.
 
 An implementation must report a failure if it accepts a normative invalid vector.
 
@@ -148,20 +163,39 @@ Validates that extensions use an approved namespace, declare compatibility, and 
 
 ## v0.3 Reference Node Coverage
 
-The mandatory v0.3 vector profile covers:
+The mandatory v0.3 profile uses the following requirement-to-vector matrix.
+Vector IDs are normative identifiers; one vector may satisfy multiple rows when
+its target and description identify every shared invariant.
 
-| Area | Required behavior |
-| --- | --- |
-| Authorization | Decision values, freshness, revocation, revision binding, identity binding, replay isolation, conversion preconditions. |
-| Action | revision success and conflict, unchanged and changed-input replay, concurrency, atomic multi-object outcomes, asynchronous completion, Provider authority, audit de-duplication. |
-| Extension | valid optional and required manifests, unknown behavior, namespace, version compatibility, digest integrity, duplicate conflicts. |
-| Security | Owner isolation, Provider attribution, downgrade rejection, extension integrity, idempotency conflict, safe error and audit output. |
-| Governance dependencies | object schemas, lifecycle transitions, Standard Errors, Audit Events, and cross-object references. |
+| Requirement | Required evidence | Vector IDs |
+| --- | --- | --- |
+| `STATUS-01` | Protocol `SUCCESS` with every Action Outcome | `status-success-outcomes-010`, `status-layer-separation-001` |
+| `STATUS-02` | Protocol `FAILURE` with error and no outcome | `status-protocol-failure-002` |
+| `STATUS-03` | Three distinct `PENDING` layers | `status-pending-layers-011` |
+| `STATUS-04` | Complete Audit projection | `status-audit-projection-012` |
+| `STATUS-05` | Reject cross-layer enum placement | `status-layer-confusion-001`, `status-layer-confusion-002` |
+| `API-01` | All required state-changing operations | `api-operation-matrix-010` |
+| `API-02` | Allowed actor matrix | `api-actor-allowed-011` |
+| `API-03` | Denied actor behavior | `api-actor-denied-010` |
+| `API-04` | Query authorization and ordering | `api-query-behavior-012`, `api-query-owner-isolation-011` |
+| `API-05` | Pagination and invalid cursor handling | `api-query-behavior-012`, `api-query-invalid-cursor-012` |
+| `API-06` | Discovery surface and neutrality | `api-discovery-behavior-013` |
+| `API-07` | Required discovery response fields | `api-discovery-incomplete-013` |
+| `AUTH-01` | Decision values and required fields | `authorization-decision-valid-001`, `authorization-decision-deny-002`, `authorization-requires-action-003`, `authorization-decision-invalid-001` |
+| `AUTH-02` | Freshness, revision, revocation, replay, conversion | `authorization-decision-expired-002`, `authorization-revision-mismatch-003`, `authorization-revoked-after-evaluation-004`, `authorization-cross-request-replay-005`, `authorization-non-allow-conversion-006` |
+| `ACTION-01` | Replay, revision, and concurrency | `action-semantics-valid-001`, `action-idempotency-conflict-003`, `action-semantics-invalid-001`, `action-concurrent-terminal-conflict-004` |
+| `ACTION-02` | Atomic and asynchronous outcomes | `action-semantics-valid-002`, `action-execution-completion-003`, `action-asynchronous-completion-004`, `action-incomplete-atomic-outcome-005` |
+| `EXT-01` | Manifest, unknown, and compatibility behavior | `extension-manifest-valid-001`, `extension-manifest-required-002`, `extension-manifest-invalid-001`, `extension-optional-unknown-ignore-003`, `extension-semantics-invalid-002`, `extension-incompatible-version-004` |
+| `EXT-02` | RFC 1035 namespace grammar and authority | `extension-namespace-rfc1035-010`, `extension-namespace-trailing-hyphen-010`, `extension-namespace-leading-hyphen-011`, `extension-namespace-empty-label-012`, `extension-namespace-leading-digit-013`, `extension-namespace-reserved-014`, `extension-namespace-mismatch-003` |
+| `EXT-03` | Digest and duplicate conflict | `extension-digest-mismatch-005`, `extension-duplicate-conflict-006` |
+| `SEC-01` | Owner, Provider, negotiation, downgrade, redaction | `security-owner-isolation-001`, `security-owner-scoped-access-001`, `action-semantics-invalid-002`, `security-version-negotiation-002`, `security-version-downgrade-002`, `security-error-secret-disclosure-003`, `security-audit-secret-disclosure-004` |
+| `GOV-01` | Objects, lifecycle, errors, audit, references | `request-valid-001`, `request-invalid-001`, `order-valid-001`, `order-invalid-001`, `lifecycle-request-submit-001`, `lifecycle-terminal-order-reopen-001`, `error-standard-shape-001`, `error-nonstandard-category-001`, `audit-owner-attribution-001`, `audit-missing-authorization-001`, `cross-object-reference-chain-001`, `cross-object-reference-mismatch-001` |
 
-A required behavior MAY be demonstrated by a vector assigned to another area
-when the vector description and target identify the shared invariant. Coverage
-reports MUST count the vector in every satisfied requirement without executing it
-more than once.
+A coverage report MUST list each matrix row, the vectors executed for that row,
+and its pass, fail, or skipped result. A required behavior MAY be demonstrated by
+a vector assigned to another area only when the vector description and target
+identify the shared invariant. The report counts that vector in every satisfied
+row without executing it more than once.
 
 ## Conformance Claim
 

@@ -1,0 +1,17 @@
+{
+  "vector_id": "extension-namespace-trailing-hyphen-010",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "An RFC 1035 namespace label cannot end with a hyphen.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0002",
+    "path": "/namespace"
+  },
+  "instance": {
+    "namespace": "org.example-"
+  }
+}

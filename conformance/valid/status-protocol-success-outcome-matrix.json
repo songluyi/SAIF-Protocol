@@ -1,0 +1,55 @@
+{
+  "vector_id": "status-success-outcomes-010",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/status-model.md",
+  "expected": "VALID",
+  "description": "Protocol SUCCESS is valid with every Action Outcome because protocol processing and action semantics are separate.",
+  "instance": {
+    "cases": [
+      {
+        "case_id": "status_success_1",
+        "protocol": {
+          "status": "SUCCESS"
+        },
+        "action_outcome": "APPLIED"
+      },
+      {
+        "case_id": "status_success_2",
+        "protocol": {
+          "status": "SUCCESS"
+        },
+        "action_outcome": "REPLAYED"
+      },
+      {
+        "case_id": "status_success_3",
+        "protocol": {
+          "status": "SUCCESS"
+        },
+        "action_outcome": "PENDING"
+      },
+      {
+        "case_id": "status_success_4",
+        "protocol": {
+          "status": "SUCCESS"
+        },
+        "action_outcome": "REJECTED"
+      },
+      {
+        "case_id": "status_success_5",
+        "protocol": {
+          "status": "SUCCESS"
+        },
+        "action_outcome": "CONFLICT"
+      },
+      {
+        "case_id": "status_success_6",
+        "protocol": {
+          "status": "SUCCESS"
+        },
+        "action_outcome": "FAILED"
+      }
+    ]
+  }
+}

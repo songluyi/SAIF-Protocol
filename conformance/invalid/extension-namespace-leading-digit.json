@@ -1,0 +1,17 @@
+{
+  "vector_id": "extension-namespace-leading-digit-013",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "An RFC 1035 preferred-syntax namespace label must begin with a letter.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0002",
+    "path": "/namespace"
+  },
+  "instance": {
+    "namespace": "org.9example"
+  }
+}

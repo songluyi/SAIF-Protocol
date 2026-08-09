@@ -9,7 +9,7 @@
   "expected_error": {
     "category": "VALIDATION",
     "code": "SAIF-VALIDATION-0002",
-    "path": "/action_outcome"
+    "path": ""
   },
   "instance": "AUTHORIZED"
 }

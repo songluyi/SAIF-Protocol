@@ -1,0 +1,37 @@
+{
+  "vector_id": "api-discovery-incomplete-013",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "INVALID",
+  "description": "DescribeNode is invalid when its response omits the required supported SAIF versions.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/response/supported_saif_versions"
+  },
+  "instance": {
+    "operation": "DescribeNode",
+    "response": {
+      "implementation": {
+        "name": "SAIF Conformance Node",
+        "version": "0.3-test"
+      },
+      "supported_profiles": [
+        "saif-reference-node/0.3"
+      ],
+      "required_operations": [
+        "CreateRequest"
+      ],
+      "optional_operations": [],
+      "idempotency_retention_seconds": 86400,
+      "pagination": {
+        "maximum_page_size": 100
+      },
+      "security_profiles": [
+        "saif-reference-node-security/0.3"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "vector_id": "status-pending-layers-011",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/status-model.md",
+  "expected": "VALID",
+  "description": "Protocol, action, and lifecycle PENDING values remain in separate fields with distinct meanings.",
+  "instance": {
+    "protocol_pending": {
+      "protocol": {
+        "status": "PENDING"
+      },
+      "action_outcome": null,
+      "lifecycle_state": null
+    },
+    "action_pending": {
+      "protocol": {
+        "status": "SUCCESS"
+      },
+      "action_outcome": "PENDING",
+      "lifecycle_state": "SUBMITTED"
+    },
+    "lifecycle_pending": {
+      "protocol": {
+        "status": "SUCCESS"
+      },
+      "action_outcome": "APPLIED",
+      "lifecycle_state": "PENDING"
+    }
+  }
+}

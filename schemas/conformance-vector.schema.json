@@ -59,7 +59,11 @@
           "type": "string",
           "pattern": "^SAIF-[A-Z]+-[0-9]{4}$"
         },
-        "path": { "type": "string", "pattern": "^/" }
+        "path": {
+          "type": "string",
+          "description": "RFC 6901 JSON Pointer relative to instance; empty string identifies the root.",
+          "pattern": "^(?:|(?:/(?:[^~/]|~[01])*)+)$"
+        }
       },
       "additionalProperties": false
     },

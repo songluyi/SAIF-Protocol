@@ -1,0 +1,26 @@
+{
+  "vector_id": "api-actor-denied-010",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/api-operation-semantics.md",
+  "expected": "INVALID",
+  "description": "A Provider cannot evaluate an Authorization Decision.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0005",
+    "path": "/actor/role"
+  },
+  "instance": {
+    "operation": "EvaluateAuthorization",
+    "actor": {
+      "role": "PROVIDER",
+      "id": "provider_api_020"
+    },
+    "allowed_roles": [
+      "OWNER",
+      "AUTHORIZATION_EVALUATOR"
+    ],
+    "request_state": "SUBMITTED"
+  }
+}

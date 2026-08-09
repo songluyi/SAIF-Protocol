@@ -1,0 +1,26 @@
+{
+  "vector_id": "status-layer-confusion-002",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "schemas/request.schema.json",
+  "expected": "INVALID",
+  "description": "An Action Outcome cannot be used as a Request lifecycle state.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0002",
+    "path": "/status"
+  },
+  "instance": {
+    "id": "req_conformance_081",
+    "type": "document_print",
+    "created_at": "2026-08-09T10:05:00Z",
+    "metadata": {},
+    "agent_id": "agent_conformance_081",
+    "status": "APPLIED",
+    "requirement": {
+      "document_ref": "document_conformance_081",
+      "copies": 1
+    }
+  }
+}
