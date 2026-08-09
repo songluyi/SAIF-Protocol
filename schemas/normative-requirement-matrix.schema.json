@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/normative-requirement-matrix.schema.json",
+  "x-saif-version": "0.3.0",
+  "title": "SAIF Normative Requirement Matrix",
+  "description": "Machine-readable clause-to-schema-to-vector evidence mapping for the v0.3 freeze candidate.",
+  "type": "object",
+  "required": ["saif_version", "profile", "normative_scope", "requirements"],
+  "properties": {
+    "saif_version": { "const": "0.3.0" },
+    "profile": { "const": "saif-reference-node/0.3" },
+    "normative_scope": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "requirements": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/requirement" } }
+  },
+  "$defs": {
+    "requirement": {
+      "type": "object",
+      "required": ["requirement_id", "keywords", "keyword_count", "specification", "section", "source_line", "source_digest", "statement", "schema_rules", "vector_ids", "evidence_profile"],
+      "properties": {
+        "requirement_id": { "type": "string", "pattern": "^NR-[0-9]{4}$" },
+        "keywords": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "enum": ["MUST", "MUST NOT"] } },
+        "keyword_count": { "type": "integer", "minimum": 1 },
+        "specification": { "type": "string", "minLength": 1 },
+        "section": { "type": "string", "minLength": 1 },
+        "source_line": { "type": "integer", "minimum": 1 },
+        "source_digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+        "statement": { "type": "string", "minLength": 1 },
+        "schema_rules": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "vector_ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-[0-9]{3}$" } },
+        "evidence_profile": { "type": "string", "enum": ["GOVERNANCE", "CORE", "SP0", "SP1", "SP2"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,45 @@
+{
+  "vector_id": "audit-correlation-complete-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUDIT",
+  "target": "schemas/audit-correlation.schema.json",
+  "expected": "VALID",
+  "description": "A complete trace connects the action, authorization, decision, Order, Execution, Provider, outcome, and Audit Events.",
+  "instance": {
+    "operation_id": "op_audit_020",
+    "correlation_id": "corr_audit_020",
+    "action": "CompleteExecution",
+    "actor": {
+      "type": "PROVIDER",
+      "id": "provider_audit_020",
+      "owner_id": null
+    },
+    "request_ref": {
+      "id": "request_audit_020",
+      "revision": 2
+    },
+    "authorization_ref": {
+      "id": "authorization_audit_020",
+      "revision": 1
+    },
+    "authorization_decision_id": "decision_audit_020",
+    "order_ref": {
+      "id": "order_audit_020",
+      "revision": 3
+    },
+    "execution_ref": {
+      "id": "execution_audit_020",
+      "revision": 2,
+      "provider_id": "provider_audit_020"
+    },
+    "previous_state": "RUNNING",
+    "new_state": "COMPLETED",
+    "action_outcome": "APPLIED",
+    "standard_error_ref": null,
+    "audit_event_refs": [
+      "audit_execution_020",
+      "audit_order_020"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/audit-correlation.schema.json",
+  "x-saif-version": "0.3.0",
+  "title": "SAIF Audit Correlation Evidence",
+  "description": "A complete portable reference chain connecting an authorized action, execution, outcome, and Audit Events.",
+  "type": "object",
+  "required": ["operation_id", "correlation_id", "action", "actor", "request_ref", "authorization_ref", "authorization_decision_id", "order_ref", "execution_ref", "previous_state", "new_state", "action_outcome", "standard_error_ref", "audit_event_refs"],
+  "properties": {
+    "operation_id": { "type": "string", "minLength": 1 },
+    "correlation_id": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "actor": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "type": "string", "enum": ["PARTY", "AGENT", "PROVIDER", "SYSTEM"] },
+        "id": { "type": "string", "minLength": 1 },
+        "owner_id": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "request_ref": { "$ref": "#/$defs/revisionedReference" },
+    "authorization_ref": { "$ref": "#/$defs/revisionedReference" },
+    "authorization_decision_id": { "type": "string", "minLength": 1 },
+    "order_ref": { "$ref": "#/$defs/revisionedReference" },
+    "execution_ref": {
+      "type": "object",
+      "required": ["id", "revision", "provider_id"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "revision": { "type": "integer", "minimum": 0 }, "provider_id": { "type": "string", "minLength": 1 } },
+      "additionalProperties": false
+    },
+    "previous_state": { "type": ["string", "null"] },
+    "new_state": { "type": ["string", "null"] },
+    "action_outcome": { "type": "string", "enum": ["APPLIED", "REPLAYED", "PENDING", "REJECTED", "CONFLICT", "FAILED"] },
+    "standard_error_ref": { "type": ["string", "null"], "minLength": 1 },
+    "audit_event_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "revisionedReference": {
+      "type": "object",
+      "required": ["id", "revision"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "revision": { "type": "integer", "minimum": 0 } },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "action_outcome": { "enum": ["REJECTED", "CONFLICT", "FAILED"] } }, "required": ["action_outcome"] },
+      "then": { "properties": { "standard_error_ref": { "type": "string", "minLength": 1 } } },
+      "else": { "properties": { "standard_error_ref": { "type": "null" } } }
+    }
+  ],
+  "additionalProperties": false
+}

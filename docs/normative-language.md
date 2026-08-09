@@ -34,6 +34,7 @@ This declaration applies to:
 - `docs/audit-event-model.md`;
 - `docs/reference-architecture.md`;
 - `docs/v0.3-roadmap.md`;
+- `docs/normative-requirement-matrix.md`;
 - contract specifications under `docs/specs/`;
 - JSON Schemas under `schemas/`;
 - conformance vectors under `conformance/`; and

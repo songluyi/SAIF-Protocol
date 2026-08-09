@@ -1,0 +1,18 @@
+{
+  "vector_id": "governance-schema-identity-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "OBJECT",
+  "target": "docs/protocol-versioning.md",
+  "expected": "VALID",
+  "description": "Every v0.3 schema uses a unique immutable candidate ID under the intended v0.3.0 tag and declares x-saif-version 0.3.0.",
+  "instance": {
+    "schema_count": 15,
+    "unique_id_count": 15,
+    "id_prefix": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/",
+    "x_saif_version": "0.3.0",
+    "unversioned_id_count": 0,
+    "release_tag": "v0.3.0",
+    "release_tag_state": "ABSENT_PRE_RELEASE"
+  }
+}

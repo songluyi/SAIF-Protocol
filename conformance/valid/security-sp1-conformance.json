@@ -1,0 +1,21 @@
+{
+  "vector_id": "security-sp1-conformance-021",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "VALID",
+  "description": "SP1 evidence adds resolved actors, Owner isolation, fresh Authorization, replay safety, Provider binding, and complete audit correlation.",
+  "instance": {
+    "security_evidence_profile": "SP1",
+    "includes": [
+      "SP0"
+    ],
+    "actor_resolved": true,
+    "owner_isolation_enforced": true,
+    "authorization_fresh": true,
+    "idempotent_replay_mutation_count": 0,
+    "provider_binding_verified": true,
+    "audit_correlation_complete": true
+  }
+}

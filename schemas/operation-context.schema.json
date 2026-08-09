@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/songluyi/SAIF-Protocol/v0.3.0/schemas/operation-context.schema.json",
+  "x-saif-version": "0.3.0",
+  "title": "SAIF Operation Context",
+  "description": "Binding-neutral attribution, correlation, authorization, execution, and replay context for a state-changing operation.",
+  "type": "object",
+  "required": ["operation_id", "operation", "saif_version", "profile", "correlation_id", "causation_id", "idempotency_key", "actor", "target", "request_context", "execution_context", "authorization_decision_id", "extensions", "payload"],
+  "properties": {
+    "operation_id": { "type": "string", "minLength": 1 },
+    "operation": { "type": "string", "minLength": 1 },
+    "saif_version": { "const": "0.3.0" },
+    "profile": { "const": "saif-reference-node/0.3" },
+    "correlation_id": { "type": "string", "minLength": 1 },
+    "causation_id": { "type": ["string", "null"], "minLength": 1 },
+    "idempotency_key": { "type": "string", "minLength": 1 },
+    "actor": { "$ref": "#/$defs/actor" },
+    "target": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/revisionedObjectReference" }] },
+    "request_context": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/requestContext" }] },
+    "execution_context": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/executionContext" }] },
+    "authorization_decision_id": { "type": ["string", "null"], "minLength": 1 },
+    "extensions": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/extensionReference" } },
+    "payload": { "type": "object" }
+  },
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "type": "string", "enum": ["PARTY", "AGENT", "PROVIDER", "SYSTEM"] },
+        "id": { "type": "string", "minLength": 1 },
+        "owner_id": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "revisionedObjectReference": {
+      "type": "object",
+      "required": ["type", "id", "expected_revision"],
+      "properties": {
+        "type": { "type": "string", "enum": ["request", "authorization", "order", "execution", "settlement"] },
+        "id": { "type": "string", "minLength": 1 },
+        "expected_revision": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "requestContext": {
+      "type": "object",
+      "required": ["owner_id", "agent_id", "request_id", "request_revision", "authorization_id"],
+      "properties": {
+        "owner_id": { "type": "string", "minLength": 1 },
+        "agent_id": { "type": "string", "minLength": 1 },
+        "request_id": { "type": "string", "minLength": 1 },
+        "request_revision": { "type": "integer", "minimum": 0 },
+        "authorization_id": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "executionContext": {
+      "type": "object",
+      "required": ["order_id", "order_revision", "execution_id", "execution_revision", "provider_id"],
+      "properties": {
+        "order_id": { "type": "string", "minLength": 1 },
+        "order_revision": { "type": "integer", "minimum": 0 },
+        "execution_id": { "type": ["string", "null"], "minLength": 1 },
+        "execution_revision": { "oneOf": [{ "type": "null" }, { "type": "integer", "minimum": 0 }] },
+        "provider_id": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "extensionReference": {
+      "type": "object",
+      "required": ["extension_id", "version", "required", "manifest_digest"],
+      "properties": {
+        "extension_id": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "required": { "type": "boolean" },
+        "manifest_digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -44,14 +44,20 @@ The Reference Node profile is defined by the following binding-neutral contracts
 - [Authorization Decision Contract](specs/authorization-decision-contract.md) defines a portable, revision-bound authorization outcome;
 - [Extension Declaration](specs/extension-declaration.md) defines machine-readable compatibility and unknown-extension behavior;
 - [Action Execution Semantics](specs/action-execution-semantics.md) defines revision, idempotency, atomicity, and asynchronous outcomes;
+- [Operation Context](specs/operation-context.md) defines request, execution,
+  actor, replay, and correlation context;
 - [API Operation Semantics](specs/api-operation-semantics.md) defines actors, operation envelopes, preconditions, results, and Standard Errors;
-- [Security Profile](specs/security-profile.md) defines the minimum security properties of the profile; and
+- [Audit Correlation](specs/audit-correlation.md) defines complete authorized
+  action traceability;
+- [Security Profile](specs/security-profile.md) defines SP0, SP1, and SP2
+  conformance evidence; and
 - [Status Model](specs/status-model.md) separates protocol processing, Action
   Outcome, and business-object lifecycle.
 
-The accompanying Authorization Decision, Extension Manifest, Protocol Status,
-Action Outcome, and Conformance Vector schemas are normative for their respective
-artifacts. Every v0.3 schema uses the immutable identity convention in the
+The accompanying Authorization Decision, Extension Manifest, Operation Context,
+Audit Correlation, Protocol Status, Action Outcome, and Conformance Vector
+schemas are normative for their respective artifacts. Every v0.3 schema uses
+the immutable identity convention in the
 [Protocol Versioning Strategy](protocol-versioning.md). These contracts do not
 add required fields to the v0.2 business-object schemas; they govern how a
 Reference Node profile processes those objects.
@@ -215,7 +221,8 @@ Transport-native errors may wrap or carry SAIF errors but must not replace their
 
 Responsibilities:
 
-- record actor, action, object, outcome, authorization, states, and correlation;
+- record operation, actor, action, object, outcome, Authorization Decision,
+  Provider, states, and correlation;
 - emit events in object and correlation order;
 - minimize sensitive data; and
 - support independent audit consumption.
@@ -378,6 +385,10 @@ Every state-changing operation MUST carry the common request envelope defined by
 - expected target revision; and
 - transport-specific authentication context kept outside the business object.
 
+The reconstructed envelope validates against
+`schemas/operation-context.schema.json`. Related audit evidence follows
+`schemas/audit-correlation.schema.json`.
+
 ### Discovery Operations
 
 | Abstract operation | Illustrative mapping | Result |
@@ -526,6 +537,11 @@ A v0.3 Reference Node profile should demonstrate:
 5. Provider-independent Execution recording;
 6. Standard Error output;
 7. Audit Event output and correlation;
+
+The [Normative Requirement Matrix](normative-requirement-matrix.md) maps every
+BCP 14 mandatory source clause to its schema or semantic rule and public vector
+evidence. A complete Reference Node conformance report includes the SP0, SP1,
+and SP2 Security Profile evidence rows.
 8. unknown optional and required extension behavior;
 9. replay-safe state-changing operations; and
 10. lossless retrieval of linked protocol objects.

@@ -1,0 +1,3393 @@
+{
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "normative_scope": [
+    "docs/business-object-model.md",
+    "docs/request-lifecycle.md",
+    "docs/provider-interface.md",
+    "docs/protocol-versioning.md",
+    "docs/normative-language.md",
+    "docs/state-machine.md",
+    "docs/saif-mcp-boundary.md",
+    "docs/conformance.md",
+    "docs/proposal-process.md",
+    "docs/error-model.md",
+    "docs/audit-event-model.md",
+    "docs/reference-architecture.md",
+    "docs/v0.3-roadmap.md",
+    "docs/normative-requirement-matrix.md",
+    "docs/specs/action-execution-semantics.md",
+    "docs/specs/api-operation-semantics.md",
+    "docs/specs/audit-correlation.md",
+    "docs/specs/authorization-decision-contract.md",
+    "docs/specs/extension-declaration.md",
+    "docs/specs/operation-context.md",
+    "docs/specs/security-profile.md",
+    "docs/specs/status-model.md"
+  ],
+  "requirements": [
+    {
+      "requirement_id": "NR-0001",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/protocol-versioning.md",
+      "section": "Immutable Schema Identity",
+      "source_line": 80,
+      "source_digest": "sha256:08b8fcc8840f37923181ef6b9f765702708c175246f30189cc288e9144c9fc53",
+      "statement": "Every normative schema release MUST declare an immutable, versioned `$id` using:",
+      "schema_rules": [
+        "artifact:schemas/versioned-id-and-release-tag"
+      ],
+      "vector_ids": [
+        "governance-schema-identity-020"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0002",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/protocol-versioning.md",
+      "section": "Immutable Schema Identity",
+      "source_line": 92,
+      "source_digest": "sha256:bcaa261a685f69fe65b3e6f9b081f6b2c6b52e11ceec6978559ef71a4f0894b0",
+      "statement": "The release tag referenced by a normative schema `$id` MUST NOT be moved or",
+      "schema_rules": [
+        "artifact:schemas/versioned-id-and-release-tag"
+      ],
+      "vector_ids": [
+        "governance-schema-identity-020"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0003",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/protocol-versioning.md",
+      "section": "Immutable Schema Identity",
+      "source_line": 94,
+      "source_digest": "sha256:a4f3c8be95bace525b637eb3c50d9e5166dd101648e2ad0ed5441128ad3baa9b",
+      "statement": "Default-branch and unversioned repository URLs MUST NOT be used as normative",
+      "schema_rules": [
+        "artifact:schemas/versioned-id-and-release-tag"
+      ],
+      "vector_ids": [
+        "governance-schema-identity-020"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0004",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/protocol-versioning.md",
+      "section": "Immutable Schema Identity",
+      "source_line": 99,
+      "source_digest": "sha256:04643e204932b2ce154103b050de761e7b3b3744c6741100a4cc93a0946fd52a",
+      "statement": "objects. Where an object includes `saif_version`, that value MUST match the",
+      "schema_rules": [
+        "artifact:schemas/versioned-id-and-release-tag"
+      ],
+      "vector_ids": [
+        "governance-schema-identity-020"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0005",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/normative-language.md",
+      "section": "BCP 14 Declaration",
+      "source_line": 10,
+      "source_digest": "sha256:ef87f3debebbd8d833e0886e46656581471930e5a8d175864812b12213ab8096",
+      "statement": "Within the normative scope below, the capitalized key words **MUST**,",
+      "schema_rules": [
+        "artifact:docs/normative-language.md#bcp-14-declaration"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0006",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/normative-language.md",
+      "section": "BCP 14 Declaration",
+      "source_line": 11,
+      "source_digest": "sha256:a6efe9013b58686a698779e916d2210df7d43d9b002e00addcacd19cda3e5b59",
+      "statement": "**MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**,",
+      "schema_rules": [
+        "artifact:docs/normative-language.md#bcp-14-declaration"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0007",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/normative-language.md",
+      "section": "Requirement Use",
+      "source_line": 57,
+      "source_digest": "sha256:718ad9c1ecc2397bca548ae4489fed5c4100bfc421121fd056bc4e5d732c2ce8",
+      "statement": "A **MUST** or **MUST NOT** requirement requires deterministic conformance",
+      "schema_rules": [
+        "artifact:docs/normative-language.md#bcp-14-declaration"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0008",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "Vector Taxonomy",
+      "source_line": 80,
+      "source_digest": "sha256:fc04a5983433c09ac9804a6d12ec9e0024addfedc828987a374a91f5619617a5",
+      "statement": "directory communicates expected validity; the `expected` field MUST agree with",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#"
+      ],
+      "vector_ids": [
+        "request-valid-001",
+        "request-invalid-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0009",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/conformance.md",
+      "section": "Vector Taxonomy",
+      "source_line": 83,
+      "source_digest": "sha256:519e8240c76c8caa13eb0642982e63c72d051b3bf35d956d4cc39deadc02b362",
+      "statement": "Every invalid vector MUST identify one primary failure. Supporting context MUST",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#"
+      ],
+      "vector_ids": [
+        "request-valid-001",
+        "request-invalid-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0010",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "Vector Taxonomy",
+      "source_line": 85,
+      "source_digest": "sha256:8c868e1c1f13453a1b9dcef37495ab7cfe89c054af50dad19523db3bdc2f29d3",
+      "statement": "applicable specification MUST define error precedence before the vector can be",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#"
+      ],
+      "vector_ids": [
+        "request-valid-001",
+        "request-invalid-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0011",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "Standard Error Taxonomy",
+      "source_line": 90,
+      "source_digest": "sha256:b2c082f227f0060b6f817298f9e0c4fa239926c059c007819ce86fece9af95c5",
+      "statement": "`expected_error.category` MUST use exactly one Standard Error Model category:",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#/properties/expected_error"
+      ],
+      "vector_ids": [
+        "error-standard-shape-001",
+        "error-nonstandard-category-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0012",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "Canonical Error Path",
+      "source_line": 114,
+      "source_digest": "sha256:fdadc33b497790c4760eacd645323d93d888985668bda91fcbf2782d515ff8f6",
+      "statement": "failure. Runners MUST compare the reported pointer exactly after JSON Pointer",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#/properties/expected_error/properties/path"
+      ],
+      "vector_ids": [
+        "status-layer-confusion-001",
+        "error-standard-shape-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0013",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "Canonical Error Path",
+      "source_line": 115,
+      "source_digest": "sha256:4153ad6afd1a5f18d2dc885a66251e8e6926442b794d90c511a047408c4b0631",
+      "statement": "escaping; they MUST NOT infer an implementation-specific object path.",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#/properties/expected_error/properties/path"
+      ],
+      "vector_ids": [
+        "status-layer-confusion-001",
+        "error-standard-shape-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0014",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "v0.3 Reference Node Coverage",
+      "source_line": 207,
+      "source_digest": "sha256:3f4a61fcd67d9b92fb4ab7a9c613ea8517486293b19df30c2b397f91d804e410",
+      "statement": "A coverage report MUST list each matrix row, the vectors executed for that row,",
+      "schema_rules": [
+        "artifact:conformance/normative-requirements-v0.3.json"
+      ],
+      "vector_ids": [
+        "action-asynchronous-completion-004",
+        "action-concurrent-terminal-conflict-004",
+        "action-execution-completion-003",
+        "api-discovery-incomplete-013",
+        "api-query-invalid-cursor-012",
+        "audit-missing-authorization-001",
+        "cross-object-reference-chain-001",
+        "cross-object-reference-mismatch-001",
+        "extension-duplicate-conflict-006",
+        "extension-namespace-empty-label-012",
+        "extension-namespace-leading-digit-013",
+        "extension-namespace-leading-hyphen-011",
+        "extension-namespace-trailing-hyphen-010",
+        "extension-optional-unknown-ignore-003",
+        "governance-normative-evidence-complete-021",
+        "lifecycle-terminal-order-reopen-001",
+        "order-invalid-001",
+        "order-valid-001",
+        "security-owner-isolation-001",
+        "security-owner-scoped-access-001",
+        "security-version-downgrade-002",
+        "security-version-negotiation-002"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0015",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "v0.3 Reference Node Coverage",
+      "source_line": 213,
+      "source_digest": "sha256:f265ba4101ceaf70fd87b921f8487151e9adbde6994a121521b770121ffbe272",
+      "statement": "The clause-level matrix MUST contain one digest-bound record for every BCP 14",
+      "schema_rules": [
+        "artifact:conformance/normative-requirements-v0.3.json"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0016",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "v0.3 Reference Node Coverage",
+      "source_line": 214,
+      "source_digest": "sha256:8d960d9d24a0363b2dcfc14849a434c92c32821de61aa3362f60fdfbb6d44946",
+      "statement": "mandatory source occurrence in the normative scope. Coverage validation MUST",
+      "schema_rules": [
+        "artifact:conformance/normative-requirements-v0.3.json"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0017",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/conformance.md",
+      "section": "v0.3 Reference Node Coverage",
+      "source_line": 215,
+      "source_digest": "sha256:30015f59920c8dba9150b8ae4a4ee81d622c6893928a47ab3d8324f41dad2ae0",
+      "statement": "resolve every referenced schema rule and vector ID and MUST reject stale source",
+      "schema_rules": [
+        "artifact:conformance/normative-requirements-v0.3.json"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0018",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/proposal-process.md",
+      "section": "Extension Namespaces",
+      "source_line": 100,
+      "source_digest": "sha256:f340df10f1d3743eb26b29283ccc0873431d7fdd1746d1caf024953c8d36bef7",
+      "statement": "All standard, experimental, and private extensions MUST use a lowercase",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/namespace",
+        "semantic:extension-namespace-authority"
+      ],
+      "vector_ids": [
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-reserved-014",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0019",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/proposal-process.md",
+      "section": "Extension Namespaces",
+      "source_line": 115,
+      "source_digest": "sha256:da9596c6d85245bc4fa521750540a387332c546de5376f5f95104ca22360cd75",
+      "statement": "The Extension ID uses the same label grammar. It MUST begin with the complete",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/namespace",
+        "semantic:extension-namespace-authority"
+      ],
+      "vector_ids": [
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-reserved-014",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0020",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/proposal-process.md",
+      "section": "Extension Namespaces",
+      "source_line": 126,
+      "source_digest": "sha256:e9a1122a357b810f7390cfb4b36e35371eaaf8a3299faee142e8ab76bca74398",
+      "statement": "proposal process. Private or experimental extensions MUST NOT use it. Hyphen-only",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/namespace",
+        "semantic:extension-namespace-authority"
+      ],
+      "vector_ids": [
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-reserved-014",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0021",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/error-model.md",
+      "section": "Canonical Error Location",
+      "source_line": 68,
+      "source_digest": "sha256:4464f3fd94a36a5f34e79ed4193bc86c4f5570eec04fa97726c2f8669a626f5a",
+      "statement": "caused the primary failure. Bindings MUST preserve this pointer losslessly.",
+      "schema_rules": [
+        "schemas/conformance-vector.schema.json#/properties/expected_error/properties/path"
+      ],
+      "vector_ids": [
+        "error-standard-shape-001",
+        "status-layer-confusion-001"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0022",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/audit-event-model.md",
+      "section": "Actor Model",
+      "source_line": 49,
+      "source_digest": "sha256:3d93685f8476c241e44a96c25332d3b629893306d5472120215ce39e1c79cb7c",
+      "statement": "Bindings MUST NOT record only an API role when a resolved Party, Agent, Provider,",
+      "schema_rules": [
+        "semantic:audit/resolved-actor"
+      ],
+      "vector_ids": [
+        "audit-owner-attribution-001",
+        "api-actor-denied-010"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0023",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/audit-event-model.md",
+      "section": "Correlation",
+      "source_line": 80,
+      "source_digest": "sha256:f2dc19cb4950fc066bb07becfb76276ea2856923a6ab66e6b44bf582371dcdd8",
+      "statement": "For the v0.3 Reference Node profile, an authorized execution trace MUST follow",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0024",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/audit-event-model.md",
+      "section": "Correlation",
+      "source_line": 83,
+      "source_digest": "sha256:8f863a7c14c70ed7d0a5e7726ab3af856e399aaead3e0fab986e35423666b1ec",
+      "statement": "and Audit Event references MUST form one consistent correlation chain. Complete",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0025",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/audit-event-model.md",
+      "section": "v0.3 Status Projection",
+      "source_line": 113,
+      "source_digest": "sha256:7880b8e5e98cc37d0ec096271f54d546f73fb461b2a8f64b59edc8cd75e0c19e",
+      "statement": "`details.action_outcome` MUST preserve the exact Action Outcome.",
+      "schema_rules": [
+        "schemas/action-outcome.schema.json#",
+        "semantic:audit/status-projection"
+      ],
+      "vector_ids": [
+        "status-audit-projection-012"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0026",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/reference-architecture.md",
+      "section": "Extension Registry",
+      "source_line": 256,
+      "source_digest": "sha256:c63a402b762a23d038fbe91fc8aa3c6f51c1897e39c46c75aa57bcf0599b28c0",
+      "statement": "A Reference Node MUST maintain a logical registry of enabled extensions. Every entry MUST validate against `schemas/extension-manifest.schema.json` and the [Extension Declaration](specs/extension-declaration.md), including:",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#",
+        "semantic:extension/registry"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-digest-mismatch-005"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0027",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/reference-architecture.md",
+      "section": "Atomicity Expectations",
+      "source_line": 345,
+      "source_digest": "sha256:b74595db47fe04d60132283ef67a1cf5f79e4b56d5b06eb8ffba4e5aae1e6fcc",
+      "statement": "When one protocol operation creates related state, the implementation MUST commit the business object change, transition record, and Audit Event atomically from the observer's perspective. An implementation MAY use recovery internally, but MUST NOT expose a successful or terminal outcome until all required records are durable and mutually consistent.",
+      "schema_rules": [
+        "semantic:action/atomic-observable-outcome"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-002",
+        "action-incomplete-atomic-outcome-005"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0028",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/reference-architecture.md",
+      "section": "Common Operation Context",
+      "source_line": 377,
+      "source_digest": "sha256:e50ca15d8130527c7c4c0fec6a5e737036b777969e88555826d572e700cd273e",
+      "statement": "Every state-changing operation MUST carry the common request envelope defined by the operation contract, including:",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0029",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/reference-architecture.md",
+      "section": "Conformance Expectations for a Reference Node",
+      "source_line": 549,
+      "source_digest": "sha256:e31f73f3b3d68b132256e22701ac22660d298a83fc66b8ffa883059a875e51de",
+      "statement": "It MUST also demonstrate revision-bound Authorization Decisions, Extension Manifest validation, stale-revision rejection, idempotency-key conflict handling, Provider-result attribution, and the negative security behaviors listed in the Security Profile.",
+      "schema_rules": [
+        "artifact:conformance/normative-requirements-v0.3.json"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021",
+        "security-sp0-conformance-020",
+        "security-sp1-conformance-021",
+        "security-sp2-conformance-022"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0030",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/v0.3-roadmap.md",
+      "section": "Exit Criteria",
+      "source_line": 106,
+      "source_digest": "sha256:3108dfe4819c8cd6d94a6a15bf424a632de526ea215cb7b378cbbed6b1decc95",
+      "statement": "Authorization Decision and Extension Manifest behavior MUST be testable both as JSON Schema constraints and as cross-object semantic rules.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-invalid-001",
+        "extension-manifest-valid-001",
+        "extension-manifest-invalid-001"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0031",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Purpose",
+      "source_line": 26,
+      "source_digest": "sha256:747828d64794c218f4911b699401a905a227729d19f0222a3c48b40280bb4afb",
+      "statement": "`schemas/action-outcome.schema.json`; lifecycle states and Protocol Status MUST",
+      "schema_rules": [
+        "schemas/action-outcome.schema.json#",
+        "schemas/common-status.schema.json#"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-layer-confusion-001",
+        "status-layer-confusion-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0032",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Operation Context",
+      "source_line": 31,
+      "source_digest": "sha256:267e99529a3b4b6930ad9b541de9b7c734f10ae029d200345d79baa8a1ad3635",
+      "statement": "Every state-changing operation MUST carry or resolve:",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "api-actor-denied-010"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0033",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Operation Context",
+      "source_line": 51,
+      "source_digest": "sha256:c85b5e927580279972e2391beb826bbd5bfb9d847fc5b4be89a0350f2e4a5ec2",
+      "statement": "Transport authentication context remains outside the portable business object. A binding MUST map the authenticated peer to `actor` before the operation is accepted.",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "api-actor-denied-010"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0034",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Object Revisions",
+      "source_line": 60,
+      "source_digest": "sha256:2caa215ab7c449b21368c0d6bdbb2be419b0bb355e3d31e06f3802fd2d579c47",
+      "statement": "- An operation that targets an existing object MUST supply `expected_revision`.",
+      "schema_rules": [
+        "semantic:action/object-revision"
+      ],
+      "vector_ids": [
+        "action-semantics-invalid-001",
+        "action-semantics-valid-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0035",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Object Revisions",
+      "source_line": 61,
+      "source_digest": "sha256:a8037076b8c45cf3a78abfb5ba11b3fdf0fdbd1131a04f1a4be815b3c08fad84",
+      "statement": "- A mismatch MUST fail with `STATE_TRANSITION` / `SAIF-STATE-0002`.",
+      "schema_rules": [
+        "semantic:action/object-revision"
+      ],
+      "vector_ids": [
+        "action-semantics-invalid-001",
+        "action-semantics-valid-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0036",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Object Revisions",
+      "source_line": 63,
+      "source_digest": "sha256:d00bdf52f4e990a3c80e933aa9de58b7cfff2e89bc060f0a919dafc8a46fd513",
+      "statement": "Bindings may carry revisions as envelope fields, precondition headers, or message attributes. They MUST preserve the same numeric value and semantics.",
+      "schema_rules": [
+        "semantic:action/object-revision"
+      ],
+      "vector_ids": [
+        "action-semantics-invalid-001",
+        "action-semantics-valid-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0037",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Replay Rules",
+      "source_line": 81,
+      "source_digest": "sha256:01e62c2f068d61081d73b8666d91a85f74ddaf5e0eeb80f10b5a3b112729d478",
+      "statement": "- if the semantic operation input is unchanged, it MUST return the original outcome and MUST NOT repeat state mutation or Audit Event creation;",
+      "schema_rules": [
+        "semantic:action/idempotent-replay"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-001",
+        "action-idempotency-conflict-003",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0038",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Replay Rules",
+      "source_line": 83,
+      "source_digest": "sha256:08ad2e34fa7c6ea74ff91dca6d5323267759874251e7135a2a52170d166fbcec",
+      "statement": "- if the semantic input differs, it MUST reject the operation with `PROTOCOL` / `SAIF-PROTOCOL-0003`; and",
+      "schema_rules": [
+        "semantic:action/idempotent-replay"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-001",
+        "action-idempotency-conflict-003",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0039",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Replay Rules",
+      "source_line": 84,
+      "source_digest": "sha256:afda50ad15df97fe6d7434ebeb8b956bf36ab8f1610f9ff1ac15f8100d201ec6",
+      "statement": "- a retry after a `PENDING` result MUST return the current operation outcome using the same operation identity.",
+      "schema_rules": [
+        "semantic:action/idempotent-replay"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-001",
+        "action-idempotency-conflict-003",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0040",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Replay Rules",
+      "source_line": 86,
+      "source_digest": "sha256:47885c0fe7707dc4711cc773099870041754d7de9aa35272401535dfadaa8609",
+      "statement": "The comparison is over operation field values as interpreted by the selected binding profile. Until a canonical serialization profile exists, implementations MUST NOT claim cross-binding byte-level equivalence.",
+      "schema_rules": [
+        "semantic:action/idempotent-replay"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-001",
+        "action-idempotency-conflict-003",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0041",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Retention",
+      "source_line": 90,
+      "source_digest": "sha256:d17b04e32ee04a424c7e3334be1162c2c871caad98d24b560814192f520dad52",
+      "statement": "A Reference Node MUST advertise `idempotency_retention_seconds` through",
+      "schema_rules": [
+        "semantic:action/idempotency-retention"
+      ],
+      "vector_ids": [
+        "idempotency-retention-boundary-020",
+        "idempotency-retention-early-forget-020",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0042",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Retention",
+      "source_line": 98,
+      "source_digest": "sha256:ccec386505c1a142416c1530fe9c47dca1c5822b35118bf5cca0a9887c2acf02",
+      "statement": "seconds. While `received_at < retention_expires_at`, the Node MUST retain enough",
+      "schema_rules": [
+        "semantic:action/idempotency-retention"
+      ],
+      "vector_ids": [
+        "idempotency-retention-boundary-020",
+        "idempotency-retention-early-forget-020",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0043",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Retention",
+      "source_line": 100,
+      "source_digest": "sha256:61ec53ad7b3d669f71b7344d21a7c53e8b425f190ad50ddd56ba55d568071d8e",
+      "statement": "outcome. It MUST NOT reuse, forget, or treat the scoped key as new during this",
+      "schema_rules": [
+        "semantic:action/idempotency-retention"
+      ],
+      "vector_ids": [
+        "idempotency-retention-boundary-020",
+        "idempotency-retention-early-forget-020",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0044",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Retention",
+      "source_line": 108,
+      "source_digest": "sha256:8912d0121fa7cb5071a75b556afbaab2015b28bfefd0b37346a529d64c968953",
+      "statement": "Every delivery inside the window MUST resolve to at most one business mutation,",
+      "schema_rules": [
+        "semantic:action/idempotency-retention"
+      ],
+      "vector_ids": [
+        "idempotency-retention-boundary-020",
+        "idempotency-retention-early-forget-020",
+        "idempotency-duplicate-execution-prevention-021"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0045",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Action Outcomes",
+      "source_line": 143,
+      "source_digest": "sha256:0048c851d78bd262c3e27ad958f9fc680128daac314709dca8c30f09ffc24b3c",
+      "statement": "Transport or Protocol Status success MUST NOT be interpreted as `APPLIED` or",
+      "schema_rules": [
+        "schemas/action-outcome.schema.json#",
+        "schemas/common-status.schema.json#"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-layer-confusion-001",
+        "status-layer-confusion-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0046",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Settlement Transition",
+      "source_line": 181,
+      "source_digest": "sha256:784b18e5b148b687fd31487bdf7f77a5e8e4cf61e7ade1e160e013c7313bddcf",
+      "statement": "An implementation may use a transaction, event log, saga, or another mechanism. It MUST NOT return `APPLIED` until the complete observable group is available.",
+      "schema_rules": [
+        "semantic:specs/action-execution-semantics/settlement-transition"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-002",
+        "action-incomplete-atomic-outcome-005"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0047",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Settlement Transition",
+      "source_line": 183,
+      "source_digest": "sha256:afc04ee2730b1a16515d358cb342f24e30ff97807381e4fa4f3d369dcddff237",
+      "statement": "If internal recovery is in progress, it returns `PENDING` for the same operation and idempotency key. If the group cannot be completed, it returns `FAILED` with `PROTOCOL` / `SAIF-PROTOCOL-0004` and MUST prevent the partial group from being represented as successful.",
+      "schema_rules": [
+        "semantic:specs/action-execution-semantics/settlement-transition"
+      ],
+      "vector_ids": [
+        "action-semantics-valid-002",
+        "action-incomplete-atomic-outcome-005"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0048",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Provider Result Authority",
+      "source_line": 220,
+      "source_digest": "sha256:2ece1b60c9fe27851de8404a298f3033d2d9d2ebc5cfbf72a680428ab66c61a5",
+      "statement": "A Provider MUST NOT create or modify Owner Authorization, rewrite the original Request, or change unrelated objects.",
+      "schema_rules": [
+        "semantic:action/provider-authority"
+      ],
+      "vector_ids": [
+        "action-semantics-invalid-002",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0049",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Audit Requirements",
+      "source_line": 241,
+      "source_digest": "sha256:b3ba5246518430fac1d9704bb5b8804871424a6200ec5f1085289840d5b47ed5",
+      "statement": "An unchanged idempotent replay MUST NOT duplicate those events. It may emit a separate operational log outside the portable Audit Event sequence, but that log is not a second business action.",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "action-semantics-valid-001"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0050",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Audit Requirements",
+      "source_line": 243,
+      "source_digest": "sha256:007bad881eab51ea232c156e7f470b5f0d1bffb137e9ee7b91497eecb19f6e4f",
+      "statement": "Audit correlation MUST preserve:",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "action-semantics-valid-001"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0051",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Audit Requirements",
+      "source_line": 257,
+      "source_digest": "sha256:182b5b87b2786c5d3042551b8539a9fa2a237bcb55ae498cd13f3af2b1f55871",
+      "statement": "Raw idempotency secrets or sensitive transport credentials MUST NOT appear in portable events.",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "action-semantics-valid-001"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0052",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/action-execution-semantics.md",
+      "section": "Conformance",
+      "source_line": 261,
+      "source_digest": "sha256:ebb45b7748aa542e007153ff478ae7862739bcc656818da6dad854577069b6d9",
+      "statement": "Conformance vectors MUST test:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0053",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/api-operation-semantics.md",
+      "section": "Common Request Envelope",
+      "source_line": 38,
+      "source_digest": "sha256:a53d24c25ed010586697d6b29161db76e5e4a8888b36cac42a7289688a0f812c",
+      "statement": "The portable reconstruction of this envelope MUST validate against",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0054",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/api-operation-semantics.md",
+      "section": "Common Request Envelope",
+      "source_line": 42,
+      "source_digest": "sha256:de819b1234a74f348e78eceb290f38657cfeed8b69f11bdb25c6ae29662f337a",
+      "statement": "A binding MAY encode these values in a message body, headers, attributes, or another structure. It MUST preserve their meaning and make them available to protocol validation, audit, and error handling.",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0055",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/api-operation-semantics.md",
+      "section": "Common Result Envelope",
+      "source_line": 62,
+      "source_digest": "sha256:fd2e17281a2eedb3aa68e4101754d42ee03ebd661eb00ff8fbf97aaad6597c0f",
+      "statement": "separate fields. A binding MUST NOT collapse them into one generic `status`.",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-layer-confusion-001"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0056",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/api-operation-semantics.md",
+      "section": "`CreateRequest`",
+      "source_line": 91,
+      "source_digest": "sha256:1b715917fc8b14ccc9679bede5b9f8d7a46886843db6fb3d9467e80de1803985",
+      "statement": "`CreateRequest` MUST NOT implicitly submit the Request.",
+      "schema_rules": [
+        "schemas/request.schema.json#/properties/status"
+      ],
+      "vector_ids": [
+        "api-operation-matrix-010",
+        "lifecycle-request-submit-001"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0057",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/api-operation-semantics.md",
+      "section": "Conformance",
+      "source_line": 304,
+      "source_digest": "sha256:961279ada3b245c2c832ad4c043b3d02bae1cd83e7c8108cd1a758d2e39533b8",
+      "statement": "Operation conformance vectors MUST cover:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "api-operation-matrix-010",
+        "api-actor-allowed-011",
+        "api-actor-denied-010",
+        "api-query-behavior-012",
+        "api-discovery-behavior-013"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0058",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Required References",
+      "source_line": 33,
+      "source_digest": "sha256:d776861f5b31f35fa330b447932855cd3b8809b3bac72a7e53bf1b29e70e1cc6",
+      "statement": "MUST preserve:",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0059",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Required References",
+      "source_line": 48,
+      "source_digest": "sha256:206727fe29f36f36d4f32e942929c51f219a586aab8b85cf0c005f96c0d581b4",
+      "statement": "Events MUST use the same `correlation_id`. Their IDs and revisions MUST resolve",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0060",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Action and Authorization Trace",
+      "source_line": 53,
+      "source_digest": "sha256:44c8f1502b31380cb733dc126f52b6f9979c6f7d9e7b04ee4c1feccbc8d3ef1c",
+      "statement": "An action dependent on Owner delegation MUST identify the Authorization and",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0061",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Action and Authorization Trace",
+      "source_line": 55,
+      "source_digest": "sha256:8a81b3f86e69834faf99e400274e6266e2fca39539119fe3178a8f3a7938ad9e",
+      "statement": "Provider account MUST NOT replace those references.",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0062",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Action and Authorization Trace",
+      "source_line": 62,
+      "source_digest": "sha256:a425612a7e2e85366b915a604bc95c5354ba03f5f855702971592dc17ebf0307",
+      "statement": "A denied, expired, revoked, or mismatched decision MUST remain traceable to the",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0063",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Execution Trace",
+      "source_line": 68,
+      "source_digest": "sha256:6b73df3de7d16caf1f9315feccc9794a00db7301abb006f8c67c3a93a7f3c12e",
+      "statement": "Execution creation and Provider results MUST preserve the selected Provider,",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0064",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Execution Trace",
+      "source_line": 69,
+      "source_digest": "sha256:d0388d46df733a26f0192dfa8ad64e25eaf3b496238e5b218276343bc402834e",
+      "statement": "Order, Execution, operation, and correlation references. A Provider MUST NOT",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0065",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Replay Trace",
+      "source_line": 78,
+      "source_digest": "sha256:c3f8b92ad967e583c1de2e75ca8bc1f765e00f0e4dd6d7b7473276c19bb647cf",
+      "statement": "An unchanged idempotent replay MUST return the original operation and audit",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0066",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Replay Trace",
+      "source_line": 79,
+      "source_digest": "sha256:1ce6f1276a013126e43ccbfd8080607145b52d649d59f3ffde41eecf3e5fe635",
+      "statement": "references. It MUST NOT create a second business Audit Event sequence.",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0067",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Replay Trace",
+      "source_line": 82,
+      "source_digest": "sha256:dec17a4851a0e86ba1d9699dba502b4764714fd772cc0b9e63f8208116ed389a",
+      "statement": "Error correlated to the attempted operation and MUST NOT alter the original",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0068",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Failure and Error Trace",
+      "source_line": 87,
+      "source_digest": "sha256:820a92807ae0424859a97741ca4df6cf595e03155fec1935b54bef64a997a48e",
+      "statement": "When an Action Outcome is `FAILED`, `REJECTED`, or `CONFLICT`, the trace MUST",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0069",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Failure and Error Trace",
+      "source_line": 88,
+      "source_digest": "sha256:68136b4f245e2a893566d48de18817833f1b9e04a38ddf1f3797d7668ebcb416",
+      "statement": "identify the Standard Error. Error and Audit Event correlation identifiers MUST",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0070",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Privacy",
+      "source_line": 96,
+      "source_digest": "sha256:337e7cb6df89dab927c3ccafc89df0e8af22e68c7fba9d8b57dd4900d6da1a2e",
+      "statement": "Portable correlation evidence MUST NOT include raw idempotency keys,",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:audit/correlation-chain"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020",
+        "provider-forbidden-core-mutation-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0071",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/audit-correlation.md",
+      "section": "Conformance",
+      "source_line": 103,
+      "source_digest": "sha256:3ee7acb53301acc3da90572629a9da2f4971029ac4418f10cdb96037361e2e96",
+      "statement": "Conformance evidence MUST include:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0072",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "`ALLOW`",
+      "source_line": 46,
+      "source_digest": "sha256:303e770317b81ef4b6bf4976b30d2dd663655705bd8c2d1bcda525a53c296b9f",
+      "statement": "An `ALLOW` decision MUST include a non-null `expires_at`. It does not permanently reserve authority. The decision remains usable only while all freshness checks pass.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-invalid-001"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0073",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "`DENY`",
+      "source_line": 52,
+      "source_digest": "sha256:a1c1fb42aec524408191a1aec486493037644cfe417b47acc0d4bed29f49e29f",
+      "statement": "A denied decision MUST include at least one reason code. It MUST NOT be accepted by `ConvertRequest`.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-invalid-001"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0074",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Evaluation Inputs",
+      "source_line": 62,
+      "source_digest": "sha256:a4ff48d2775eed4a3437b47a410da4947dbd86605bf93800f150785ec5ba3bdb",
+      "statement": "A conforming evaluation MUST resolve and verify:",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0075",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Evaluation Inputs",
+      "source_line": 73,
+      "source_digest": "sha256:085f6a0652b8b547c832c2669f787aff51bd10d27ab3670cb52ea8e60beebc21",
+      "statement": "Transport authentication MAY supply evidence for identity resolution, but it MUST NOT substitute for the Owner-Agent-Authorization relationship.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0076",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Freshness and Revocation",
+      "source_line": 77,
+      "source_digest": "sha256:2515964a61dc9f4faad3c8b49d25bb504fabc2f0bdcf2895089f89cc89c945cb",
+      "statement": "Before `ConvertRequest` uses an `ALLOW` decision, the Reference Node MUST verify:",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0077",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Freshness and Revocation",
+      "source_line": 87,
+      "source_digest": "sha256:57ad150cc25afc8cbcbfc5510abeae0dd4c4067f68e1b9ed2485b85aa1e9b097",
+      "statement": "A failed freshness check invalidates use of the decision. The implementation MUST return a Standard Error and MUST NOT create an Order.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0078",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Request State Effects",
+      "source_line": 99,
+      "source_digest": "sha256:e20a74a1f35dd6b41ba87c93b3384c94023027378709758c0667457b60525891",
+      "statement": "The decision and any Request state change MUST share the operation correlation ID and produce Audit Events.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0079",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Binding to Request Conversion",
+      "source_line": 103,
+      "source_digest": "sha256:551bca6075090872d381e4cbc789b086bb9e06c852c9bd5425a4db5329cf08e5",
+      "statement": "`ConvertRequest` MUST receive or resolve:",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0080",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Reason Codes",
+      "source_line": 137,
+      "source_digest": "sha256:b1f5cad1a8c182a1cf97dfe45fcc8e1f5b3a185ac29e3aeb3ee68994875ab033",
+      "statement": "Implementations MAY add namespaced reason codes. Private codes MUST NOT redefine a standard code.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0081",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Standard Errors",
+      "source_line": 150,
+      "source_digest": "sha256:3aa2710bd57f588b79a9111adae4eab3b887d29b30367bb77cd23694ab3f8683",
+      "statement": "Errors MUST follow the [SAIF Standard Error Model](../error-model.md) and include the relevant decision, Request, or Authorization reference where safe.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0082",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Audit Requirements",
+      "source_line": 154,
+      "source_digest": "sha256:6408f2480f472d2ea7962fb9974c01d03cebc2c8d909abf6063be50d5ad1b2c2",
+      "statement": "Evaluation MUST emit `AUTHORIZATION_EVALUATED` with:",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0083",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Audit Requirements",
+      "source_line": 164,
+      "source_digest": "sha256:eb4b87352354f86308a2a8452a9634cdb0d3863d8e4807189d3c359c283464f1",
+      "statement": "Conversion MUST emit state transition and object creation events that reference the Authorization Decision ID.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0084",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Security and Privacy",
+      "source_line": 168,
+      "source_digest": "sha256:39023789fa022f8861437b95a6953681f267ff9512aa4f5722b3fbeb77ca9e6d",
+      "statement": "- The decision MUST NOT contain credentials, private keys, complete prompts, or private Provider data.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0085",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Security and Privacy",
+      "source_line": 169,
+      "source_digest": "sha256:529041507d4d0418dbcb69267d489c4c12f0c2a45df92b6baf695321b7f4a2e0",
+      "statement": "- `metadata` MUST NOT override decision, scope, revision, expiry, or identity semantics.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0086",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Security and Privacy",
+      "source_line": 170,
+      "source_digest": "sha256:ea95258f463a7421389c7bb1eede18713f796b0538c6bffc6709417379aba64a",
+      "statement": "- A decision MUST NOT be reusable for another Request, revision, Agent, Owner, or Authorization.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0087",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Security and Privacy",
+      "source_line": 171,
+      "source_digest": "sha256:0e9b90f865b9a0a349b42154df0bcc78489ff8b2305a393a4dff1ec153c0934f",
+      "statement": "- An implementation MUST protect decisions from unauthorized alteration and access.",
+      "schema_rules": [
+        "schemas/authorization-decision.schema.json#",
+        "semantic:authorization/reference-integrity"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0088",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/authorization-decision-contract.md",
+      "section": "Conformance",
+      "source_line": 175,
+      "source_digest": "sha256:f043638d41582bbfe4a477bc4c532fbae2ea47008369de1d3954e8aa99639afe",
+      "statement": "Conformance vectors MUST cover:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "authorization-decision-valid-001",
+        "authorization-decision-deny-002",
+        "authorization-requires-action-003",
+        "authorization-decision-expired-002",
+        "authorization-revision-mismatch-003",
+        "authorization-revoked-after-evaluation-004",
+        "authorization-cross-request-replay-005",
+        "authorization-non-allow-conversion-006"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0089",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Identifier and Namespace",
+      "source_line": 25,
+      "source_digest": "sha256:6cbc63862198584c4684c9ebfd1d706837e06afdc0e0053e4cfb36261e9c49b5",
+      "statement": "Extensions MUST use the lowercase reverse-domain convention defined by the",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0090",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Identifier and Namespace",
+      "source_line": 43,
+      "source_digest": "sha256:002ff11a5af93ddb069e3d793de20a01780616ddcfdf009e91704cb7258fff4a",
+      "statement": "characters. `extension_id` MUST begin with the declared namespace followed by",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0091",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Identifier and Namespace",
+      "source_line": 44,
+      "source_digest": "sha256:226d788c759d8597e436cc61db50e18850612aa1885587767611f6efc488a9cf",
+      "statement": "`.` and an extension-local name. Private or experimental extensions MUST NOT use",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0092",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Compatibility Range",
+      "source_line": 71,
+      "source_digest": "sha256:df18a7e9b654f13edd11ecb68f88a622805fbd7d2856d72faf71a32d3b146ab8",
+      "statement": "An extension is compatible only when the selected SAIF version is within that range. Implementations MUST compare numeric semantic-version components rather than lexical strings.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0093",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Compatibility Range",
+      "source_line": 73,
+      "source_digest": "sha256:7687f07205cf2bcc93c394c7b5f23d4e5c82c4b05eba819b409fd3a30bbf7522",
+      "statement": "The extension version is negotiated separately from the SAIF version. A Node MUST NOT select an extension version outside its declared SAIF compatibility range.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0094",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Required Extension",
+      "source_line": 81,
+      "source_digest": "sha256:fe48ba37c22864b66ee70f824ed2b38d0ab5f103ab0938066b1cdb073b6e362c",
+      "statement": "- `unknown_behavior` MUST be `REJECT`;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0095",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Required Extension",
+      "source_line": 82,
+      "source_digest": "sha256:39d3f3cafadcaf2d0a7bb248f5f5679df2e050fecb17594c275251166378c72a",
+      "statement": "- the receiving Node MUST support the exact or compatible extension version;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0096",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Required Extension",
+      "source_line": 83,
+      "source_digest": "sha256:21edd460ed70b373d186a53bd2fc1b9f2feb0f8191f7bceec357425705bdd147",
+      "statement": "- the schema integrity check MUST succeed; and",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0097",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Required Extension",
+      "source_line": 84,
+      "source_digest": "sha256:29f42b6d56c83363ab37ed223b3fac9a2529a4229d38c4af14a47a443f9ab52e",
+      "statement": "- an unsupported, conflicting, or invalid extension MUST fail before Authorization or lifecycle mutation.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0098",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Optional Extension",
+      "source_line": 90,
+      "source_digest": "sha256:4e896c4d60cb53f645ca4c3133d3654667ef2680d374857b8cbb4ac5ef8ee7e2",
+      "statement": "- `unknown_behavior` MUST be `IGNORE`;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0099",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Optional Extension",
+      "source_line": 92,
+      "source_digest": "sha256:585397c6374b5c4cfc8f2e74c8adbca9a56578b23681c9c7c631758c73492869",
+      "statement": "- ignoring it MUST NOT change Authorization, lifecycle, Execution, or Settlement meaning.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0100",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Optional Extension",
+      "source_line": 94,
+      "source_digest": "sha256:2dbcfa093987e2079e5a8ee163ce0d5ed58e82467283d5cf566770510cc169b8",
+      "statement": "If an allegedly optional extension affects a required decision, it is semantically required and MUST be declared `required: true`.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-manifest-required-002",
+        "extension-manifest-invalid-001",
+        "extension-namespace-rfc1035-010",
+        "extension-namespace-mismatch-003"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0101",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Discovery and Operation Placement",
+      "source_line": 109,
+      "source_digest": "sha256:f9889db11aeba29c4fd61b5e2983f3a25a5a661b540caa59eff78179fc79d88e",
+      "statement": "A transport binding may choose field placement, but it MUST preserve these values and MUST NOT hide required extension declarations in opaque transport metadata.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#",
+        "semantic:extension/placement-and-errors"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-semantics-invalid-002",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0102",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 117,
+      "source_digest": "sha256:592630811d6685bd58c6ac029827e3b2403e2b525b84c880929f8ebdc52d8d68",
+      "statement": "1. MUST verify namespace and identifier consistency;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0103",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 118,
+      "source_digest": "sha256:07ef60759559a2ff45406708005e3d1162df6e33d046ed480a53ffe23c8072b2",
+      "statement": "2. MUST verify the schema artifact against its declared digest before use;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0104",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 119,
+      "source_digest": "sha256:3d4c02121a3e96ed145e7dab0710eb9ed173f3c8cdda5d727a3dfa7f022df80f",
+      "statement": "3. MUST reject two manifests with the same extension ID and version but different digests;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0105",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 120,
+      "source_digest": "sha256:5e0fdbac37859ea2f46fea9d7e89b3b034875890af09a0c3962692c644663268",
+      "statement": "4. MUST reject incompatible required versions;",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0106",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 121,
+      "source_digest": "sha256:b3fd0cb1df742b92dc8ef46495e33797bc1736d71335c5fe72b9052145c204d6",
+      "statement": "5. MUST record the selected manifest and digest in operation audit context; and",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0107",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 122,
+      "source_digest": "sha256:5e300a0ca689c06eb0e733c5ea979fbb87dc390b9b055b84b34a03680cd95cfe",
+      "statement": "6. MUST NOT execute code merely because a manifest contains a schema URI.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0108",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Registry and Trust",
+      "source_line": 126,
+      "source_digest": "sha256:d271f3db6441bf96b9da13eafd1c92d9e4b2039c59795d2d7b870d4a8785431a",
+      "statement": "values. `compatibility.saif_min` MUST be numerically lower than",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#/properties/compatibility",
+        "semantic:extension/numeric-compatibility-and-digest"
+      ],
+      "vector_ids": [
+        "extension-numeric-version-comparison-020",
+        "extension-incompatible-version-004",
+        "extension-digest-mismatch-005",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0109",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Standard Errors",
+      "source_line": 172,
+      "source_digest": "sha256:8802bbeeeae179f3e9a124a490d4e0b15fef8a39b520e28c79318c90f0c6a1c0",
+      "statement": "Errors MUST follow the [SAIF Standard Error Model](../error-model.md).",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#",
+        "semantic:extension/placement-and-errors"
+      ],
+      "vector_ids": [
+        "extension-manifest-valid-001",
+        "extension-semantics-invalid-002",
+        "extension-operation-audit-binding-022"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0110",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Core Security Precedence",
+      "source_line": 180,
+      "source_digest": "sha256:004e45a04a4b1fd834f049bd29ec099ae786ba44884900e13a64f3d0306cd2b6",
+      "statement": "Profile checks MUST remain effective when an extension is present. An extension",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0111",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Core Security Precedence",
+      "source_line": 181,
+      "source_digest": "sha256:231f675851259dcfd2138c3bc8ab3573e982ef37555f15096e1609692981d24e",
+      "statement": "MAY narrow an allowed operation, but it MUST NOT convert a core denial or",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0112",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Core Security Precedence",
+      "source_line": 188,
+      "source_digest": "sha256:7df757e977a788272274ff665536b4117c039d9a07576be64115b153a2625cc8",
+      "statement": "A schema URI is data identifying an artifact. Resolution MUST use an",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0113",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Core Security Precedence",
+      "source_line": 189,
+      "source_digest": "sha256:fa207522e411269eaf72d51073a1362f91f90f2d771407895880660ad8aae1a4",
+      "statement": "implementation-approved trust policy. The URI MUST NOT authorize code",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0114",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Core Security Precedence",
+      "source_line": 193,
+      "source_digest": "sha256:e6692be7f3579accb2199a9c244dd174191297b4ea931f368d3e7b05b512c6af",
+      "statement": "The selected manifest ID, version, and verified digest MUST be preserved in the",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0115",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Security Requirements",
+      "source_line": 199,
+      "source_digest": "sha256:818a1a173d0d9202b12ecb32fb9381a7f089927a3dca4d483401e98f09380330",
+      "statement": "- A schema URI MUST NOT trigger automatic code execution or unrestricted network access.",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0116",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Security Requirements",
+      "source_line": 200,
+      "source_digest": "sha256:c400e2b9b7898a87f816bf684e41a23cdde643ef0c10a821c7be653ecc093cd9",
+      "statement": "- Extension data MUST follow the same Owner isolation and data-minimization rules as core data.",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0117",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Security Requirements",
+      "source_line": 201,
+      "source_digest": "sha256:2bdf4bf2cb5217afe555f8ae69cf5a223d57e00393304e9b75b3494e4be6fdd2",
+      "statement": "- An extension MUST NOT weaken core validation, Authorization, state, error, or audit requirements.",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0118",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Security Requirements",
+      "source_line": 202,
+      "source_digest": "sha256:83e3ff293f6e1d693f7a289ddd98aea0570b085846c7adf36c92b643ebe20d17",
+      "statement": "- Required extension negotiation MUST complete before any state mutation.",
+      "schema_rules": [
+        "semantic:extension/core-security-precedence"
+      ],
+      "vector_ids": [
+        "extension-security-safe-resolution-021",
+        "extension-core-authorization-bypass-020",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0119",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/extension-declaration.md",
+      "section": "Conformance",
+      "source_line": 206,
+      "source_digest": "sha256:f043638d41582bbfe4a477bc4c532fbae2ea47008369de1d3954e8aa99639afe",
+      "statement": "Conformance vectors MUST cover:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0120",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Core Context",
+      "source_line": 21,
+      "source_digest": "sha256:43bf3a00fbf9a1d6910b0a81d6d6129dcc7719e8ca8286c555c7c72e69e390dc",
+      "statement": "Every state-changing operation MUST carry or resolve one schema-valid Operation",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0121",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Core Context",
+      "source_line": 42,
+      "source_digest": "sha256:42da8425b9a9ccb88fbe189850d7727efc416edf76277f20c095d415cc69b5af",
+      "statement": "Bindings MAY encode these values separately, but they MUST reconstruct the same",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0122",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Request Context",
+      "source_line": 49,
+      "source_digest": "sha256:9945753082a0492cf546a44c1227354b5058c7c3c6f8e7cf9aa837b49127a0dd",
+      "statement": "When a Request already exists, `request_context` MUST contain its ID and current",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0123",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Request Context",
+      "source_line": 50,
+      "source_digest": "sha256:36ec33160e23b22357c14c6a4facc55632e37122027d50a6a591f1727541b8ae",
+      "statement": "revision. When the action depends on delegated authority, it MUST also contain",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0124",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Request Context",
+      "source_line": 54,
+      "source_digest": "sha256:2f1eff4ceff3bb1cf7a3701899ad07134c5c1bf530ca08c29ef29a7635285df3",
+      "statement": "The resolved Request, Authorization Decision, and Operation Context MUST agree",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0125",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Execution Context",
+      "source_line": 65,
+      "source_digest": "sha256:25945bebe502ecb1a45e8b5ad97af447a145c44769d87fd5f1b5a9a665b27ef8",
+      "statement": "An operation that creates or advances an Execution MUST identify:",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0126",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Execution Context",
+      "source_line": 71,
+      "source_digest": "sha256:641d8b918805abfa7de8009d0d46fef4eb7b58acf3ae452a6f35b6f9e71bbef8",
+      "statement": "Provider results MUST resolve to the same Order, Execution, Provider,",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0127",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Correlation Identifiers",
+      "source_line": 81,
+      "source_digest": "sha256:064ef12b7b140bb19250b3dab38a1dea3e93b2ab4f276f6fba2d15295d90e2f1",
+      "statement": "operation MUST preserve the Operation Context `correlation_id`. A retry MUST",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0128",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Correlation Identifiers",
+      "source_line": 86,
+      "source_digest": "sha256:10ca2eb3edd0d811e5c00802cc131d00a638836e2204bc4d25225e41ca0c8c47",
+      "statement": "Correlation identifiers MUST NOT contain credentials, private keys, bearer",
+      "schema_rules": [
+        "schemas/operation-context.schema.json#",
+        "semantic:operation-context/reference-integrity"
+      ],
+      "vector_ids": [
+        "operation-context-complete-020",
+        "operation-context-missing-correlation-020",
+        "audit-correlation-complete-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0129",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Audit Projection",
+      "source_line": 109,
+      "source_digest": "sha256:3e57a07230759faf636d1e1f1d634ab801196e72f36e56af4b560ad260738ad5",
+      "statement": "Every accepted state-changing operation MUST project these values into portable",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#"
+      ],
+      "vector_ids": [
+        "audit-correlation-complete-020",
+        "audit-correlation-missing-decision-020"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0130",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/operation-context.md",
+      "section": "Conformance",
+      "source_line": 126,
+      "source_digest": "sha256:3ee7acb53301acc3da90572629a9da2f4971029ac4418f10cdb96037361e2e96",
+      "statement": "Conformance evidence MUST include:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "governance-normative-evidence-complete-021"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0131",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Required Security Properties",
+      "source_line": 21,
+      "source_digest": "sha256:45e3dfd893f33b11e3617bb2b324a41e0ac458682786c55aacf4d306870afe2c",
+      "statement": "A conforming Reference Node profile implementation MUST:",
+      "schema_rules": [
+        "semantic:security/sp0"
+      ],
+      "vector_ids": [
+        "security-sp0-conformance-020",
+        "extension-core-authorization-bypass-020"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0132",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Binding Requirements",
+      "source_line": 39,
+      "source_digest": "sha256:9ffb3f3246741cf1a9e0d9504b5db3d9f0878f165e6fe3eb7ffeb13595169d1a",
+      "statement": "A non-local transport binding MUST provide:",
+      "schema_rules": [
+        "semantic:security/sp2"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-sp2-binding-declaration-missing-022"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0133",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Binding Requirements",
+      "source_line": 50,
+      "source_digest": "sha256:4c1b137abeec8b66b7df5ec10ad75f2cdb10a3b6508ab0425f83965ff7aff13f",
+      "statement": "Local bindings MUST document an equivalent trust assumption and actor-mapping rule.",
+      "schema_rules": [
+        "semantic:security/sp2"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-sp2-binding-declaration-missing-022"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0134",
+      "keywords": [
+        "MUST",
+        "MUST NOT"
+      ],
+      "keyword_count": 3,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Authorization Freshness",
+      "source_line": 61,
+      "source_digest": "sha256:318713bcb50e655d5d7babca537dfdf621e4fbca6961b3c3e4746b3c0a184563",
+      "statement": "A failed freshness check MUST prevent the action. The node MUST emit a denied or conflict outcome and an attributable Audit Event. It MUST NOT silently re-use a stale decision.",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:security/sp1"
+      ],
+      "vector_ids": [
+        "security-sp1-conformance-021",
+        "authorization-decision-expired-002",
+        "action-semantics-invalid-002"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0135",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Provider Result Integrity",
+      "source_line": 65,
+      "source_digest": "sha256:3b31841a6e3c1808b49db6b591fca4e16d768609a5461a56132f46acfcd6f7e7",
+      "statement": "A Provider result MUST be accepted only through the Provider Boundary. The node MUST verify that the submitting peer is permitted to act for the referenced Provider and that the result matches the expected Order, Execution, correlation ID, and revision.",
+      "schema_rules": [
+        "schemas/audit-correlation.schema.json#",
+        "semantic:security/sp1"
+      ],
+      "vector_ids": [
+        "security-sp1-conformance-021",
+        "authorization-decision-expired-002",
+        "action-semantics-invalid-002"
+      ],
+      "evidence_profile": "SP1"
+    },
+    {
+      "requirement_id": "NR-0136",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Extension Supply-Chain Controls",
+      "source_line": 71,
+      "source_digest": "sha256:b7df166f306a21af13814dc4d4ecb524912019a1c68196b7d68078512c1055c2",
+      "statement": "Before enabling a required extension, a node MUST:",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#",
+        "semantic:security/extension-trust"
+      ],
+      "vector_ids": [
+        "security-sp0-conformance-020",
+        "extension-digest-mismatch-005",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0137",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Extension Supply-Chain Controls",
+      "source_line": 79,
+      "source_digest": "sha256:b1200d7dd0fbba8681fd2322e57d8bc4015abff05615ee9f2f0d8c422ddc990c",
+      "statement": "The protocol does not mandate a central registry or certificate authority. Implementations MUST document how extension sources become trusted.",
+      "schema_rules": [
+        "schemas/extension-manifest.schema.json#",
+        "semantic:security/extension-trust"
+      ],
+      "vector_ids": [
+        "security-sp0-conformance-020",
+        "extension-digest-mismatch-005",
+        "extension-unrestricted-schema-retrieval-021"
+      ],
+      "evidence_profile": "SP0"
+    },
+    {
+      "requirement_id": "NR-0138",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Audit, Error, and Privacy Controls",
+      "source_line": 83,
+      "source_digest": "sha256:f2b0cdd65f41ce0a736f9ebd0862f96bd4fc2240a95deec067a1e4b349d2b918",
+      "statement": "- Audit records MUST be append-oriented or protected by an equivalent tamper-evident integrity control.",
+      "schema_rules": [
+        "semantic:security/sp2-audit-privacy"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-error-secret-disclosure-003",
+        "security-audit-secret-disclosure-004",
+        "api-query-owner-isolation-011"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0139",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Audit, Error, and Privacy Controls",
+      "source_line": 84,
+      "source_digest": "sha256:588c98b148a50eba58a343c21be6ed2f2eb02a8cf42f83e99d0c5b14f7241f36",
+      "statement": "- Audit queries MUST enforce caller authorization and bounded pagination.",
+      "schema_rules": [
+        "semantic:security/sp2-audit-privacy"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-error-secret-disclosure-003",
+        "security-audit-secret-disclosure-004",
+        "api-query-owner-isolation-011"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0140",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Audit, Error, and Privacy Controls",
+      "source_line": 85,
+      "source_digest": "sha256:14b2e594c214caab419412165b0202418e0c79bb7ade31844863299ebfe2b02e",
+      "statement": "- Portable errors MUST expose stable protocol information without stack traces, secrets, credentials, or internal network details.",
+      "schema_rules": [
+        "semantic:security/sp2-audit-privacy"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-error-secret-disclosure-003",
+        "security-audit-secret-disclosure-004",
+        "api-query-owner-isolation-011"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0141",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Audit, Error, and Privacy Controls",
+      "source_line": 86,
+      "source_digest": "sha256:35b1db5b51aff913050787ae66850cc95f3e71845db5c548e7c54703f4229dd5",
+      "statement": "- Correlation identifiers MUST not embed confidential data.",
+      "schema_rules": [
+        "semantic:security/sp2-audit-privacy"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-error-secret-disclosure-003",
+        "security-audit-secret-disclosure-004",
+        "api-query-owner-isolation-011"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0142",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Audit, Error, and Privacy Controls",
+      "source_line": 87,
+      "source_digest": "sha256:dbee4123e673650033271146cacfe598a2c2cb6048fa8d05fffaabead2a07d9a",
+      "statement": "- Retention and deletion policies MUST preserve legally required minimization while retaining sufficient non-sensitive evidence for protocol accountability.",
+      "schema_rules": [
+        "semantic:security/sp2-audit-privacy"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-error-secret-disclosure-003",
+        "security-audit-secret-disclosure-004",
+        "api-query-owner-isolation-011"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0143",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 2,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Cryptographic Agility",
+      "source_line": 91,
+      "source_digest": "sha256:e82191ccc28c6f01c59e98d57e13b641683db390599f8624b049afabc48d3345",
+      "statement": "This profile requires protected and attributable exchanges but does not select a cryptographic suite. A binding profile MUST identify its algorithms and downgrade behavior. Algorithms MUST be replaceable without changing SAIF business-object semantics.",
+      "schema_rules": [
+        "semantic:security/sp2"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-sp2-binding-declaration-missing-022"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0144",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "SP2: Protected Boundary and Evidence",
+      "source_line": 132,
+      "source_digest": "sha256:3109b667325b59535e2b0381b27e34ac2fbff58434cbb1c022c6e313c3fd49d4",
+      "statement": "A full `saif-reference-node-security/0.3` conformance claim MUST satisfy SP0,",
+      "schema_rules": [
+        "semantic:security/sp2"
+      ],
+      "vector_ids": [
+        "security-sp2-conformance-022",
+        "security-sp2-binding-declaration-missing-022"
+      ],
+      "evidence_profile": "SP2"
+    },
+    {
+      "requirement_id": "NR-0145",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/security-profile.md",
+      "section": "Conformance Requirements",
+      "source_line": 139,
+      "source_digest": "sha256:4ffeef946aaee09870bb3345b864b8066f46816393dbc135fd39478548a9e96d",
+      "statement": "Conformance evidence for this profile MUST include valid and invalid vectors for:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "security-sp0-conformance-020",
+        "security-sp1-conformance-021",
+        "security-sp2-conformance-022",
+        "security-sp2-binding-declaration-missing-022"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    },
+    {
+      "requirement_id": "NR-0146",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Purpose",
+      "source_line": 15,
+      "source_digest": "sha256:d47ad63039bd55358f54988005bbdec81a436298932ee477c6a6650ec4a56ee8",
+      "statement": "Each vocabulary has one normative definition. A binding MUST preserve the layer",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-layer-separation-001",
+        "status-layer-confusion-001",
+        "status-layer-confusion-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0147",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Purpose",
+      "source_line": 16,
+      "source_digest": "sha256:62697de9b7ac1134a82f97ba551ae8a0128ecec7a199d25c761a4c50febbd78d",
+      "statement": "and field meaning and MUST NOT map one layer to another implicitly.",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-layer-separation-001",
+        "status-layer-confusion-001",
+        "status-layer-confusion-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0148",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Protocol Status",
+      "source_line": 33,
+      "source_digest": "sha256:2f6852624956036dc9200652d15f101b9ecd3019010ecc2439db32056d623ac7",
+      "statement": "When Protocol Status is `SUCCESS`, a state-changing operation result MUST contain",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-protocol-failure-002",
+        "status-pending-layers-011"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0149",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Protocol Status",
+      "source_line": 34,
+      "source_digest": "sha256:5758a4f28884359fd260b095c4d564f5d910ae179dabc2db9c26c4755086f716",
+      "statement": "an `action_outcome`. When it is `FAILURE`, the result MUST contain or reference a",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-protocol-failure-002",
+        "status-pending-layers-011"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0150",
+      "keywords": [
+        "MUST NOT"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Protocol Status",
+      "source_line": 35,
+      "source_digest": "sha256:2ae25b4f16fa11ac6946951e8efd69059ff485276db1c34802f0933f1aaedf1a",
+      "statement": "Standard Error and MUST NOT claim an Action Outcome. Protocol Status `PENDING`",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-protocol-failure-002",
+        "status-pending-layers-011"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0151",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Result Envelope",
+      "source_line": 97,
+      "source_digest": "sha256:4fbccae7edd76f21cd0c98ce93c79b732a2097153c99c0b7ca3254f46da045fd",
+      "statement": "Bindings MAY change field placement but MUST preserve all three names and their",
+      "schema_rules": [
+        "schemas/common-status.schema.json#",
+        "schemas/action-outcome.schema.json#"
+      ],
+      "vector_ids": [
+        "status-layer-separation-001",
+        "status-layer-confusion-001",
+        "status-layer-confusion-002"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0152",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Audit Projection",
+      "source_line": 112,
+      "source_digest": "sha256:c3a8c2c693f078f8d33dd81cb4419ae1e6687ccde13ca71b54cd74caeb51ba22",
+      "statement": "The exact Action Outcome MUST also be recorded as",
+      "schema_rules": [
+        "semantic:status/audit-projection"
+      ],
+      "vector_ids": [
+        "status-audit-projection-012"
+      ],
+      "evidence_profile": "CORE"
+    },
+    {
+      "requirement_id": "NR-0153",
+      "keywords": [
+        "MUST"
+      ],
+      "keyword_count": 1,
+      "specification": "docs/specs/status-model.md",
+      "section": "Conformance",
+      "source_line": 118,
+      "source_digest": "sha256:77ddeec3c4101dcf592f21e5349e393916cb9da648859a2b4da2adcd40378b24",
+      "statement": "Conformance MUST verify:",
+      "schema_rules": [
+        "artifact:docs/conformance.md#v03-reference-node-coverage"
+      ],
+      "vector_ids": [
+        "status-success-outcomes-010",
+        "status-protocol-failure-002",
+        "status-pending-layers-011",
+        "status-audit-projection-012",
+        "status-layer-confusion-001",
+        "status-layer-confusion-002"
+      ],
+      "evidence_profile": "GOVERNANCE"
+    }
+  ]
+}

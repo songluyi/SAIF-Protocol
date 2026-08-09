@@ -1,0 +1,18 @@
+{
+  "vector_id": "extension-numeric-version-comparison-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "EXTENSION",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "VALID",
+  "description": "Numeric comparison accepts SAIF 0.10.0 within [0.9.0, 0.11.0), a range that lexical comparison would misinterpret.",
+  "instance": {
+    "selected_saif_version": "0.10.0",
+    "compatibility": {
+      "saif_min": "0.9.0",
+      "saif_max_exclusive": "0.11.0"
+    },
+    "comparison_method": "NUMERIC_COMPONENTS",
+    "compatible": true
+  }
+}

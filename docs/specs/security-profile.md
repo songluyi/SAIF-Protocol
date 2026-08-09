@@ -90,6 +90,50 @@ The protocol does not mandate a central registry or certificate authority. Imple
 
 This profile requires protected and attributable exchanges but does not select a cryptographic suite. A binding profile MUST identify its algorithms and downgrade behavior. Algorithms MUST be replaceable without changing SAIF business-object semantics.
 
+## Security Conformance Evidence Profiles
+
+SP0, SP1, and SP2 are cumulative evidence groupings for this specification.
+They are not commercial assurance levels and do not select a product,
+authentication provider, storage engine, or cryptographic suite.
+
+### SP0: Core Protocol Safety
+
+SP0 evidence covers:
+
+- schema and semantic validation before mutation;
+- core Authorization and lifecycle precedence;
+- fail-closed handling of required extensions;
+- prevention of extension-owned security bypass; and
+- exclusion of prohibited secrets from portable data.
+
+### SP1: Authorized and Attributable Execution
+
+SP1 includes SP0 and adds:
+
+- authenticated-peer to resolved-actor mapping;
+- Owner isolation and Authorization freshness;
+- idempotent replay and duplicate-execution prevention;
+- Provider result binding; and
+- complete Action-Authorization-Execution-Audit correlation.
+
+### SP2: Protected Boundary and Evidence
+
+SP2 includes SP0 and SP1 and adds:
+
+- binding confidentiality, integrity, replay resistance, and credential
+  lifecycle declarations;
+- named cryptographic algorithms and downgrade behavior;
+- message, rate, execution-time, and resource limits with safe Standard Errors;
+- append-oriented or equivalently tamper-evident audit protection;
+- bounded and authorized audit pagination;
+- documented retention and minimization policy; and
+- documented extension-source trust policy.
+
+A full `saif-reference-node-security/0.3` conformance claim MUST satisfy SP0,
+SP1, and SP2. A local binding represents SP2 transport controls through its
+documented equivalent trust assumptions. Missing mandatory evidence fails with
+`PROTOCOL` / `SAIF-PROTOCOL-0008`.
+
 ## Conformance Requirements
 
 Conformance evidence for this profile MUST include valid and invalid vectors for:
@@ -101,7 +145,11 @@ Conformance evidence for this profile MUST include valid and invalid vectors for
 - unknown required extension rejection;
 - extension schema-digest mismatch;
 - version or profile downgrade rejection; and
-- redaction of sensitive error and audit data.
+- redaction of sensitive error and audit data;
+- SP0 core validation and extension-bypass rejection;
+- SP1 actor, replay, Provider, and audit-correlation evidence; and
+- SP2 binding declarations, resource-limit errors, audit integrity, retention,
+  and extension trust policy.
 
 Conformance vectors demonstrate protocol outcomes; they do not require a public-network deployment or a reference runtime.
 
@@ -109,7 +157,9 @@ Security-profile rejection uses the existing Standard Error taxonomy. Owner or
 tenant identity mismatches use `AUTHORIZATION` / `SAIF-AUTHORIZATION-0005`,
 unsupported or downgraded versions use `VERSION` / `SAIF-VERSION-0001`, and a
 portable error or Audit Event containing prohibited secrets uses `PROTOCOL` /
-`SAIF-PROTOCOL-0005`.
+`SAIF-PROTOCOL-0005`. Missing SP2 algorithm, downgrade, limit, integrity,
+retention, or trust-policy evidence uses `PROTOCOL` /
+`SAIF-PROTOCOL-0008`.
 
 ## Explicit Non-Goals
 

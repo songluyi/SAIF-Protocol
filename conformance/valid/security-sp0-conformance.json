@@ -1,0 +1,18 @@
+{
+  "vector_id": "security-sp0-conformance-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "VALID",
+  "description": "SP0 evidence demonstrates validation before mutation, fail-closed extensions, core authorization precedence, and secret-free portable data.",
+  "instance": {
+    "security_evidence_profile": "SP0",
+    "schema_validated_before_mutation": true,
+    "semantic_validated_before_mutation": true,
+    "core_authorization_precedence": true,
+    "unknown_required_extension_result": "REJECTED",
+    "portable_secret_count": 0,
+    "state_mutation_count_on_rejection": 0
+  }
+}

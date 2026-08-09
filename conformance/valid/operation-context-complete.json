@@ -1,0 +1,54 @@
+{
+  "vector_id": "operation-context-complete-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "schemas/operation-context.schema.json",
+  "expected": "VALID",
+  "description": "A state-changing operation carries complete request, execution, authorization, extension, replay, and correlation context.",
+  "instance": {
+    "operation_id": "op_context_020",
+    "operation": "CompleteExecution",
+    "saif_version": "0.3.0",
+    "profile": "saif-reference-node/0.3",
+    "correlation_id": "corr_context_020",
+    "causation_id": "op_context_019",
+    "idempotency_key": "idem_context_020",
+    "actor": {
+      "type": "PROVIDER",
+      "id": "provider_context_020",
+      "owner_id": null
+    },
+    "target": {
+      "type": "execution",
+      "id": "execution_context_020",
+      "expected_revision": 1
+    },
+    "request_context": {
+      "owner_id": "party_context_020",
+      "agent_id": "agent_context_020",
+      "request_id": "request_context_020",
+      "request_revision": 2,
+      "authorization_id": "authorization_context_020"
+    },
+    "execution_context": {
+      "order_id": "order_context_020",
+      "order_revision": 2,
+      "execution_id": "execution_context_020",
+      "execution_revision": 1,
+      "provider_id": "provider_context_020"
+    },
+    "authorization_decision_id": "decision_context_020",
+    "extensions": [
+      {
+        "extension_id": "org.example.execution-proof",
+        "version": "1.0.0",
+        "required": true,
+        "manifest_digest": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      }
+    ],
+    "payload": {
+      "requested_state": "COMPLETED"
+    }
+  }
+}

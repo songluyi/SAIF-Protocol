@@ -1,0 +1,48 @@
+{
+  "vector_id": "audit-correlation-missing-decision-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUDIT",
+  "target": "schemas/audit-correlation.schema.json",
+  "expected": "INVALID",
+  "description": "An authorized execution trace without authorization_decision_id is incomplete.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/authorization_decision_id"
+  },
+  "instance": {
+    "operation_id": "op_audit_021",
+    "correlation_id": "corr_audit_021",
+    "action": "CompleteExecution",
+    "actor": {
+      "type": "PROVIDER",
+      "id": "provider_audit_021",
+      "owner_id": null
+    },
+    "request_ref": {
+      "id": "request_audit_021",
+      "revision": 2
+    },
+    "authorization_ref": {
+      "id": "authorization_audit_021",
+      "revision": 1
+    },
+    "order_ref": {
+      "id": "order_audit_021",
+      "revision": 3
+    },
+    "execution_ref": {
+      "id": "execution_audit_021",
+      "revision": 2,
+      "provider_id": "provider_audit_021"
+    },
+    "previous_state": "RUNNING",
+    "new_state": "COMPLETED",
+    "action_outcome": "APPLIED",
+    "standard_error_ref": null,
+    "audit_event_refs": [
+      "audit_execution_021"
+    ]
+  }
+}

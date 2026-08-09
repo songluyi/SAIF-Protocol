@@ -1,0 +1,34 @@
+{
+  "vector_id": "provider-forbidden-core-mutation-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "A Provider result attempting to rewrite Request or Owner Authorization is rejected before mutation.",
+  "expected_error": {
+    "category": "AUTHORIZATION",
+    "code": "SAIF-AUTHORIZATION-0007",
+    "path": "/attempted_mutations/0/object_type"
+  },
+  "instance": {
+    "operation": "CompleteExecution",
+    "actor": {
+      "type": "PROVIDER",
+      "id": "provider_mutation_020"
+    },
+    "selected_provider_id": "provider_mutation_020",
+    "order_id": "order_mutation_020",
+    "execution_id": "execution_mutation_020",
+    "correlation_id": "corr_mutation_020",
+    "expected_revision": 1,
+    "attempted_mutations": [
+      {
+        "object_type": "authorization",
+        "object_id": "authorization_mutation_020",
+        "change": "EXPAND_SCOPE"
+      }
+    ],
+    "state_mutation_count": 0
+  }
+}

@@ -163,7 +163,9 @@ Validates that extensions use an approved namespace, declare compatibility, and 
 
 ## v0.3 Reference Node Coverage
 
-The mandatory v0.3 profile uses the following requirement-to-vector matrix.
+The mandatory v0.3 profile uses the following summary requirement-to-vector
+matrix. The clause-complete canonical mapping is the
+[Normative Requirement Matrix](normative-requirement-matrix.md).
 Vector IDs are normative identifiers; one vector may satisfy multiple rows when
 its target and description identify every shared invariant.
 
@@ -183,19 +185,35 @@ its target and description identify every shared invariant.
 | `API-07` | Required discovery response fields | `api-discovery-incomplete-013` |
 | `AUTH-01` | Decision values and required fields | `authorization-decision-valid-001`, `authorization-decision-deny-002`, `authorization-requires-action-003`, `authorization-decision-invalid-001` |
 | `AUTH-02` | Freshness, revision, revocation, replay, conversion | `authorization-decision-expired-002`, `authorization-revision-mismatch-003`, `authorization-revoked-after-evaluation-004`, `authorization-cross-request-replay-005`, `authorization-non-allow-conversion-006` |
+| `OPCTX-01` | Complete context and missing correlation rejection | `operation-context-complete-020`, `operation-context-missing-correlation-020` |
+| `IDEM-01` | Retention boundary and duplicate Execution prevention | `idempotency-retention-boundary-020`, `idempotency-retention-early-forget-020`, `idempotency-duplicate-execution-prevention-021` |
+| `AUDCOR-01` | Complete trace and missing decision rejection | `audit-correlation-complete-020`, `audit-correlation-missing-decision-020` |
 | `ACTION-01` | Replay, revision, and concurrency | `action-semantics-valid-001`, `action-idempotency-conflict-003`, `action-semantics-invalid-001`, `action-concurrent-terminal-conflict-004` |
 | `ACTION-02` | Atomic and asynchronous outcomes | `action-semantics-valid-002`, `action-execution-completion-003`, `action-asynchronous-completion-004`, `action-incomplete-atomic-outcome-005` |
 | `EXT-01` | Manifest, unknown, and compatibility behavior | `extension-manifest-valid-001`, `extension-manifest-required-002`, `extension-manifest-invalid-001`, `extension-optional-unknown-ignore-003`, `extension-semantics-invalid-002`, `extension-incompatible-version-004` |
+| `EXT-04` | Numeric compatibility, safe resolution, audit binding | `extension-numeric-version-comparison-020`, `extension-security-safe-resolution-021`, `extension-operation-audit-binding-022` |
+| `EXT-05` | Reject core bypass and unrestricted schema retrieval | `extension-core-authorization-bypass-020`, `extension-unrestricted-schema-retrieval-021` |
 | `EXT-02` | RFC 1035 namespace grammar and authority | `extension-namespace-rfc1035-010`, `extension-namespace-trailing-hyphen-010`, `extension-namespace-leading-hyphen-011`, `extension-namespace-empty-label-012`, `extension-namespace-leading-digit-013`, `extension-namespace-reserved-014`, `extension-namespace-mismatch-003` |
 | `EXT-03` | Digest and duplicate conflict | `extension-digest-mismatch-005`, `extension-duplicate-conflict-006` |
+| `SEC-02` | Provider cannot mutate core authority | `provider-forbidden-core-mutation-020` |
+| `SP0-01` | Core protocol safety evidence | `security-sp0-conformance-020`, `extension-core-authorization-bypass-020` |
+| `SP1-01` | Authorized, replay-safe, attributable execution | `security-sp1-conformance-021`, `audit-correlation-complete-020`, `audit-correlation-missing-decision-020` |
+| `SP2-01` | Protected binding and evidence declarations | `security-sp2-conformance-022`, `security-sp2-binding-declaration-missing-022` |
 | `SEC-01` | Owner, Provider, negotiation, downgrade, redaction | `security-owner-isolation-001`, `security-owner-scoped-access-001`, `action-semantics-invalid-002`, `security-version-negotiation-002`, `security-version-downgrade-002`, `security-error-secret-disclosure-003`, `security-audit-secret-disclosure-004` |
 | `GOV-01` | Objects, lifecycle, errors, audit, references | `request-valid-001`, `request-invalid-001`, `order-valid-001`, `order-invalid-001`, `lifecycle-request-submit-001`, `lifecycle-terminal-order-reopen-001`, `error-standard-shape-001`, `error-nonstandard-category-001`, `audit-owner-attribution-001`, `audit-missing-authorization-001`, `cross-object-reference-chain-001`, `cross-object-reference-mismatch-001` |
+| `GOV-02` | Immutable v0.3 schema identity set | `governance-schema-identity-020` |
+| `GOV-03` | Clause-complete normative evidence inventory | `governance-normative-evidence-complete-021` |
 
 A coverage report MUST list each matrix row, the vectors executed for that row,
 and its pass, fail, or skipped result. A required behavior MAY be demonstrated by
 a vector assigned to another area only when the vector description and target
 identify the shared invariant. The report counts that vector in every satisfied
 row without executing it more than once.
+
+The clause-level matrix MUST contain one digest-bound record for every BCP 14
+mandatory source occurrence in the normative scope. Coverage validation MUST
+resolve every referenced schema rule and vector ID and MUST reject stale source
+digests or orphan vectors.
 
 ## Conformance Claim
 

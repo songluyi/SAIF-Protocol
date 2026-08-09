@@ -14,9 +14,11 @@ Operations use:
 - the [State Model](../state-machine.md);
 - the [Authorization Decision Contract](authorization-decision-contract.md);
 - [Action Execution Semantics](action-execution-semantics.md);
+- the [Operation Context](operation-context.md);
 - the [Extension Declaration](extension-declaration.md);
 - the [Standard Error Model](../error-model.md);
-- the [Audit Event Model](../audit-event-model.md); and
+- the [Audit Event Model](../audit-event-model.md);
+- [Audit Correlation](audit-correlation.md); and
 - the [Status Model](status-model.md).
 
 ## Common Request Envelope
@@ -32,6 +34,10 @@ Every state-changing operation has a binding-neutral envelope containing:
 - Authorization Decision ID when applicable;
 - required and optional extension references; and
 - operation-specific payload.
+
+The portable reconstruction of this envelope MUST validate against
+`schemas/operation-context.schema.json`. Request and Execution references use
+the rules in the Operation Context specification.
 
 A binding MAY encode these values in a message body, headers, attributes, or another structure. It MUST preserve their meaning and make them available to protocol validation, audit, and error handling.
 
@@ -297,6 +303,8 @@ The caller uses `GetOperation` or a binding-defined notification carrying the sa
 
 Operation conformance vectors MUST cover:
 
+- complete and incomplete Operation Context;
+- complete Action-Authorization-Execution-Audit correlation;
 - actor role allowed and denied cases;
 - every pre-state and successful post-state;
 - stale revisions;

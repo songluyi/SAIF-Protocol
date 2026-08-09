@@ -1,0 +1,24 @@
+{
+  "vector_id": "extension-unrestricted-schema-retrieval-021",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "A schema URI cannot trigger unrestricted network retrieval outside an approved trust policy.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0006",
+    "path": "/schema_resolution/network_scope"
+  },
+  "instance": {
+    "extension_id": "org.example.remote-schema",
+    "schema_resolution": {
+      "trust_policy": "NONE",
+      "network_scope": "UNRESTRICTED",
+      "request_count": 1,
+      "code_execution_count": 0
+    },
+    "state_mutation_count": 0
+  }
+}

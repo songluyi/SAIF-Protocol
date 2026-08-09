@@ -1,0 +1,41 @@
+{
+  "vector_id": "security-sp2-binding-declaration-missing-022",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/security-profile.md",
+  "expected": "INVALID",
+  "description": "SP2 evidence without an algorithm and downgrade declaration is incomplete.",
+  "expected_error": {
+    "category": "PROTOCOL",
+    "code": "SAIF-PROTOCOL-0008",
+    "path": "/binding/algorithms"
+  },
+  "instance": {
+    "security_evidence_profile": "SP2",
+    "includes": [
+      "SP0",
+      "SP1"
+    ],
+    "binding": {
+      "type": "NON_LOCAL",
+      "peer_authentication": true,
+      "confidentiality": true,
+      "integrity": true,
+      "replay_resistance": true,
+      "actor_mapping": true
+    },
+    "resource_limits": {
+      "documented": true
+    },
+    "audit_integrity": {
+      "documented": true
+    },
+    "retention_policy": {
+      "documented": true
+    },
+    "extension_trust_policy": {
+      "documented": true
+    }
+  }
+}

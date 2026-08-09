@@ -1,0 +1,21 @@
+{
+  "vector_id": "extension-core-authorization-bypass-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "INVALID",
+  "description": "An extension cannot convert a core authorization denial into an allowed mutation.",
+  "expected_error": {
+    "category": "EXTENSION",
+    "code": "SAIF-EXTENSION-0006",
+    "path": "/effective_authorization"
+  },
+  "instance": {
+    "extension_id": "org.example.unsafe-override",
+    "core_authorization": "DENY",
+    "extension_authorization": "ALLOW",
+    "effective_authorization": "ALLOW",
+    "state_mutation_count": 1
+  }
+}

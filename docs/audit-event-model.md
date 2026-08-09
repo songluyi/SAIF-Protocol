@@ -77,6 +77,13 @@ When an action depends on delegated authority, the event must identify the appli
 
 All Audit Events produced by one business interaction should share a `correlation_id`. Implementations may use internal trace identifiers, but a private trace format must not be required to interpret the portable event.
 
+For the v0.3 Reference Node profile, an authorized execution trace MUST follow
+the [Audit Correlation](specs/audit-correlation.md) contract. Operation,
+Request, Authorization Decision, Order, Execution, Provider, outcome, error,
+and Audit Event references MUST form one consistent correlation chain. Complete
+trace evidence validates against
+`schemas/audit-correlation.schema.json`.
+
 ## Ordering and Integrity
 
 Implementations should preserve event order for each object and correlation ID. They may add signatures, hashes, sequence numbers, or immutable storage proofs as extensions. SAIF v0.2 does not mandate a cryptographic system or ledger technology.

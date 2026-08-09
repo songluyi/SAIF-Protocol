@@ -1,0 +1,25 @@
+{
+  "vector_id": "idempotency-duplicate-execution-prevention-021",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "VALID",
+  "description": "Retries while an asynchronous execution is pending resolve to one operation, one Execution, and one business audit sequence.",
+  "instance": {
+    "operation": "CreateExecution",
+    "operation_id": "op_idem_021",
+    "correlation_id": "corr_idem_021",
+    "idempotency_key_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "deliveries": 3,
+    "current_outcome": "PENDING",
+    "operation_ids": [
+      "op_idem_021"
+    ],
+    "execution_ids": [
+      "execution_idem_021"
+    ],
+    "object_mutation_count": 1,
+    "audit_event_sequence_count": 1
+  }
+}

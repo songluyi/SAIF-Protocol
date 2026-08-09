@@ -1,0 +1,23 @@
+{
+  "vector_id": "extension-operation-audit-binding-022",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "AUDIT",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "VALID",
+  "description": "Operation audit context preserves the selected extension ID, version, and verified manifest digest.",
+  "instance": {
+    "operation_id": "op_extension_022",
+    "correlation_id": "corr_extension_022",
+    "selected_extension": {
+      "extension_id": "org.example.resource-labels",
+      "version": "1.2.0",
+      "manifest_digest": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    },
+    "audit_context": {
+      "extension_id": "org.example.resource-labels",
+      "version": "1.2.0",
+      "manifest_digest": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    }
+  }
+}

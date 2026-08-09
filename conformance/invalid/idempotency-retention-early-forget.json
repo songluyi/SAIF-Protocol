@@ -1,0 +1,24 @@
+{
+  "vector_id": "idempotency-retention-early-forget-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "INVALID",
+  "description": "Forgetting a key before the advertised retention expiry violates deterministic replay and duplicate prevention.",
+  "expected_error": {
+    "category": "PROTOCOL",
+    "code": "SAIF-PROTOCOL-0007",
+    "path": "/key_record_present"
+  },
+  "instance": {
+    "operation": "ConvertRequest",
+    "advertised_retention_seconds": 86400,
+    "accepted_at": "2026-08-09T00:00:00Z",
+    "retention_expires_at": "2026-08-10T00:00:00Z",
+    "replay_received_at": "2026-08-09T12:00:00Z",
+    "key_record_present": false,
+    "semantic_input_unchanged": true,
+    "duplicate_mutation_count": 1
+  }
+}

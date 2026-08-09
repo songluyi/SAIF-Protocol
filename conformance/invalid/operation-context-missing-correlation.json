@@ -1,0 +1,51 @@
+{
+  "vector_id": "operation-context-missing-correlation-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "schemas/operation-context.schema.json",
+  "expected": "INVALID",
+  "description": "An otherwise complete operation context without correlation_id is rejected before mutation.",
+  "expected_error": {
+    "category": "VALIDATION",
+    "code": "SAIF-VALIDATION-0001",
+    "path": "/correlation_id"
+  },
+  "instance": {
+    "operation_id": "op_context_021",
+    "operation": "CompleteExecution",
+    "saif_version": "0.3.0",
+    "profile": "saif-reference-node/0.3",
+    "causation_id": "op_context_020",
+    "idempotency_key": "idem_context_021",
+    "actor": {
+      "type": "PROVIDER",
+      "id": "provider_context_021",
+      "owner_id": null
+    },
+    "target": {
+      "type": "execution",
+      "id": "execution_context_021",
+      "expected_revision": 1
+    },
+    "request_context": {
+      "owner_id": "party_context_021",
+      "agent_id": "agent_context_021",
+      "request_id": "request_context_021",
+      "request_revision": 2,
+      "authorization_id": "authorization_context_021"
+    },
+    "execution_context": {
+      "order_id": "order_context_021",
+      "order_revision": 2,
+      "execution_id": "execution_context_021",
+      "execution_revision": 1,
+      "provider_id": "provider_context_021"
+    },
+    "authorization_decision_id": "decision_context_021",
+    "extensions": [],
+    "payload": {
+      "requested_state": "COMPLETED"
+    }
+  }
+}

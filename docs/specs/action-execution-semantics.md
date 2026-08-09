@@ -43,6 +43,11 @@ Every state-changing operation MUST carry or resolve:
 | `extensions` | Required and optional extension references. |
 | `payload` | Operation-specific protocol data. |
 
+The canonical portable representation is defined by the
+[Operation Context](operation-context.md) specification and
+`schemas/operation-context.schema.json`. A binding may resolve fields from
+separate transport locations only when the reconstructed context is lossless.
+
 Transport authentication context remains outside the portable business object. A binding MUST map the authenticated peer to `actor` before the operation is accepted.
 
 ## Object Revisions
@@ -82,11 +87,32 @@ The comparison is over operation field values as interpreted by the selected bin
 
 ### Retention
 
-A Reference Node MUST advertise `idempotency_retention_seconds` through capability discovery.
+A Reference Node MUST advertise `idempotency_retention_seconds` through
+capability discovery.
 
-The v0.3 Reference Node profile requires a minimum of 86,400 seconds. A Node MAY advertise a longer interval. It MUST NOT reuse or forget a key earlier than the advertised interval.
+The v0.3 Reference Node profile requires a minimum of 86,400 seconds. A Node MAY
+advertise a longer interval. The interval recorded when an operation is first
+accepted governs that key even if the Node later advertises a shorter interval.
 
-After expiry, callers must not assume replay protection. Security or domain profiles MAY require longer retention.
+`retention_expires_at` equals `accepted_at` plus the advertised retention
+seconds. While `received_at < retention_expires_at`, the Node MUST retain enough
+information to compare semantic input and recover the current or terminal
+outcome. It MUST NOT reuse, forget, or treat the scoped key as new during this
+window.
+
+At or after `retention_expires_at`, the Node MAY expire the record. Expiry does
+not authorize duplicate execution of an operation that remains discoverably
+`PENDING`; the current operation identity remains authoritative until the
+operation is terminal or a profile-defined terminal retention rule applies.
+
+Every delivery inside the window MUST resolve to at most one business mutation,
+one created commitment or Execution, and one portable business Audit Event
+sequence. Early key loss is a conformance failure identified by `PROTOCOL` /
+`SAIF-PROTOCOL-0007`.
+
+Recorded RFC 3339 timestamps provide deterministic vector evidence; this
+specification does not mandate a clock provider or storage mechanism. Security
+or domain profiles MAY require longer retention.
 
 ## Action Outcomes
 
@@ -199,6 +225,7 @@ An unauthorized result fails with `AUTHORIZATION` / `SAIF-AUTHORIZATION-0007`.
 
 | Condition | Category | Code | Retryable without input change |
 | --- | --- | --- | --- |
+| Idempotency key forgotten before retention expiry | `PROTOCOL` | `SAIF-PROTOCOL-0007` | No |
 | Stale object revision | `STATE_TRANSITION` | `SAIF-STATE-0002` | No |
 | Idempotency key reused with different input | `PROTOCOL` | `SAIF-PROTOCOL-0003` | No |
 | Atomic outcome cannot complete | `PROTOCOL` | `SAIF-PROTOCOL-0004` | Profile-dependent |
@@ -222,6 +249,9 @@ Audit correlation MUST preserve:
 - previous and new states;
 - Authorization Decision ID;
 - Provider ID when applicable; and
+
+The complete trace follows the [Audit Correlation](audit-correlation.md)
+specification.
 - outcome and Standard Error reference.
 
 Raw idempotency secrets or sensitive transport credentials MUST NOT appear in portable events.
@@ -230,14 +260,19 @@ Raw idempotency secrets or sensitive transport credentials MUST NOT appear in po
 
 Conformance vectors MUST test:
 
+- complete and incomplete Operation Context;
 - first application and unchanged replay;
 - key reuse with changed input;
+- replay immediately before retention expiry and early key loss;
+- duplicate Execution prevention while an operation is `PENDING`;
 - expected revision success and stale revision conflict;
 - concurrent terminal transitions;
 - atomic Request conversion;
 - atomic Execution completion;
 - asynchronous `PENDING` to terminal behavior;
-- authorized and unauthorized Provider results; and
-- no duplicate Audit Events on replay.
+- authorized and unauthorized Provider results;
+- forbidden Provider mutation of Request or Authorization;
+- no duplicate Audit Events on replay; and
+- complete operation-to-audit correlation.
 
 This specification requires no runtime code. A conformance harness may evaluate recorded inputs and expected observable outcomes.

@@ -1,0 +1,29 @@
+{
+  "vector_id": "idempotency-retention-boundary-020",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "ACTION",
+  "target": "docs/specs/action-execution-semantics.md",
+  "expected": "VALID",
+  "description": "A replay one second before the advertised retention expiry returns the original outcome and performs no duplicate mutation.",
+  "instance": {
+    "operation": "ConvertRequest",
+    "scope": [
+      "agent_retention_020",
+      "ConvertRequest",
+      "request",
+      "request_retention_020",
+      "idem_retention_020"
+    ],
+    "advertised_retention_seconds": 86400,
+    "accepted_at": "2026-08-09T00:00:00Z",
+    "retention_expires_at": "2026-08-10T00:00:00Z",
+    "replay_received_at": "2026-08-09T23:59:59Z",
+    "key_record_present": true,
+    "semantic_input_unchanged": true,
+    "first_outcome": "APPLIED",
+    "replay_outcome": "REPLAYED",
+    "mutation_count": 1,
+    "audit_event_sequence_count": 1
+  }
+}

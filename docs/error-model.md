@@ -119,10 +119,13 @@ The following codes are reserved by the v0.3 Reference Node profile:
 | `SAIF-EXTENSION-0003` | `EXTENSION` | Extension namespace and identifier do not match. |
 | `SAIF-EXTENSION-0004` | `EXTENSION` | Manifest digest is invalid or conflicts. |
 | `SAIF-EXTENSION-0005` | `EXTENSION` | Required and unknown behavior are inconsistent. |
+| `SAIF-EXTENSION-0006` | `EXTENSION` | Extension attempted to weaken a core authorization or security invariant. |
 | `SAIF-PROTOCOL-0003` | `PROTOCOL` | Idempotency key was reused with different input. |
 | `SAIF-PROTOCOL-0004` | `PROTOCOL` | Required atomic outcome could not complete. |
 | `SAIF-PROTOCOL-0005` | `PROTOCOL` | Portable error or audit data disclosed prohibited secrets. |
 | `SAIF-PROTOCOL-0006` | `PROTOCOL` | Cross-object reference integrity failed. |
+| `SAIF-PROTOCOL-0007` | `PROTOCOL` | Idempotency evidence was lost before the advertised retention expiry. |
+| `SAIF-PROTOCOL-0008` | `PROTOCOL` | Required Security Profile conformance evidence is incomplete. |
 
 No other specification or extension may assign a different meaning to these
 codes. New core codes require governance review; private codes remain namespaced.

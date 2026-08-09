@@ -1,0 +1,23 @@
+{
+  "vector_id": "extension-security-safe-resolution-021",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "SECURITY",
+  "target": "docs/specs/extension-declaration.md",
+  "expected": "VALID",
+  "description": "An extension schema is verified from an approved local artifact without code execution, unrestricted retrieval, or weakened core authorization.",
+  "instance": {
+    "extension_id": "org.example.safe-labels",
+    "schema_uri": "https://example.org/saif/safe-labels.schema.json",
+    "schema_resolution": {
+      "source": "APPROVED_LOCAL_CACHE",
+      "digest_verified": true,
+      "network_request_count": 0,
+      "code_execution_count": 0
+    },
+    "core_authorization": "DENY",
+    "extension_constraint": "ALLOW_ONLY_IF_CORE_ALLOWS",
+    "effective_authorization": "DENY",
+    "state_mutation_count": 0
+  }
+}

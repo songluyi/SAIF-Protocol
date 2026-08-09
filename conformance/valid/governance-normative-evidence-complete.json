@@ -1,0 +1,21 @@
+{
+  "vector_id": "governance-normative-evidence-complete-021",
+  "saif_version": "0.3.0",
+  "profile": "saif-reference-node/0.3",
+  "area": "OBJECT",
+  "target": "docs/normative-requirement-matrix.md",
+  "expected": "VALID",
+  "description": "The clause-level matrix covers every mandatory normative source occurrence with a stable digest, schema or semantic rule, and existing vector evidence.",
+  "instance": {
+    "normative_artifact_count": 22,
+    "mandatory_source_occurrence_count": 153,
+    "requirement_record_count": 153,
+    "schema_count": 15,
+    "conformance_vector_count": 85,
+    "unmapped_occurrence_count": 0,
+    "stale_source_digest_count": 0,
+    "unresolved_schema_rule_count": 0,
+    "unresolved_vector_id_count": 0,
+    "orphan_vector_count": 0
+  }
+}

@@ -167,8 +167,31 @@ The protocol does not select versions by vendor preference.
 | Namespace and extension ID mismatch | `EXTENSION` | `SAIF-EXTENSION-0003` |
 | Manifest digest conflict or mismatch | `EXTENSION` | `SAIF-EXTENSION-0004` |
 | Invalid required/unknown behavior combination | `EXTENSION` | `SAIF-EXTENSION-0005` |
+| Attempted core authorization or security bypass | `EXTENSION` | `SAIF-EXTENSION-0006` |
 
 Errors MUST follow the [SAIF Standard Error Model](../error-model.md).
+
+## Core Security Precedence
+
+Extension semantics are additional constraints over the portable core. They do
+not create authority.
+
+Core schema, semantic, Authorization, lifecycle, error, audit, and Security
+Profile checks MUST remain effective when an extension is present. An extension
+MAY narrow an allowed operation, but it MUST NOT convert a core denial or
+invalid transition into an allowed mutation.
+
+When core and extension decisions differ, the effective decision is their
+intersection. A result that is less restrictive than the core decision fails
+with `EXTENSION` / `SAIF-EXTENSION-0006` before mutation.
+
+A schema URI is data identifying an artifact. Resolution MUST use an
+implementation-approved trust policy. The URI MUST NOT authorize code
+execution, ambient credential use, or network access outside the policy. A
+digest-verified local artifact is sufficient; remote retrieval is not required.
+
+The selected manifest ID, version, and verified digest MUST be preserved in the
+Operation Context result and the correlated audit evidence.
 
 ## Security Requirements
 
@@ -187,9 +210,13 @@ Conformance vectors MUST cover:
 - optional unknown extension ignore;
 - required unknown extension rejection;
 - namespace mismatch;
-- incompatible SAIF range;
+- incompatible SAIF range and a numeric-versus-lexical comparison boundary;
 - digest mismatch;
-- duplicate manifest conflict; and
-- invalid `required` and `unknown_behavior` combinations.
+- duplicate manifest conflict;
+- invalid `required` and `unknown_behavior` combinations;
+- selected manifest and digest audit binding;
+- schema resolution with no code execution or unrestricted network access; and
+- rejection of an attempted core Authorization or security bypass before
+  mutation.
 
 This specification defines data and observable decisions only. It does not define an extension runtime, plugin loader, marketplace, or commercial registry.
