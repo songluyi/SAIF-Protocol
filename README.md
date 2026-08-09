@@ -1,10 +1,20 @@
 # SAIF Protocol
 
-## An open standard defining business object models and execution frameworks for AI agents interacting with the real economy.
+**Enable AI to participate in the real world.**
+
+**让 AI 走进现实**
+
+SAIF Protocol is an open standard for defining how AI agents interact with authorized business processes and real-world execution systems.
+
+## Overview
 
 SAIF Protocol defines how AI agents express business requirements, receive authorization from humans or organizations, create business commitments, interact with execution providers, and record settlement outcomes through structured, interoperable objects.
 
 SAIF is protocol-first, provider-independent, and AI-vendor-neutral. It does not treat an AI agent as an independent legal or financial owner. A human or organization remains the accountable party and authorizes the agent to act within a defined scope.
+
+MCP is an integration and transport mechanism.
+
+MCP is not SAIF itself.
 
 ## Scope
 
@@ -18,7 +28,7 @@ SAIF Business Object Model v0.1 defines:
 
 This version is a public protocol foundation. It does not implement wallets, payment processing, marketplaces, user systems, or MCP connectors.
 
-## Core Business Model
+## Architecture
 
 SAIF defines the lifecycle:
 
@@ -59,7 +69,7 @@ SAIF is not an AI model, payment provider, or marketplace.
 
 SAIF defines the standard interaction model between AI agents and real-world execution systems.
 
-## Core Objects
+## Core Concepts
 
 | Object | Purpose |
 | --- | --- |
@@ -125,14 +135,13 @@ Stable Protocol Specification
 
 ## Design Principles
 
-1. Protocol first.
-2. Provider independent.
-3. AI vendor neutral.
-4. Human/Organization authorization based.
-5. Future compatible with commerce, payment, and robotics.
-6. No commercial implementation.
-7. No payment logic.
-8. No authentication provider dependency.
+- **Open Standard:** public semantics and compatibility rules.
+- **Vendor Neutral:** no dependency on a specific AI vendor.
+- **Transport Independent:** integrations such as MCP do not define SAIF itself.
+- **Authorization Aware:** every action preserves accountable authorization context.
+- **Real-World Execution:** the protocol models execution outcomes without prescribing provider implementation.
+
+SAIF Protocol contains no commercial implementation, payment logic, or authentication-provider dependency.
 
 ## Repository Structure
 
