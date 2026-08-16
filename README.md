@@ -1,5 +1,8 @@
 # SAIF Protocol
 
+> [!IMPORTANT]
+> **Project status: PAUSED / FROZEN since 2026-08-16.** Active protocol development is suspended. Existing specifications, branches, and history are preserved; only critical maintenance and preservation work should continue. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for the rationale, freeze policy, and conditions to resume.
+
 **Enable AI to participate in the real world.**
 
 **让 AI 走进现实**
@@ -117,6 +120,8 @@ Governance specifications:
 
 ## Standards Roadmap
 
+> **Roadmap status:** frozen. The entries below are historical targets and are not active commitments while the project is paused.
+
 ### v0.1
 
 Business Object Model
@@ -157,4 +162,4 @@ SAIF Protocol contains no commercial implementation, payment logic, or authentic
 
 ## Status
 
-SAIF Protocol v0.2 is an early public specification covering the Business Object Model, lifecycle states, compatibility, conformance, extensions, errors, audit events, and protocol boundaries. It is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice.
+SAIF Protocol is **paused/frozen as of 2026-08-16**. The currently published v0.2 materials remain an early public specification covering the Business Object Model, lifecycle states, compatibility, conformance, extensions, errors, audit events, and protocol boundaries. It is not production software, a runtime, an MCP Adapter, a payment service, a marketplace, or legal advice. See [PROJECT_STATUS.md](PROJECT_STATUS.md) before proposing new development.
